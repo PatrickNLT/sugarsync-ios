@@ -1,0 +1,547 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		47716E4915F07FD0002DF285 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 47716E4815F07FD0002DF285 /* Cocoa.framework */; };
+		47716E5315F07FD0002DF285 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 47716E5115F07FD0002DF285 /* InfoPlist.strings */; };
+		47716E8B15F08078002DF285 /* SSC9Log.m in Sources */ = {isa = PBXBuildFile; fileRef = 47716E5F15F08076002DF285 /* SSC9Log.m */; };
+		47716E9015F08078002DF285 /* SSErrorUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 47716E6415F08076002DF285 /* SSErrorUtil.m */; };
+		47716E9215F08078002DF285 /* SSGenericFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 47716E6615F08076002DF285 /* SSGenericFormatter.m */; };
+		47716E9415F08078002DF285 /* SSHttpFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 47716E6815F08076002DF285 /* SSHttpFetcher.m */; };
+		47716E9515F08078002DF285 /* sugarsync-banner.png in Resources */ = {isa = PBXBuildFile; fileRef = 47716E6915F08076002DF285 /* sugarsync-banner.png */; };
+		47716E9715F08078002DF285 /* SugarSyncAlbum.m in Sources */ = {isa = PBXBuildFile; fileRef = 47716E6B15F08076002DF285 /* SugarSyncAlbum.m */; };
+		47716E9915F08078002DF285 /* SugarSyncClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 47716E6D15F08077002DF285 /* SugarSyncClient.m */; };
+		47716E9B15F08078002DF285 /* SugarSyncCollection.m in Sources */ = {isa = PBXBuildFile; fileRef = 47716E6F15F08077002DF285 /* SugarSyncCollection.m */; };
+		47716E9D15F08078002DF285 /* SugarSyncContact.m in Sources */ = {isa = PBXBuildFile; fileRef = 47716E7115F08078002DF285 /* SugarSyncContact.m */; };
+		47716E9F15F08078002DF285 /* SugarSyncFile.m in Sources */ = {isa = PBXBuildFile; fileRef = 47716E7315F08078002DF285 /* SugarSyncFile.m */; };
+		47716EA115F08078002DF285 /* SugarSyncFileVersion.m in Sources */ = {isa = PBXBuildFile; fileRef = 47716E7515F08078002DF285 /* SugarSyncFileVersion.m */; };
+		47716EA315F08078002DF285 /* SugarSyncFolder.m in Sources */ = {isa = PBXBuildFile; fileRef = 47716E7715F08078002DF285 /* SugarSyncFolder.m */; };
+		47716EA515F08078002DF285 /* SugarSyncLoginWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 47716E7915F08078002DF285 /* SugarSyncLoginWindowController.m */; };
+		47716EA615F08078002DF285 /* SugarSyncLoginWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 47716E7A15F08078002DF285 /* SugarSyncLoginWindowController.xib */; };
+		47716EA815F08078002DF285 /* SugarSyncUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 47716E7C15F08078002DF285 /* SugarSyncUser.m */; };
+		47716EAA15F08078002DF285 /* SugarSyncWorkspace.m in Sources */ = {isa = PBXBuildFile; fileRef = 47716E7E15F08078002DF285 /* SugarSyncWorkspace.m */; };
+		47716EAC15F08078002DF285 /* SugarSyncXMLTemplate.m in Sources */ = {isa = PBXBuildFile; fileRef = 47716E8015F08078002DF285 /* SugarSyncXMLTemplate.m */; };
+		47716EB215F08078002DF285 /* SSXMLLibUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 47716E8615F08078002DF285 /* SSXMLLibUtil.m */; };
+		47716EB415F08078002DF285 /* XPathQuery.m in Sources */ = {isa = PBXBuildFile; fileRef = 47716E8815F08078002DF285 /* XPathQuery.m */; };
+		47847DB415F083BF00685E49 /* SugarSyncOSX.h in Headers */ = {isa = PBXBuildFile; fileRef = 47716E5515F07FD0002DF285 /* SugarSyncOSX.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		47847DB515F083BF00685E49 /* SugarSyncAlbum.h in Headers */ = {isa = PBXBuildFile; fileRef = 47716E6A15F08076002DF285 /* SugarSyncAlbum.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		47847DB615F083BF00685E49 /* SugarSyncClient.h in Headers */ = {isa = PBXBuildFile; fileRef = 47716E6C15F08076002DF285 /* SugarSyncClient.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		47847DB715F083BF00685E49 /* SugarSyncCollection.h in Headers */ = {isa = PBXBuildFile; fileRef = 47716E6E15F08077002DF285 /* SugarSyncCollection.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		47847DB815F083BF00685E49 /* SugarSyncContact.h in Headers */ = {isa = PBXBuildFile; fileRef = 47716E7015F08077002DF285 /* SugarSyncContact.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		47847DB915F083BF00685E49 /* SugarSyncFile.h in Headers */ = {isa = PBXBuildFile; fileRef = 47716E7215F08078002DF285 /* SugarSyncFile.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		47847DBA15F083BF00685E49 /* SugarSyncFileVersion.h in Headers */ = {isa = PBXBuildFile; fileRef = 47716E7415F08078002DF285 /* SugarSyncFileVersion.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		47847DBB15F083BF00685E49 /* SugarSyncFolder.h in Headers */ = {isa = PBXBuildFile; fileRef = 47716E7615F08078002DF285 /* SugarSyncFolder.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		47847DBC15F083BF00685E49 /* SugarSyncUser.h in Headers */ = {isa = PBXBuildFile; fileRef = 47716E7B15F08078002DF285 /* SugarSyncUser.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		47847DBD15F083BF00685E49 /* SugarSyncWorkspace.h in Headers */ = {isa = PBXBuildFile; fileRef = 47716E7D15F08078002DF285 /* SugarSyncWorkspace.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		47847DBF15F083FC00685E49 /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 47847DBE15F083FC00685E49 /* libxml2.dylib */; };
+		47847DC115F0844300685E49 /* login.xml in CopyFiles */ = {isa = PBXBuildFile; fileRef = 47716EBA15F080F9002DF285 /* login.xml */; };
+		47847DC215F0844300685E49 /* accessToken.xml in CopyFiles */ = {isa = PBXBuildFile; fileRef = 47716E5D15F08076002DF285 /* accessToken.xml */; };
+		47847DC315F0844300685E49 /* copyFile.xml in CopyFiles */ = {isa = PBXBuildFile; fileRef = 47716E6015F08076002DF285 /* copyFile.xml */; };
+		47847DC415F0844300685E49 /* createFile.xml in CopyFiles */ = {isa = PBXBuildFile; fileRef = 47716E6115F08076002DF285 /* createFile.xml */; };
+		47847DC515F0844300685E49 /* createFolder.xml in CopyFiles */ = {isa = PBXBuildFile; fileRef = 47716E6215F08076002DF285 /* createFolder.xml */; };
+		47847DC615F0844300685E49 /* updateFile.xml in CopyFiles */ = {isa = PBXBuildFile; fileRef = 47716E8115F08078002DF285 /* updateFile.xml */; };
+		47847DC715F0844300685E49 /* updateFileImage.xml in CopyFiles */ = {isa = PBXBuildFile; fileRef = 47716E8215F08078002DF285 /* updateFileImage.xml */; };
+		47847DC815F0844300685E49 /* updateFolder.xml in CopyFiles */ = {isa = PBXBuildFile; fileRef = 47716E8315F08078002DF285 /* updateFolder.xml */; };
+		47847DC915F0844300685E49 /* updateWorkspace.xml in CopyFiles */ = {isa = PBXBuildFile; fileRef = 47716E8415F08078002DF285 /* updateWorkspace.xml */; };
+		47847DE015F0887B00685E49 /* SSC9Log.h in Headers */ = {isa = PBXBuildFile; fileRef = 47716E5E15F08076002DF285 /* SSC9Log.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		47847DE115F0887B00685E49 /* SSErrorUtil.h in Headers */ = {isa = PBXBuildFile; fileRef = 47716E6315F08076002DF285 /* SSErrorUtil.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		47847DE215F0887B00685E49 /* SSGenericFormatter.h in Headers */ = {isa = PBXBuildFile; fileRef = 47716E6515F08076002DF285 /* SSGenericFormatter.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		47847DE315F0887B00685E49 /* SSHttpFetcher.h in Headers */ = {isa = PBXBuildFile; fileRef = 47716E6715F08076002DF285 /* SSHttpFetcher.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		47847DE415F0887B00685E49 /* SSXMLLibUtil.h in Headers */ = {isa = PBXBuildFile; fileRef = 47716E8515F08078002DF285 /* SSXMLLibUtil.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		47847DE515F0887B00685E49 /* XPathQuery.h in Headers */ = {isa = PBXBuildFile; fileRef = 47716E8715F08078002DF285 /* XPathQuery.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		47847DE615F0887B00685E49 /* SugarSyncLoginWindowController.h in Headers */ = {isa = PBXBuildFile; fileRef = 47716E7815F08078002DF285 /* SugarSyncLoginWindowController.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		47847DE715F0887B00685E49 /* SugarSyncXMLTemplate.h in Headers */ = {isa = PBXBuildFile; fileRef = 47716E7F15F08078002DF285 /* SugarSyncXMLTemplate.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		47847DEA15F088F400685E49 /* SugarSyncReceivedShare.h in Headers */ = {isa = PBXBuildFile; fileRef = 47847DE815F088F400685E49 /* SugarSyncReceivedShare.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		47847DEB15F088F400685E49 /* SugarSyncReceivedShare.m in Sources */ = {isa = PBXBuildFile; fileRef = 47847DE915F088F400685E49 /* SugarSyncReceivedShare.m */; };
+		47D6923315F253CF00464337 /* KeychainSupport.c in Sources */ = {isa = PBXBuildFile; fileRef = 47D6923215F253CF00464337 /* KeychainSupport.c */; };
+		47D6923615F25CE000464337 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 47D6923515F25CE000464337 /* Security.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		47847DC015F0843500685E49 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 7;
+			files = (
+				47847DC115F0844300685E49 /* login.xml in CopyFiles */,
+				47847DC215F0844300685E49 /* accessToken.xml in CopyFiles */,
+				47847DC315F0844300685E49 /* copyFile.xml in CopyFiles */,
+				47847DC415F0844300685E49 /* createFile.xml in CopyFiles */,
+				47847DC515F0844300685E49 /* createFolder.xml in CopyFiles */,
+				47847DC615F0844300685E49 /* updateFile.xml in CopyFiles */,
+				47847DC715F0844300685E49 /* updateFileImage.xml in CopyFiles */,
+				47847DC815F0844300685E49 /* updateFolder.xml in CopyFiles */,
+				47847DC915F0844300685E49 /* updateWorkspace.xml in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		47716E4515F07FD0002DF285 /* SugarSyncOSX.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SugarSyncOSX.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		47716E4815F07FD0002DF285 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
+		47716E4B15F07FD0002DF285 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
+		47716E4C15F07FD0002DF285 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		47716E4D15F07FD0002DF285 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		47716E5015F07FD0002DF285 /* SugarSyncOSX-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "SugarSyncOSX-Info.plist"; sourceTree = "<group>"; };
+		47716E5215F07FD0002DF285 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		47716E5415F07FD0002DF285 /* SugarSyncOSX-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SugarSyncOSX-Prefix.pch"; sourceTree = "<group>"; };
+		47716E5515F07FD0002DF285 /* SugarSyncOSX.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SugarSyncOSX.h; sourceTree = "<group>"; };
+		47716E5D15F08076002DF285 /* accessToken.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = accessToken.xml; sourceTree = "<group>"; };
+		47716E5E15F08076002DF285 /* SSC9Log.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSC9Log.h; sourceTree = "<group>"; };
+		47716E5F15F08076002DF285 /* SSC9Log.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSC9Log.m; sourceTree = "<group>"; };
+		47716E6015F08076002DF285 /* copyFile.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = copyFile.xml; sourceTree = "<group>"; };
+		47716E6115F08076002DF285 /* createFile.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = createFile.xml; sourceTree = "<group>"; };
+		47716E6215F08076002DF285 /* createFolder.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = createFolder.xml; sourceTree = "<group>"; };
+		47716E6315F08076002DF285 /* SSErrorUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSErrorUtil.h; sourceTree = "<group>"; };
+		47716E6415F08076002DF285 /* SSErrorUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSErrorUtil.m; sourceTree = "<group>"; };
+		47716E6515F08076002DF285 /* SSGenericFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSGenericFormatter.h; sourceTree = "<group>"; };
+		47716E6615F08076002DF285 /* SSGenericFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSGenericFormatter.m; sourceTree = "<group>"; };
+		47716E6715F08076002DF285 /* SSHttpFetcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSHttpFetcher.h; sourceTree = "<group>"; };
+		47716E6815F08076002DF285 /* SSHttpFetcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSHttpFetcher.m; sourceTree = "<group>"; };
+		47716E6915F08076002DF285 /* sugarsync-banner.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "sugarsync-banner.png"; sourceTree = "<group>"; };
+		47716E6A15F08076002DF285 /* SugarSyncAlbum.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SugarSyncAlbum.h; sourceTree = "<group>"; };
+		47716E6B15F08076002DF285 /* SugarSyncAlbum.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SugarSyncAlbum.m; sourceTree = "<group>"; };
+		47716E6C15F08076002DF285 /* SugarSyncClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SugarSyncClient.h; sourceTree = "<group>"; };
+		47716E6D15F08077002DF285 /* SugarSyncClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SugarSyncClient.m; sourceTree = "<group>"; };
+		47716E6E15F08077002DF285 /* SugarSyncCollection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SugarSyncCollection.h; sourceTree = "<group>"; };
+		47716E6F15F08077002DF285 /* SugarSyncCollection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SugarSyncCollection.m; sourceTree = "<group>"; };
+		47716E7015F08077002DF285 /* SugarSyncContact.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SugarSyncContact.h; sourceTree = "<group>"; };
+		47716E7115F08078002DF285 /* SugarSyncContact.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SugarSyncContact.m; sourceTree = "<group>"; };
+		47716E7215F08078002DF285 /* SugarSyncFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SugarSyncFile.h; sourceTree = "<group>"; };
+		47716E7315F08078002DF285 /* SugarSyncFile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SugarSyncFile.m; sourceTree = "<group>"; };
+		47716E7415F08078002DF285 /* SugarSyncFileVersion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SugarSyncFileVersion.h; sourceTree = "<group>"; };
+		47716E7515F08078002DF285 /* SugarSyncFileVersion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SugarSyncFileVersion.m; sourceTree = "<group>"; };
+		47716E7615F08078002DF285 /* SugarSyncFolder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SugarSyncFolder.h; sourceTree = "<group>"; };
+		47716E7715F08078002DF285 /* SugarSyncFolder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SugarSyncFolder.m; sourceTree = "<group>"; };
+		47716E7815F08078002DF285 /* SugarSyncLoginWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SugarSyncLoginWindowController.h; sourceTree = "<group>"; };
+		47716E7915F08078002DF285 /* SugarSyncLoginWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SugarSyncLoginWindowController.m; sourceTree = "<group>"; };
+		47716E7A15F08078002DF285 /* SugarSyncLoginWindowController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SugarSyncLoginWindowController.xib; sourceTree = "<group>"; };
+		47716E7B15F08078002DF285 /* SugarSyncUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SugarSyncUser.h; sourceTree = "<group>"; };
+		47716E7C15F08078002DF285 /* SugarSyncUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SugarSyncUser.m; sourceTree = "<group>"; };
+		47716E7D15F08078002DF285 /* SugarSyncWorkspace.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SugarSyncWorkspace.h; sourceTree = "<group>"; };
+		47716E7E15F08078002DF285 /* SugarSyncWorkspace.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SugarSyncWorkspace.m; sourceTree = "<group>"; };
+		47716E7F15F08078002DF285 /* SugarSyncXMLTemplate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SugarSyncXMLTemplate.h; sourceTree = "<group>"; };
+		47716E8015F08078002DF285 /* SugarSyncXMLTemplate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SugarSyncXMLTemplate.m; sourceTree = "<group>"; };
+		47716E8115F08078002DF285 /* updateFile.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = updateFile.xml; sourceTree = "<group>"; };
+		47716E8215F08078002DF285 /* updateFileImage.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = updateFileImage.xml; sourceTree = "<group>"; };
+		47716E8315F08078002DF285 /* updateFolder.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = updateFolder.xml; sourceTree = "<group>"; };
+		47716E8415F08078002DF285 /* updateWorkspace.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = updateWorkspace.xml; sourceTree = "<group>"; };
+		47716E8515F08078002DF285 /* SSXMLLibUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSXMLLibUtil.h; sourceTree = "<group>"; };
+		47716E8615F08078002DF285 /* SSXMLLibUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSXMLLibUtil.m; sourceTree = "<group>"; };
+		47716E8715F08078002DF285 /* XPathQuery.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XPathQuery.h; sourceTree = "<group>"; };
+		47716E8815F08078002DF285 /* XPathQuery.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XPathQuery.m; sourceTree = "<group>"; };
+		47716EBA15F080F9002DF285 /* login.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = login.xml; sourceTree = "<group>"; };
+		47847DBE15F083FC00685E49 /* libxml2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.dylib; path = usr/lib/libxml2.dylib; sourceTree = SDKROOT; };
+		47847DE815F088F400685E49 /* SugarSyncReceivedShare.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SugarSyncReceivedShare.h; sourceTree = "<group>"; };
+		47847DE915F088F400685E49 /* SugarSyncReceivedShare.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SugarSyncReceivedShare.m; sourceTree = "<group>"; };
+		47D6923215F253CF00464337 /* KeychainSupport.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = KeychainSupport.c; sourceTree = "<group>"; };
+		47D6923415F2541C00464337 /* KeychainSupport.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KeychainSupport.h; sourceTree = "<group>"; };
+		47D6923515F25CE000464337 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		47716E4115F07FD0002DF285 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				47D6923615F25CE000464337 /* Security.framework in Frameworks */,
+				47847DBF15F083FC00685E49 /* libxml2.dylib in Frameworks */,
+				47716E4915F07FD0002DF285 /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		47716E3915F07FD0002DF285 = {
+			isa = PBXGroup;
+			children = (
+				47716E4E15F07FD0002DF285 /* SugarSyncOSX */,
+				47716E4715F07FD0002DF285 /* Frameworks */,
+				47716E4615F07FD0002DF285 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		47716E4615F07FD0002DF285 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				47716E4515F07FD0002DF285 /* SugarSyncOSX.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		47716E4715F07FD0002DF285 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				47D6923515F25CE000464337 /* Security.framework */,
+				47847DBE15F083FC00685E49 /* libxml2.dylib */,
+				47716E4815F07FD0002DF285 /* Cocoa.framework */,
+				47716E4A15F07FD0002DF285 /* Other Frameworks */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		47716E4A15F07FD0002DF285 /* Other Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				47716E4B15F07FD0002DF285 /* AppKit.framework */,
+				47716E4C15F07FD0002DF285 /* CoreData.framework */,
+				47716E4D15F07FD0002DF285 /* Foundation.framework */,
+			);
+			name = "Other Frameworks";
+			sourceTree = "<group>";
+		};
+		47716E4E15F07FD0002DF285 /* SugarSyncOSX */ = {
+			isa = PBXGroup;
+			children = (
+				47716EB515F0807F002DF285 /* Images */,
+				47716EB615F08087002DF285 /* Utilities */,
+				47716EB715F080A1002DF285 /* Templates */,
+				47716EB915F080B4002DF285 /* Private */,
+				47716EB815F080A9002DF285 /* Public Headers */,
+				47716E4F15F07FD0002DF285 /* Supporting Files */,
+			);
+			path = SugarSyncOSX;
+			sourceTree = "<group>";
+		};
+		47716E4F15F07FD0002DF285 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				47716E5015F07FD0002DF285 /* SugarSyncOSX-Info.plist */,
+				47716E5115F07FD0002DF285 /* InfoPlist.strings */,
+				47716E5415F07FD0002DF285 /* SugarSyncOSX-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		47716EB515F0807F002DF285 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				47716E6915F08076002DF285 /* sugarsync-banner.png */,
+			);
+			name = Images;
+			sourceTree = "<group>";
+		};
+		47716EB615F08087002DF285 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				47716E5E15F08076002DF285 /* SSC9Log.h */,
+				47716E5F15F08076002DF285 /* SSC9Log.m */,
+				47716E6315F08076002DF285 /* SSErrorUtil.h */,
+				47716E6415F08076002DF285 /* SSErrorUtil.m */,
+				47716E6515F08076002DF285 /* SSGenericFormatter.h */,
+				47716E6615F08076002DF285 /* SSGenericFormatter.m */,
+				47716E6715F08076002DF285 /* SSHttpFetcher.h */,
+				47716E6815F08076002DF285 /* SSHttpFetcher.m */,
+				47716E8515F08078002DF285 /* SSXMLLibUtil.h */,
+				47716E8615F08078002DF285 /* SSXMLLibUtil.m */,
+				47716E8715F08078002DF285 /* XPathQuery.h */,
+				47716E8815F08078002DF285 /* XPathQuery.m */,
+				47D6923415F2541C00464337 /* KeychainSupport.h */,
+				47D6923215F253CF00464337 /* KeychainSupport.c */,
+			);
+			name = Utilities;
+			sourceTree = "<group>";
+		};
+		47716EB715F080A1002DF285 /* Templates */ = {
+			isa = PBXGroup;
+			children = (
+				47716EBA15F080F9002DF285 /* login.xml */,
+				47716E5D15F08076002DF285 /* accessToken.xml */,
+				47716E6015F08076002DF285 /* copyFile.xml */,
+				47716E6115F08076002DF285 /* createFile.xml */,
+				47716E6215F08076002DF285 /* createFolder.xml */,
+				47716E8115F08078002DF285 /* updateFile.xml */,
+				47716E8215F08078002DF285 /* updateFileImage.xml */,
+				47716E8315F08078002DF285 /* updateFolder.xml */,
+				47716E8415F08078002DF285 /* updateWorkspace.xml */,
+			);
+			name = Templates;
+			sourceTree = "<group>";
+		};
+		47716EB815F080A9002DF285 /* Public Headers */ = {
+			isa = PBXGroup;
+			children = (
+				47716E5515F07FD0002DF285 /* SugarSyncOSX.h */,
+				47716E6A15F08076002DF285 /* SugarSyncAlbum.h */,
+				47716E6C15F08076002DF285 /* SugarSyncClient.h */,
+				47716E6E15F08077002DF285 /* SugarSyncCollection.h */,
+				47716E7015F08077002DF285 /* SugarSyncContact.h */,
+				47716E7215F08078002DF285 /* SugarSyncFile.h */,
+				47716E7415F08078002DF285 /* SugarSyncFileVersion.h */,
+				47716E7615F08078002DF285 /* SugarSyncFolder.h */,
+				47847DE815F088F400685E49 /* SugarSyncReceivedShare.h */,
+				47716E7B15F08078002DF285 /* SugarSyncUser.h */,
+				47716E7D15F08078002DF285 /* SugarSyncWorkspace.h */,
+			);
+			name = "Public Headers";
+			sourceTree = "<group>";
+		};
+		47716EB915F080B4002DF285 /* Private */ = {
+			isa = PBXGroup;
+			children = (
+				47716E6B15F08076002DF285 /* SugarSyncAlbum.m */,
+				47716E6D15F08077002DF285 /* SugarSyncClient.m */,
+				47716E6F15F08077002DF285 /* SugarSyncCollection.m */,
+				47716E7115F08078002DF285 /* SugarSyncContact.m */,
+				47716E7315F08078002DF285 /* SugarSyncFile.m */,
+				47716E7515F08078002DF285 /* SugarSyncFileVersion.m */,
+				47716E7715F08078002DF285 /* SugarSyncFolder.m */,
+				47716E7815F08078002DF285 /* SugarSyncLoginWindowController.h */,
+				47716E7915F08078002DF285 /* SugarSyncLoginWindowController.m */,
+				47716E7A15F08078002DF285 /* SugarSyncLoginWindowController.xib */,
+				47847DE915F088F400685E49 /* SugarSyncReceivedShare.m */,
+				47716E7C15F08078002DF285 /* SugarSyncUser.m */,
+				47716E7E15F08078002DF285 /* SugarSyncWorkspace.m */,
+				47716E7F15F08078002DF285 /* SugarSyncXMLTemplate.h */,
+				47716E8015F08078002DF285 /* SugarSyncXMLTemplate.m */,
+			);
+			name = Private;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		47716E4215F07FD0002DF285 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				47847DB415F083BF00685E49 /* SugarSyncOSX.h in Headers */,
+				47847DB515F083BF00685E49 /* SugarSyncAlbum.h in Headers */,
+				47847DB615F083BF00685E49 /* SugarSyncClient.h in Headers */,
+				47847DB715F083BF00685E49 /* SugarSyncCollection.h in Headers */,
+				47847DB815F083BF00685E49 /* SugarSyncContact.h in Headers */,
+				47847DB915F083BF00685E49 /* SugarSyncFile.h in Headers */,
+				47847DBA15F083BF00685E49 /* SugarSyncFileVersion.h in Headers */,
+				47847DBB15F083BF00685E49 /* SugarSyncFolder.h in Headers */,
+				47847DBC15F083BF00685E49 /* SugarSyncUser.h in Headers */,
+				47847DBD15F083BF00685E49 /* SugarSyncWorkspace.h in Headers */,
+				47847DEA15F088F400685E49 /* SugarSyncReceivedShare.h in Headers */,
+				47847DE015F0887B00685E49 /* SSC9Log.h in Headers */,
+				47847DE115F0887B00685E49 /* SSErrorUtil.h in Headers */,
+				47847DE315F0887B00685E49 /* SSHttpFetcher.h in Headers */,
+				47847DE415F0887B00685E49 /* SSXMLLibUtil.h in Headers */,
+				47847DE515F0887B00685E49 /* XPathQuery.h in Headers */,
+				47847DE615F0887B00685E49 /* SugarSyncLoginWindowController.h in Headers */,
+				47847DE715F0887B00685E49 /* SugarSyncXMLTemplate.h in Headers */,
+				47847DE215F0887B00685E49 /* SSGenericFormatter.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		47716E4415F07FD0002DF285 /* SugarSyncOSX */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 47716E5A15F07FD0002DF285 /* Build configuration list for PBXNativeTarget "SugarSyncOSX" */;
+			buildPhases = (
+				47716E4015F07FD0002DF285 /* Sources */,
+				47716E4115F07FD0002DF285 /* Frameworks */,
+				47716E4215F07FD0002DF285 /* Headers */,
+				47716E4315F07FD0002DF285 /* Resources */,
+				47847DC015F0843500685E49 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SugarSyncOSX;
+			productName = SugarSyncOSX;
+			productReference = 47716E4515F07FD0002DF285 /* SugarSyncOSX.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		47716E3B15F07FD0002DF285 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0440;
+				ORGANIZATIONNAME = Cloud9;
+			};
+			buildConfigurationList = 47716E3E15F07FD0002DF285 /* Build configuration list for PBXProject "SugarSyncOSX" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 47716E3915F07FD0002DF285;
+			productRefGroup = 47716E4615F07FD0002DF285 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				47716E4415F07FD0002DF285 /* SugarSyncOSX */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		47716E4315F07FD0002DF285 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				47716E5315F07FD0002DF285 /* InfoPlist.strings in Resources */,
+				47716E9515F08078002DF285 /* sugarsync-banner.png in Resources */,
+				47716EA615F08078002DF285 /* SugarSyncLoginWindowController.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		47716E4015F07FD0002DF285 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				47716E8B15F08078002DF285 /* SSC9Log.m in Sources */,
+				47716E9015F08078002DF285 /* SSErrorUtil.m in Sources */,
+				47716E9215F08078002DF285 /* SSGenericFormatter.m in Sources */,
+				47716E9415F08078002DF285 /* SSHttpFetcher.m in Sources */,
+				47716E9715F08078002DF285 /* SugarSyncAlbum.m in Sources */,
+				47716E9915F08078002DF285 /* SugarSyncClient.m in Sources */,
+				47716E9B15F08078002DF285 /* SugarSyncCollection.m in Sources */,
+				47716E9D15F08078002DF285 /* SugarSyncContact.m in Sources */,
+				47716E9F15F08078002DF285 /* SugarSyncFile.m in Sources */,
+				47716EA115F08078002DF285 /* SugarSyncFileVersion.m in Sources */,
+				47716EA315F08078002DF285 /* SugarSyncFolder.m in Sources */,
+				47716EA515F08078002DF285 /* SugarSyncLoginWindowController.m in Sources */,
+				47716EA815F08078002DF285 /* SugarSyncUser.m in Sources */,
+				47716EAA15F08078002DF285 /* SugarSyncWorkspace.m in Sources */,
+				47716EAC15F08078002DF285 /* SugarSyncXMLTemplate.m in Sources */,
+				47716EB215F08078002DF285 /* SSXMLLibUtil.m in Sources */,
+				47716EB415F08078002DF285 /* XPathQuery.m in Sources */,
+				47847DEB15F088F400685E49 /* SugarSyncReceivedShare.m in Sources */,
+				47D6923315F253CF00464337 /* KeychainSupport.c in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		47716E5115F07FD0002DF285 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				47716E5215F07FD0002DF285 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		47716E5815F07FD0002DF285 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		47716E5915F07FD0002DF285 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		47716E5B15F07FD0002DF285 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				FRAMEWORK_VERSION = A;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "SugarSyncOSX/SugarSyncOSX-Prefix.pch";
+				"HEADER_SEARCH_PATHS[arch=*]" = "$(SDKROOT)/usr/include/libxml2";
+				INFOPLIST_FILE = "SugarSyncOSX/SugarSyncOSX-Info.plist";
+				LD_DYLIB_INSTALL_NAME = "@executable_path/../Frameworks/SugarSyncOSX.framework/Versions/A/SugarSyncOSX";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = NO;
+				WRAPPER_EXTENSION = framework;
+			};
+			name = Debug;
+		};
+		47716E5C15F07FD0002DF285 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				FRAMEWORK_VERSION = A;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "SugarSyncOSX/SugarSyncOSX-Prefix.pch";
+				"HEADER_SEARCH_PATHS[arch=*]" = "$(SDKROOT)/usr/include/libxml2";
+				INFOPLIST_FILE = "SugarSyncOSX/SugarSyncOSX-Info.plist";
+				LD_DYLIB_INSTALL_NAME = "@executable_path/../Frameworks/SugarSyncOSX.framework/Versions/A/SugarSyncOSX";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = NO;
+				WRAPPER_EXTENSION = framework;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		47716E3E15F07FD0002DF285 /* Build configuration list for PBXProject "SugarSyncOSX" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				47716E5815F07FD0002DF285 /* Debug */,
+				47716E5915F07FD0002DF285 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		47716E5A15F07FD0002DF285 /* Build configuration list for PBXNativeTarget "SugarSyncOSX" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				47716E5B15F07FD0002DF285 /* Debug */,
+				47716E5C15F07FD0002DF285 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 47716E3B15F07FD0002DF285 /* Project object */;
+}

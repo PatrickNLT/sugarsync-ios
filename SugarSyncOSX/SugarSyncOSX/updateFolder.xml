@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<folder>
+    <displayName>%@</displayName>
+    <dsid>%@</dsid>
+    <timeCreated>%@</timeCreated>
+    <parent>%@</parent>
+    <collections>%@/contents?type=folder</collections>
+    <files>%@/contents?type=file</files>
+    <contents>%@/contents</contents>
+    <sharing enabled="false"/>
+</folder>

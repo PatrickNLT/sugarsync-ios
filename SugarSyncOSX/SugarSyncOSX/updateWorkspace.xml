@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<workspace>
+    <displayName>%@</displayName>
+    <dsid>%@</dsid>
+    <timeCreated>%@</timeCreated>
+    <collections>%@/contents?type=folder</collections>
+    <files>%@/contents?type=file</files>
+    <contents>%@/contents</contents>
+    <iconId>6</iconId>
+</workspace>
