@@ -11,32 +11,22 @@
 //  appreciated but not required.
 
 
-#import "SugarSyncLoginWindowController.h"
+#import "SugarSyncLoginViewController.h"
 
 static int const USERNAME_MIN = 5;
 static int const USERNAME_MAX = 50;
 static int const PASSWORD_MIN = 5;
 static int const PASSWORD_MAX = 20;
 
-@implementation SugarSyncLoginWindowController {
+@implementation SugarSyncLoginViewController {
     BOOL ignoreWindowWillCloseNotification;
 }
 
 #pragma mark Cocoa Delegates
 
-- (id)initWithWindow:(NSWindow *)window
+- (void)viewDidLoad
 {
-    self = [super initWithWindow:window];
-    if (self) {
-        // Initialization code here.
-    }
-    
-    return self;
-}
-
-- (void)windowDidLoad
-{
-    [super windowDidLoad];
+    [super viewDidLoad];
     
     SSGenericFormatter *userNameFormatter = [[SSGenericFormatter alloc] initWithValidationDelegate:self andTextField:self.userNameField];
     userNameFormatter.minLength = USERNAME_MIN;
@@ -53,11 +43,10 @@ static int const PASSWORD_MAX = 20;
 
 }
 
--(void) windowWillClose:(NSNotification *)notification
+-(void) viewWillDisappear:(BOOL)animated
 {
     if ( !ignoreWindowWillCloseNotification )
     {
-        [NSApp abortModal];
         _completionHandler(SugarSyncLoginCancelled, nil);
     }
             
@@ -68,7 +57,7 @@ static int const PASSWORD_MAX = 20;
 -(void) revalidate:(SSGenericFormatter *)sender
 {
     self.error.hidden = YES;
-    if ( ((SSGenericFormatter *)self.userNameField.formatter).isValid &&
+    /*if ( ((SSGenericFormatter *)self.userNameField.formatter).isValid &&
         ((SSGenericFormatter *)self.passwordField.formatter).isValid )
     {
         self.loginButton.enabled = YES;
@@ -77,15 +66,8 @@ static int const PASSWORD_MAX = 20;
     {
         self.loginButton.enabled = NO;
     }
-
+*/
     
-}
-
--(void) close
-{
-    ignoreWindowWillCloseNotification = YES;
-    [super close];
-    [NSApp abortModal];
 }
 
 
@@ -93,13 +75,13 @@ static int const PASSWORD_MAX = 20;
 
 -(IBAction) login:(id)sender
 {
-    [_client loginWithUserName:_userNameField.stringValue password:_passwordField.stringValue completionHandler:self.completionHandler];
+    [_client loginWithUserName:_userNameField.text password:_passwordField.text completionHandler:self.completionHandler];
     
 }
 
 -(IBAction)cancel:(id)sender
 {
-    [self close];
+    //[self close];
     _completionHandler(SugarSyncLoginCancelled, nil);
 
 }

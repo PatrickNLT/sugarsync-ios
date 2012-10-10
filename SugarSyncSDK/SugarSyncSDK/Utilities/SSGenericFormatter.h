@@ -10,7 +10,7 @@
 //  this copyright and permission notice. Attribution in compiled projects is
 //  appreciated but not required.
 
-#import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 
 @protocol ValidationDelegate;
 
@@ -22,9 +22,9 @@
 @property (nonatomic, assign) int maxLength;
 @property (nonatomic, assign) int minLength;
 @property (nonatomic, assign, readonly) BOOL isValid;
-@property (nonatomic, assign) NSTextField *textField;
+@property (nonatomic, assign) UITextField *textField;
 
--(id) initWithValidationDelegate:(NSObject<ValidationDelegate> *) aDelegate andTextField:(NSTextField *)aTextField;
+-(id) initWithValidationDelegate:(NSObject<ValidationDelegate> *) aDelegate andTextField:(UITextField *)aTextField;
 
 @end
 

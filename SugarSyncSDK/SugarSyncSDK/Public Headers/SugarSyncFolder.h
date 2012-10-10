@@ -11,7 +11,9 @@
 //  appreciated but not required.
 
 #import <Foundation/Foundation.h>
-#import <SugarSyncOSX/SugarSyncXMLTemplate.h>
+
+
+@class SugarSyncXMLTemplate;
 
 
 /*

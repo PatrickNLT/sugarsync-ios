@@ -11,8 +11,8 @@
 //  appreciated but not required.
 
 #import <Foundation/Foundation.h>
-#import <SugarSyncOSX/SugarSyncXMLTemplate.h>
 
+@class SugarSyncXMLTemplate;
 /*
  * SugarSyncWorkspace represents the full metadata for a workspace in the SugarSync API
  */

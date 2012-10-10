@@ -18,12 +18,12 @@
 }
 
 
--(id) initWithValidationDelegate:(NSObject<ValidationDelegate> *)aDelegate andTextField:(NSTextField *)aTextField
+-(id) initWithValidationDelegate:(NSObject<ValidationDelegate> *)aDelegate andTextField:(UITextField *)aTextField
 {
     self = [super init];
     delegate = aDelegate;
     self.textField = aTextField;
-    aTextField.formatter = self;
+   // aTextField.formatter = self;
     return self;
 }
 

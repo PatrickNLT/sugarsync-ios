@@ -11,15 +11,15 @@
 //  appreciated but not required.
 
 #import <Foundation/Foundation.h>
-#import <SugarSyncOSX/SugarSyncUser.h>
-#import <SugarSyncOSX/SugarSyncCollection.h>
-#import <SugarSyncOSX/SugarSyncWorkspace.h>
-#import <SugarSyncOSX/SugarSyncFolder.h>
-#import <SugarSyncOSX/SugarSyncFile.h>
-#import <SugarSyncOSX/SugarSyncFileVersion.h>
-#import <SugarSyncOSX/SugarSyncReceivedShare.h>
-#import <SugarSyncOSX/SugarSyncContact.h>
-#import <SugarSyncOSX/SugarSyncAlbum.h>
+#import "SugarSyncUser.h"
+#import "SugarSyncCollection.h"
+#import "SugarSyncWorkspace.h"
+#import "SugarSyncFolder.h"
+#import "SugarSyncFile.h"
+#import "SugarSyncFileVersion.h"
+#import "SugarSyncReceivedShare.h"
+#import "SugarSyncContact.h"
+#import "SugarSyncAlbum.h"
 
 /*
  * Possible Login Statuses

@@ -11,7 +11,6 @@
 //  appreciated but not required.
 
 #import <Foundation/Foundation.h>
-#import <SugarSyncOSX/SugarSyncXMLTemplate.h>
 
 /*
  * SugarSyncFileVersion represents the full metadata for a file version in the  SugarSync API

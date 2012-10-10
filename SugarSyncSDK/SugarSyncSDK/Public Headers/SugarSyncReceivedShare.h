@@ -11,9 +11,8 @@
 //  appreciated but not required.
 
 #import <Foundation/Foundation.h>
-#import <SugarSyncOSX/SugarSyncXMLTemplate.h>
 
-
+@class SugarSyncXMLTemplate;
 /*
  * SugarSyncReceivedShare represents the full metadata for a shared object in the SugarSync API
  */

@@ -10,7 +10,7 @@
 //  this copyright and permission notice. Attribution in compiled projects is
 //  appreciated but not required.
 
-#import <Cocoa/Cocoa.h>
+#import <UIKit/UIKit.h>
 #import "SugarSyncClient.h"
 #import "SSGenericFormatter.h"
 
@@ -18,12 +18,12 @@
  *  SugarSyncLoginWindowController display a modal login dialog to all the user to login to 
  *  SugarSync with userName and password credentials
  */
-@interface SugarSyncLoginWindowController : NSWindowController<NSWindowDelegate, ValidationDelegate>
+@interface SugarSyncLoginViewController : UIViewController<ValidationDelegate>
 
-@property (nonatomic, assign) IBOutlet NSTextField *userNameField;
-@property (nonatomic, assign) IBOutlet NSTextField *passwordField;
-@property (nonatomic, assign) IBOutlet NSButton *loginButton;
-@property (nonatomic, assign) IBOutlet NSTextField *error;
+@property (nonatomic, assign) IBOutlet UITextField *userNameField;
+@property (nonatomic, assign) IBOutlet UITextField *passwordField;
+@property (nonatomic, assign) IBOutlet UIButton *loginButton;
+@property (nonatomic, assign) IBOutlet UITextField *error;
 @property (nonatomic, assign) SugarSyncClient *client;
 @property (nonatomic, retain) void (^completionHandler)(SugarSyncLoginStatus, NSError*);
 

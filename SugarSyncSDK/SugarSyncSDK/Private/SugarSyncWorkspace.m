@@ -13,6 +13,7 @@
 
 #import "SugarSyncWorkspace.h"
 #import "SSXMLLibUtil.h"
+#import "SugarSyncXMLTemplate.h"
 
 static NSURL *WorkspaceAPI;
 

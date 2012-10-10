@@ -13,6 +13,7 @@
 
 #import "SugarSyncFolder.h"
 #import "SSXMLLibUtil.h"
+#import "SugarSyncXMLTemplate.h"
 
 static NSURL *FolderAPI;
 

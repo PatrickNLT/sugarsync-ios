@@ -11,7 +11,6 @@
 //  appreciated but not required.
 
 #import <Foundation/Foundation.h>
-#import <SugarSyncOSX/SugarSyncXMLTemplate.h>
 
 /*
  * SugarSyncAlbum represents the full metadata for an album in the SugarSync API

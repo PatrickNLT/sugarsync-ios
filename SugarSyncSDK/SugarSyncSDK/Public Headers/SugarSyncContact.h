@@ -11,7 +11,6 @@
 //  appreciated but not required.
 
 #import <Foundation/Foundation.h>
-#import <SugarSyncOSX/SugarSyncXMLTemplate.h>
 
 /*
  * SugarSyncContact represents the full metadata for a contact SugarSync API

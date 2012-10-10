@@ -12,14 +12,14 @@
 
 
 #import "SugarSyncClient.h"
-#import "SugarSyncLoginWindowController.h"
+#import "SugarSyncLoginViewController.h"
 #import "SugarSyncXMLTemplate.h"
 #import "SSHttpFetcher.h"
 #import "XPathQuery.h"
 #import "SSXMLLibUtil.h"
 #import "SSErrorUtil.h"
 #import "SSC9Log.h"
-#import "KeychainSupport.h"
+#import "KeychainItemWrapper.h"
 
 
 //shared instance
@@ -83,7 +83,7 @@ static NSString *XMLKeyNodeContent = @"nodeContent";
     NSTimeInterval accessTokenExpiry;
     BOOL ignoreTokenExpiry;
     BOOL refreshingToken;
-    SugarSyncLoginWindowController *loginWindow;
+    SugarSyncLoginViewController *loginWindow;
 }
 
 #pragma mark Class Methods
@@ -162,11 +162,11 @@ static NSString *XMLKeyNodeContent = @"nodeContent";
 
 -(void) displayLoginDialogWithCompletionHandler:(void (^)(SugarSyncLoginStatus aStatus, NSError *error))handler
 {
-    loginWindow = [[SugarSyncLoginWindowController alloc] initWithWindowNibName:@"SugarSyncLoginWindowController"];
+   // loginWindow = [[SugarSyncLoginViewController alloc] initWithWindowNibName:@"SugarSyncLoginWindowController"];
     loginWindow.client = self;
     loginWindow.completionHandler = Block_copy(handler);
     
-    NSModalSession session = [NSApp beginModalSessionForWindow:[loginWindow window]];
+  /*  NSModalSession session = [NSApp beginModalSessionForWindow:[loginWindow window]];
     long modalSessionAlive = NSRunContinuesResponse;
     
     while (modalSessionAlive == NSRunContinuesResponse)
@@ -176,7 +176,7 @@ static NSString *XMLKeyNodeContent = @"nodeContent";
         [[NSRunLoop currentRunLoop] limitDateForMode:NSDefaultRunLoopMode];
     }
     
-    [NSApp endModalSession:session];
+    [NSApp endModalSession:session];*/
     
     [loginWindow release];
     loginWindow = nil;
@@ -192,9 +192,9 @@ static NSString *XMLKeyNodeContent = @"nodeContent";
         {
             if ( loginWindow )
             {
-                loginWindow.error.stringValue = anError.code == SugarSyncErrorAuthorizationRequired ?
+                loginWindow.error.text = anError.code == SugarSyncErrorAuthorizationRequired ?
                     @"The user name and password are incorrect." :
-                    [NSString stringWithFormat:@"Login Failed. (error %ld)", anError.code];
+                    [NSString stringWithFormat:@"Login Failed. (error %d)", anError.code];
                 loginWindow.error.hidden = NO;
             }
             else
@@ -212,7 +212,7 @@ static NSString *XMLKeyNodeContent = @"nodeContent";
             
             if ( loginWindow )
             {
-                [loginWindow close];
+                //[loginWindow close];
             }
             
             handler(SugarSyncLoginSuccess, nil);
@@ -663,32 +663,11 @@ static NSString *XMLKeyNodeContent = @"nodeContent";
 
 -(void) getPersistentRefreshToken
 {
-    NSString *persistentToken = nil;
-    OSStatus status;
-    void *tokenData = nil;
-    UInt32 tokenLength = 0;
-    SecKeychainItemRef itemRef = nil;
-    
-    void *serviceName = (void*)[[[NSBundle mainBundle] bundleIdentifier] UTF8String];
-    UInt32 serviceNameLength = (int)strlen(serviceName);
-    
-    void *accountName = "sugarSyncRefreshToken";
-    UInt32 accountNameLength = (int)strlen(accountName);
-    
-    
-    status = GetPasswordKeychain (serviceName, serviceNameLength, accountName, accountNameLength, &tokenData,&tokenLength,&itemRef);
-    
-    if (status == noErr)
-    {
-        if ( tokenLength )
-        {
-            persistentToken = [[NSString alloc] initWithBytes:tokenData length:tokenLength encoding:NSUTF8StringEncoding];
-        }
+    NSString *itemKey = [[[NSBundle mainBundle] bundleIdentifier] stringByAppendingString:@":SugarSync"];
         
-        status = SecKeychainItemFreeContent(NULL, tokenData);
-    }
+    KeychainItemWrapper *keyChain = [[KeychainItemWrapper alloc] initWithIdentifier:itemKey accessGroup:nil];
     
-    if (itemRef) CFRelease(itemRef);
+    NSString *persistentToken = [keyChain objectForKey:kSecValueData];
     
     if (persistentToken)
     {
@@ -696,29 +675,23 @@ static NSString *XMLKeyNodeContent = @"nodeContent";
         [C9Log format:@"setting refresh token %@ from persistence", persistentToken];
 #endif
         refreshToken = [[NSURL URLWithString:persistentToken] retain];
-        [persistentToken release];
     }
+    
+    [keyChain release];
     
 }
 
 -(void) persistRefreshToken
 {
-    void *token = (void*)[refreshToken.description UTF8String];
-    UInt32 tokenLength = (int)strlen(token);
+    NSString *itemKey = [[[NSBundle mainBundle] bundleIdentifier] stringByAppendingString:@":SugarSync"];
+    NSString *account = @"sugarSyncRefreshToken";
     
-    void *serviceName = (void*)[[[NSBundle mainBundle] bundleIdentifier] UTF8String];
-    UInt32 serviceNameLength = (int)strlen(serviceName);
+    KeychainItemWrapper *keyChain = [[KeychainItemWrapper alloc] initWithIdentifier:itemKey accessGroup:nil];
     
-    void *accountName = "sugarSyncRefreshToken";
-    UInt32 accountNameLength = (int)strlen(accountName);
-    
-    OSStatus status = StorePasswordKeychain (serviceName, serviceNameLength, accountName, accountNameLength, token,tokenLength);
-    
-    if ( status != noErr )
-    {
-        [SSC9Log format:@"the refresh token could not be saved %d", status];
-    }
-    
+    [keyChain setObject:account forKey:kSecAttrAccount];
+    [keyChain setObject:refreshToken.description forKey:kSecValueData];
+
+    [keyChain release];
 }
 
 #pragma mark Access Token
