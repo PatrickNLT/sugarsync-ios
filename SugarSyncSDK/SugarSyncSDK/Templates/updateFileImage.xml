@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<file>
+    <displayName>%@</displayName>
+    <dsid>%@</dsid>
+    <timeCreated>%@</timeCreated>
+    <parent>%@</parent>
+    <size>%@</size>
+    <lastModified>%@</lastModified>
+    <mediaType>%@</mediaType>
+    <presentOnServer>%@</presentOnServer>
+    <fileData>%@/data</fileData>
+    <versions>%@/version</versions>
+    <publicLink enabled="%@"/>
+    <image>
+        <height>%@</height>
+        <width>%@</width>
+        <rotation>%@</rotation>
+    </image>
+</file>

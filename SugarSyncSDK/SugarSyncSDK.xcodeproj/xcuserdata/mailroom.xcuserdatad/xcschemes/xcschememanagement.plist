@@ -4,7 +4,7 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>SugarSyncOSX.xcscheme</key>
+		<key>SugarSyncSDK.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
 			<integer>0</integer>
@@ -12,7 +12,7 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>47716E4415F07FD0002DF285</key>
+		<key>473AE5DF16257EE400DE004D</key>
 		<dict>
 			<key>primary</key>
 			<true/>

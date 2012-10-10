@@ -1,0 +1,241 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		473AE5E416257EE400DE004D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 473AE5E316257EE400DE004D /* Foundation.framework */; };
+		473AE5E916257EE400DE004D /* SugarSyncSDK.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 473AE5E816257EE400DE004D /* SugarSyncSDK.h */; };
+		473AE5EB16257EE400DE004D /* SugarSyncSDK.m in Sources */ = {isa = PBXBuildFile; fileRef = 473AE5EA16257EE400DE004D /* SugarSyncSDK.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		473AE5DE16257EE400DE004D /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "include/${PRODUCT_NAME}";
+			dstSubfolderSpec = 16;
+			files = (
+				473AE5E916257EE400DE004D /* SugarSyncSDK.h in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		473AE5E016257EE400DE004D /* libSugarSyncSDK.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libSugarSyncSDK.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		473AE5E316257EE400DE004D /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		473AE5E716257EE400DE004D /* SugarSyncSDK-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SugarSyncSDK-Prefix.pch"; sourceTree = "<group>"; };
+		473AE5E816257EE400DE004D /* SugarSyncSDK.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SugarSyncSDK.h; sourceTree = "<group>"; };
+		473AE5EA16257EE400DE004D /* SugarSyncSDK.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SugarSyncSDK.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		473AE5DD16257EE400DE004D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				473AE5E416257EE400DE004D /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		473AE5D516257EE400DE004D = {
+			isa = PBXGroup;
+			children = (
+				473AE5E516257EE400DE004D /* SugarSyncSDK */,
+				473AE5E216257EE400DE004D /* Frameworks */,
+				473AE5E116257EE400DE004D /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		473AE5E116257EE400DE004D /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				473AE5E016257EE400DE004D /* libSugarSyncSDK.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		473AE5E216257EE400DE004D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				473AE5E316257EE400DE004D /* Foundation.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		473AE5E516257EE400DE004D /* SugarSyncSDK */ = {
+			isa = PBXGroup;
+			children = (
+				473AE5E816257EE400DE004D /* SugarSyncSDK.h */,
+				473AE5EA16257EE400DE004D /* SugarSyncSDK.m */,
+				473AE5E616257EE400DE004D /* Supporting Files */,
+			);
+			path = SugarSyncSDK;
+			sourceTree = "<group>";
+		};
+		473AE5E616257EE400DE004D /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				473AE5E716257EE400DE004D /* SugarSyncSDK-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		473AE5DF16257EE400DE004D /* SugarSyncSDK */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 473AE5EE16257EE400DE004D /* Build configuration list for PBXNativeTarget "SugarSyncSDK" */;
+			buildPhases = (
+				473AE5DC16257EE400DE004D /* Sources */,
+				473AE5DD16257EE400DE004D /* Frameworks */,
+				473AE5DE16257EE400DE004D /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SugarSyncSDK;
+			productName = SugarSyncSDK;
+			productReference = 473AE5E016257EE400DE004D /* libSugarSyncSDK.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		473AE5D716257EE400DE004D /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0450;
+				ORGANIZATIONNAME = Cloud9;
+			};
+			buildConfigurationList = 473AE5DA16257EE400DE004D /* Build configuration list for PBXProject "SugarSyncSDK" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 473AE5D516257EE400DE004D;
+			productRefGroup = 473AE5E116257EE400DE004D /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				473AE5DF16257EE400DE004D /* SugarSyncSDK */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		473AE5DC16257EE400DE004D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				473AE5EB16257EE400DE004D /* SugarSyncSDK.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		473AE5EC16257EE400DE004D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		473AE5ED16257EE400DE004D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		473AE5EF16257EE400DE004D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DSTROOT = /tmp/SugarSyncSDK.dst;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "SugarSyncSDK/SugarSyncSDK-Prefix.pch";
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		473AE5F016257EE400DE004D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DSTROOT = /tmp/SugarSyncSDK.dst;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "SugarSyncSDK/SugarSyncSDK-Prefix.pch";
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		473AE5DA16257EE400DE004D /* Build configuration list for PBXProject "SugarSyncSDK" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				473AE5EC16257EE400DE004D /* Debug */,
+				473AE5ED16257EE400DE004D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		473AE5EE16257EE400DE004D /* Build configuration list for PBXNativeTarget "SugarSyncSDK" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				473AE5EF16257EE400DE004D /* Debug */,
+				473AE5F016257EE400DE004D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 473AE5D716257EE400DE004D /* Project object */;
+}
