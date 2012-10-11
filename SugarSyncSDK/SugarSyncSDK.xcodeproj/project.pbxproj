@@ -50,7 +50,6 @@
 		47E60E52162698D40007BBBC /* SugarSyncFileVersion.h in Headers */ = {isa = PBXBuildFile; fileRef = 47E60DF5162694BD0007BBBC /* SugarSyncFileVersion.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		47E60E53162698D40007BBBC /* SugarSyncFolder.h in Headers */ = {isa = PBXBuildFile; fileRef = 47E60DF6162694BD0007BBBC /* SugarSyncFolder.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		47E60E54162698D40007BBBC /* SugarSyncReceivedShare.h in Headers */ = {isa = PBXBuildFile; fileRef = 47E60DF7162694BD0007BBBC /* SugarSyncReceivedShare.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		47E60E55162698D40007BBBC /* SugarSyncSDK.h in Headers */ = {isa = PBXBuildFile; fileRef = 47E60DF8162694BD0007BBBC /* SugarSyncSDK.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		47E60E56162698D40007BBBC /* SugarSyncUser.h in Headers */ = {isa = PBXBuildFile; fileRef = 47E60DF9162694BD0007BBBC /* SugarSyncUser.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		47E60E57162698D40007BBBC /* SugarSyncWorkspace.h in Headers */ = {isa = PBXBuildFile; fileRef = 47E60DFA162694BD0007BBBC /* SugarSyncWorkspace.h */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
@@ -86,7 +85,6 @@
 		47E60DF5162694BD0007BBBC /* SugarSyncFileVersion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SugarSyncFileVersion.h; sourceTree = "<group>"; };
 		47E60DF6162694BD0007BBBC /* SugarSyncFolder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SugarSyncFolder.h; sourceTree = "<group>"; };
 		47E60DF7162694BD0007BBBC /* SugarSyncReceivedShare.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SugarSyncReceivedShare.h; sourceTree = "<group>"; };
-		47E60DF8162694BD0007BBBC /* SugarSyncSDK.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SugarSyncSDK.h; sourceTree = "<group>"; };
 		47E60DF9162694BD0007BBBC /* SugarSyncUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SugarSyncUser.h; sourceTree = "<group>"; };
 		47E60DFA162694BD0007BBBC /* SugarSyncWorkspace.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SugarSyncWorkspace.h; sourceTree = "<group>"; };
 		47E60DFC162694BD0007BBBC /* accessToken.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = accessToken.xml; sourceTree = "<group>"; };
@@ -218,7 +216,6 @@
 				47E60DF5162694BD0007BBBC /* SugarSyncFileVersion.h */,
 				47E60DF6162694BD0007BBBC /* SugarSyncFolder.h */,
 				47E60DF7162694BD0007BBBC /* SugarSyncReceivedShare.h */,
-				47E60DF8162694BD0007BBBC /* SugarSyncSDK.h */,
 				47E60DF9162694BD0007BBBC /* SugarSyncUser.h */,
 				47E60DFA162694BD0007BBBC /* SugarSyncWorkspace.h */,
 			);
@@ -277,7 +274,6 @@
 				47E60E52162698D40007BBBC /* SugarSyncFileVersion.h in Headers */,
 				47E60E53162698D40007BBBC /* SugarSyncFolder.h in Headers */,
 				47E60E54162698D40007BBBC /* SugarSyncReceivedShare.h in Headers */,
-				47E60E55162698D40007BBBC /* SugarSyncSDK.h in Headers */,
 				47E60E56162698D40007BBBC /* SugarSyncUser.h in Headers */,
 				47E60E57162698D40007BBBC /* SugarSyncWorkspace.h in Headers */,
 				47E60E4B162698A20007BBBC /* SugarSyncXMLTemplate.h in Headers */,
@@ -381,7 +377,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "HEADERS_ROOT=$SRCROOT/$PRODUCT_NAME\nFRAMEWORK_HEADERS_DIR=\"$BUILT_PRODUCTS_DIR/$WRAPPER_NAME/Versions/$FRAMEWORK_VERSION/Headers\"\n\n## only header files expected at this point\nPUBLIC_HEADERS=$(find $FRAMEWORK_HEADERS_DIR/. -not -type d 2> /dev/null | sed -e \"s@.*/@@g\")\n\nFIND_OPTS=\"\"\nfor PUBLIC_HEADER in $PUBLIC_HEADERS; do\n  if [ -n \"$FIND_OPTS\" ]; then\n    FIND_OPTS=\"$FIND_OPTS -o\"\n  fi\n  FIND_OPTS=\"$FIND_OPTS -name '$PUBLIC_HEADER'\"\ndone\n\nif [ -n \"$FIND_OPTS\" ]; then\n  for ORIG_HEADER in $(eval \"find $HEADERS_ROOT/. $FIND_OPTS\" 2> /dev/null | sed -e \"s@^$HEADERS_ROOT/./@@g\"); do\n    PUBLIC_HEADER=$(basename $ORIG_HEADER)\n    RELATIVE_PATH=$(dirname $ORIG_HEADER)\n    if [ -e $FRAMEWORK_HEADERS_DIR/$PUBLIC_HEADER ]; then\n      mkdir -p \"$FRAMEWORK_HEADERS_DIR/$RELATIVE_PATH\"\n      mv \"$FRAMEWORK_HEADERS_DIR/$PUBLIC_HEADER\" \"$FRAMEWORK_HEADERS_DIR/$RELATIVE_PATH/$PUBLIC_HEADER\"\n    fi\n  done\nfi\n";
+			shellScript = "HEADERS_ROOT=$SRCROOT/$PRODUCT_NAME\nFRAMEWORK_HEADERS_DIR=\"$BUILT_PRODUCTS_DIR/$WRAPPER_NAME/Versions/$FRAMEWORK_VERSION/Headers\"\n\n## only header files expected at this point\nPUBLIC_HEADERS=$(find $FRAMEWORK_HEADERS_DIR/. -not -type d 2> /dev/null | sed -e \"s@.*/@@g\")\n\nFIND_OPTS=\"\"\nfor PUBLIC_HEADER in $PUBLIC_HEADERS; do\n  if [ -n \"$FIND_OPTS\" ]; then\n    FIND_OPTS=\"$FIND_OPTS -o\"\n  fi\n  FIND_OPTS=\"$FIND_OPTS -name '$PUBLIC_HEADER'\"\ndone\n\nif [ -n \"$FIND_OPTS\" ]; then\n  for ORIG_HEADER in $(eval \"find $HEADERS_ROOT/. $FIND_OPTS\" 2> /dev/null | sed -e \"s@^$HEADERS_ROOT/./@@g\"); do\n    PUBLIC_HEADER=$(basename $ORIG_HEADER)\n    RELATIVE_PATH=$(dirname $ORIG_HEADER)\n#   if [ -e $FRAMEWORK_HEADERS_DIR/$PUBLIC_HEADER ]; then\n#mkdir -p \"$FRAMEWORK_HEADERS_DIR/$RELATIVE_PATH\"\n#    mv \"$FRAMEWORK_HEADERS_DIR/$PUBLIC_HEADER\" \"$FRAMEWORK_HEADERS_DIR/$RELATIVE_PATH/$PUBLIC_HEADER\"\n#   fi\n  done\nfi\n";
 		};
 		47E60DC7162694450007BBBC /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -545,6 +541,7 @@
 				47E60DD9162694450007BBBC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
