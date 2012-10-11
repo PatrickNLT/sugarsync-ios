@@ -19,24 +19,11 @@
 		47E60E19162694BD0007BBBC /* SugarSyncFile.m in Sources */ = {isa = PBXBuildFile; fileRef = 47E60DE5162694BD0007BBBC /* SugarSyncFile.m */; };
 		47E60E1A162694BD0007BBBC /* SugarSyncFileVersion.m in Sources */ = {isa = PBXBuildFile; fileRef = 47E60DE6162694BD0007BBBC /* SugarSyncFileVersion.m */; };
 		47E60E1B162694BD0007BBBC /* SugarSyncFolder.m in Sources */ = {isa = PBXBuildFile; fileRef = 47E60DE7162694BD0007BBBC /* SugarSyncFolder.m */; };
-		47E60E1C162694BD0007BBBC /* SugarSyncLoginViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 47E60DE8162694BD0007BBBC /* SugarSyncLoginViewController.h */; };
 		47E60E1D162694BD0007BBBC /* SugarSyncLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 47E60DE9162694BD0007BBBC /* SugarSyncLoginViewController.m */; };
 		47E60E1E162694BD0007BBBC /* SugarSyncReceivedShare.m in Sources */ = {isa = PBXBuildFile; fileRef = 47E60DEA162694BD0007BBBC /* SugarSyncReceivedShare.m */; };
 		47E60E1F162694BD0007BBBC /* SugarSyncUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 47E60DEB162694BD0007BBBC /* SugarSyncUser.m */; };
 		47E60E20162694BD0007BBBC /* SugarSyncWorkspace.m in Sources */ = {isa = PBXBuildFile; fileRef = 47E60DEC162694BD0007BBBC /* SugarSyncWorkspace.m */; };
-		47E60E21162694BD0007BBBC /* SugarSyncXMLTemplate.h in Headers */ = {isa = PBXBuildFile; fileRef = 47E60DED162694BD0007BBBC /* SugarSyncXMLTemplate.h */; };
 		47E60E22162694BD0007BBBC /* SugarSyncXMLTemplate.m in Sources */ = {isa = PBXBuildFile; fileRef = 47E60DEE162694BD0007BBBC /* SugarSyncXMLTemplate.m */; };
-		47E60E23162694BD0007BBBC /* SugarSyncAlbum.h in Headers */ = {isa = PBXBuildFile; fileRef = 47E60DF0162694BD0007BBBC /* SugarSyncAlbum.h */; };
-		47E60E24162694BD0007BBBC /* SugarSyncClient.h in Headers */ = {isa = PBXBuildFile; fileRef = 47E60DF1162694BD0007BBBC /* SugarSyncClient.h */; };
-		47E60E25162694BD0007BBBC /* SugarSyncCollection.h in Headers */ = {isa = PBXBuildFile; fileRef = 47E60DF2162694BD0007BBBC /* SugarSyncCollection.h */; };
-		47E60E26162694BD0007BBBC /* SugarSyncContact.h in Headers */ = {isa = PBXBuildFile; fileRef = 47E60DF3162694BD0007BBBC /* SugarSyncContact.h */; };
-		47E60E27162694BD0007BBBC /* SugarSyncFile.h in Headers */ = {isa = PBXBuildFile; fileRef = 47E60DF4162694BD0007BBBC /* SugarSyncFile.h */; };
-		47E60E28162694BD0007BBBC /* SugarSyncFileVersion.h in Headers */ = {isa = PBXBuildFile; fileRef = 47E60DF5162694BD0007BBBC /* SugarSyncFileVersion.h */; };
-		47E60E29162694BD0007BBBC /* SugarSyncFolder.h in Headers */ = {isa = PBXBuildFile; fileRef = 47E60DF6162694BD0007BBBC /* SugarSyncFolder.h */; };
-		47E60E2A162694BD0007BBBC /* SugarSyncReceivedShare.h in Headers */ = {isa = PBXBuildFile; fileRef = 47E60DF7162694BD0007BBBC /* SugarSyncReceivedShare.h */; };
-		47E60E2B162694BD0007BBBC /* SugarSyncSDK.h in Headers */ = {isa = PBXBuildFile; fileRef = 47E60DF8162694BD0007BBBC /* SugarSyncSDK.h */; };
-		47E60E2C162694BD0007BBBC /* SugarSyncUser.h in Headers */ = {isa = PBXBuildFile; fileRef = 47E60DF9162694BD0007BBBC /* SugarSyncUser.h */; };
-		47E60E2D162694BD0007BBBC /* SugarSyncWorkspace.h in Headers */ = {isa = PBXBuildFile; fileRef = 47E60DFA162694BD0007BBBC /* SugarSyncWorkspace.h */; };
 		47E60E2E162694BD0007BBBC /* accessToken.xml in Resources */ = {isa = PBXBuildFile; fileRef = 47E60DFC162694BD0007BBBC /* accessToken.xml */; };
 		47E60E2F162694BD0007BBBC /* copyFile.xml in Resources */ = {isa = PBXBuildFile; fileRef = 47E60DFD162694BD0007BBBC /* copyFile.xml */; };
 		47E60E30162694BD0007BBBC /* createFile.xml in Resources */ = {isa = PBXBuildFile; fileRef = 47E60DFE162694BD0007BBBC /* createFile.xml */; };
@@ -46,20 +33,26 @@
 		47E60E34162694BD0007BBBC /* updateFileImage.xml in Resources */ = {isa = PBXBuildFile; fileRef = 47E60E02162694BD0007BBBC /* updateFileImage.xml */; };
 		47E60E35162694BD0007BBBC /* updateFolder.xml in Resources */ = {isa = PBXBuildFile; fileRef = 47E60E03162694BD0007BBBC /* updateFolder.xml */; };
 		47E60E36162694BD0007BBBC /* updateWorkspace.xml in Resources */ = {isa = PBXBuildFile; fileRef = 47E60E04162694BD0007BBBC /* updateWorkspace.xml */; };
-		47E60E37162694BD0007BBBC /* KeychainItemWrapper.h in Headers */ = {isa = PBXBuildFile; fileRef = 47E60E06162694BD0007BBBC /* KeychainItemWrapper.h */; };
 		47E60E38162694BD0007BBBC /* KeychainItemWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 47E60E07162694BD0007BBBC /* KeychainItemWrapper.m */; };
-		47E60E39162694BD0007BBBC /* SSC9Log.h in Headers */ = {isa = PBXBuildFile; fileRef = 47E60E08162694BD0007BBBC /* SSC9Log.h */; };
 		47E60E3A162694BD0007BBBC /* SSC9Log.m in Sources */ = {isa = PBXBuildFile; fileRef = 47E60E09162694BD0007BBBC /* SSC9Log.m */; };
-		47E60E3B162694BD0007BBBC /* SSErrorUtil.h in Headers */ = {isa = PBXBuildFile; fileRef = 47E60E0A162694BD0007BBBC /* SSErrorUtil.h */; };
 		47E60E3C162694BD0007BBBC /* SSErrorUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 47E60E0B162694BD0007BBBC /* SSErrorUtil.m */; };
-		47E60E3D162694BD0007BBBC /* SSGenericFormatter.h in Headers */ = {isa = PBXBuildFile; fileRef = 47E60E0C162694BD0007BBBC /* SSGenericFormatter.h */; };
 		47E60E3E162694BD0007BBBC /* SSGenericFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 47E60E0D162694BD0007BBBC /* SSGenericFormatter.m */; };
-		47E60E3F162694BD0007BBBC /* SSHttpFetcher.h in Headers */ = {isa = PBXBuildFile; fileRef = 47E60E0E162694BD0007BBBC /* SSHttpFetcher.h */; };
 		47E60E40162694BD0007BBBC /* SSHttpFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 47E60E0F162694BD0007BBBC /* SSHttpFetcher.m */; };
-		47E60E41162694BD0007BBBC /* SSXMLLibUtil.h in Headers */ = {isa = PBXBuildFile; fileRef = 47E60E10162694BD0007BBBC /* SSXMLLibUtil.h */; };
 		47E60E42162694BD0007BBBC /* SSXMLLibUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 47E60E11162694BD0007BBBC /* SSXMLLibUtil.m */; };
-		47E60E43162694BD0007BBBC /* XPathQuery.h in Headers */ = {isa = PBXBuildFile; fileRef = 47E60E12162694BD0007BBBC /* XPathQuery.h */; };
 		47E60E44162694BD0007BBBC /* XPathQuery.m in Sources */ = {isa = PBXBuildFile; fileRef = 47E60E13162694BD0007BBBC /* XPathQuery.m */; };
+		47E60E4B162698A20007BBBC /* SugarSyncXMLTemplate.h in Headers */ = {isa = PBXBuildFile; fileRef = 47E60DED162694BD0007BBBC /* SugarSyncXMLTemplate.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		47E60E4C162698C00007BBBC /* SugarSyncLoginViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 47E60DE8162694BD0007BBBC /* SugarSyncLoginViewController.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		47E60E4D162698D40007BBBC /* SugarSyncAlbum.h in Headers */ = {isa = PBXBuildFile; fileRef = 47E60DF0162694BD0007BBBC /* SugarSyncAlbum.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		47E60E4E162698D40007BBBC /* SugarSyncClient.h in Headers */ = {isa = PBXBuildFile; fileRef = 47E60DF1162694BD0007BBBC /* SugarSyncClient.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		47E60E4F162698D40007BBBC /* SugarSyncCollection.h in Headers */ = {isa = PBXBuildFile; fileRef = 47E60DF2162694BD0007BBBC /* SugarSyncCollection.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		47E60E50162698D40007BBBC /* SugarSyncContact.h in Headers */ = {isa = PBXBuildFile; fileRef = 47E60DF3162694BD0007BBBC /* SugarSyncContact.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		47E60E51162698D40007BBBC /* SugarSyncFile.h in Headers */ = {isa = PBXBuildFile; fileRef = 47E60DF4162694BD0007BBBC /* SugarSyncFile.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		47E60E52162698D40007BBBC /* SugarSyncFileVersion.h in Headers */ = {isa = PBXBuildFile; fileRef = 47E60DF5162694BD0007BBBC /* SugarSyncFileVersion.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		47E60E53162698D40007BBBC /* SugarSyncFolder.h in Headers */ = {isa = PBXBuildFile; fileRef = 47E60DF6162694BD0007BBBC /* SugarSyncFolder.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		47E60E54162698D40007BBBC /* SugarSyncReceivedShare.h in Headers */ = {isa = PBXBuildFile; fileRef = 47E60DF7162694BD0007BBBC /* SugarSyncReceivedShare.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		47E60E55162698D40007BBBC /* SugarSyncSDK.h in Headers */ = {isa = PBXBuildFile; fileRef = 47E60DF8162694BD0007BBBC /* SugarSyncSDK.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		47E60E56162698D40007BBBC /* SugarSyncUser.h in Headers */ = {isa = PBXBuildFile; fileRef = 47E60DF9162694BD0007BBBC /* SugarSyncUser.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		47E60E57162698D40007BBBC /* SugarSyncWorkspace.h in Headers */ = {isa = PBXBuildFile; fileRef = 47E60DFA162694BD0007BBBC /* SugarSyncWorkspace.h */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -276,26 +269,19 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				47E60E1C162694BD0007BBBC /* SugarSyncLoginViewController.h in Headers */,
-				47E60E21162694BD0007BBBC /* SugarSyncXMLTemplate.h in Headers */,
-				47E60E23162694BD0007BBBC /* SugarSyncAlbum.h in Headers */,
-				47E60E24162694BD0007BBBC /* SugarSyncClient.h in Headers */,
-				47E60E25162694BD0007BBBC /* SugarSyncCollection.h in Headers */,
-				47E60E26162694BD0007BBBC /* SugarSyncContact.h in Headers */,
-				47E60E27162694BD0007BBBC /* SugarSyncFile.h in Headers */,
-				47E60E28162694BD0007BBBC /* SugarSyncFileVersion.h in Headers */,
-				47E60E29162694BD0007BBBC /* SugarSyncFolder.h in Headers */,
-				47E60E2A162694BD0007BBBC /* SugarSyncReceivedShare.h in Headers */,
-				47E60E2B162694BD0007BBBC /* SugarSyncSDK.h in Headers */,
-				47E60E2C162694BD0007BBBC /* SugarSyncUser.h in Headers */,
-				47E60E2D162694BD0007BBBC /* SugarSyncWorkspace.h in Headers */,
-				47E60E37162694BD0007BBBC /* KeychainItemWrapper.h in Headers */,
-				47E60E39162694BD0007BBBC /* SSC9Log.h in Headers */,
-				47E60E3B162694BD0007BBBC /* SSErrorUtil.h in Headers */,
-				47E60E3D162694BD0007BBBC /* SSGenericFormatter.h in Headers */,
-				47E60E3F162694BD0007BBBC /* SSHttpFetcher.h in Headers */,
-				47E60E41162694BD0007BBBC /* SSXMLLibUtil.h in Headers */,
-				47E60E43162694BD0007BBBC /* XPathQuery.h in Headers */,
+				47E60E4D162698D40007BBBC /* SugarSyncAlbum.h in Headers */,
+				47E60E4E162698D40007BBBC /* SugarSyncClient.h in Headers */,
+				47E60E4F162698D40007BBBC /* SugarSyncCollection.h in Headers */,
+				47E60E50162698D40007BBBC /* SugarSyncContact.h in Headers */,
+				47E60E51162698D40007BBBC /* SugarSyncFile.h in Headers */,
+				47E60E52162698D40007BBBC /* SugarSyncFileVersion.h in Headers */,
+				47E60E53162698D40007BBBC /* SugarSyncFolder.h in Headers */,
+				47E60E54162698D40007BBBC /* SugarSyncReceivedShare.h in Headers */,
+				47E60E55162698D40007BBBC /* SugarSyncSDK.h in Headers */,
+				47E60E56162698D40007BBBC /* SugarSyncUser.h in Headers */,
+				47E60E57162698D40007BBBC /* SugarSyncWorkspace.h in Headers */,
+				47E60E4B162698A20007BBBC /* SugarSyncXMLTemplate.h in Headers */,
+				47E60E4C162698C00007BBBC /* SugarSyncLoginViewController.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -514,7 +500,7 @@
 				INFOPLIST_FILE = "SugarSyncSDK/SugarSyncSDK-Info.plist";
 				LD_DYLIB_INSTALL_NAME = "@loader_path/../Frameworks/$(EXECUTABLE_PATH)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SKIP_INSTALL = YES;
+				SKIP_INSTALL = NO;
 				WRAPPER_EXTENSION = framework;
 			};
 			name = Debug;
@@ -535,7 +521,7 @@
 				INFOPLIST_FILE = "SugarSyncSDK/SugarSyncSDK-Info.plist";
 				LD_DYLIB_INSTALL_NAME = "@loader_path/../Frameworks/$(EXECUTABLE_PATH)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SKIP_INSTALL = YES;
+				SKIP_INSTALL = NO;
 				WRAPPER_EXTENSION = framework;
 			};
 			name = Release;
