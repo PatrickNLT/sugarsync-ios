@@ -11,15 +11,16 @@
 //  this copyright and permission notice. Attribution in compiled projects is
 //  appreciated but not required.
 
-#import <SugarSyncAlbum.h>
-#import <SugarSyncClient.h>
-#import <SugarSyncCollection.h>
-#import <SugarSyncContact.h>
-#import <SugarSyncFile.h>
-#import <SugarSyncFileVersion.h>
-#import <SugarSyncFolder.h>
-#import <SugarSyncUser.h>
-#import <SugarSyncWorkspace.h>
+#import <SugarSyncSDK/SugarSyncAlbum.h>
+#import <SugarSyncSDK/SugarSyncClient.h>
+#import <SugarSyncSDK/SugarSyncCollection.h>
+#import <SugarSyncSDK/SugarSyncContact.h>
+#import <SugarSyncSDK/SugarSyncFile.h>
+#import <SugarSyncSDK/SugarSyncFileVersion.h>
+#import <SugarSyncSDK/SugarSyncFolder.h>
+#import <SugarSyncSDK/SugarSyncUser.h>
+#import <SugarSyncSDK/SugarSyncWorkspace.h>
+#import <SugarSyncSDK/SugarSyncReceivedShare.h>
 
 
 

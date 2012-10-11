@@ -14,8 +14,8 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "473AE5DF16257EE400DE004D"
-               BuildableName = "libSugarSyncSDK.a"
+               BlueprintIdentifier = "47E60DC8162694450007BBBC"
+               BuildableName = "SugarSyncSDK.framework"
                BlueprintName = "SugarSyncSDK"
                ReferencedContainer = "container:SugarSyncSDK.xcodeproj">
             </BuildableReference>

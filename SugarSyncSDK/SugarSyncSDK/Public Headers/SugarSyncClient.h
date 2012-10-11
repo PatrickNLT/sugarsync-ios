@@ -11,15 +11,7 @@
 //  appreciated but not required.
 
 #import <Foundation/Foundation.h>
-#import "SugarSyncUser.h"
-#import "SugarSyncCollection.h"
-#import "SugarSyncWorkspace.h"
-#import "SugarSyncFolder.h"
-#import "SugarSyncFile.h"
-#import "SugarSyncFileVersion.h"
-#import "SugarSyncReceivedShare.h"
-#import "SugarSyncContact.h"
-#import "SugarSyncAlbum.h"
+#import <SugarSyncSDK/SugarSyncSDK.h>
 
 /*
  * Possible Login Statuses
