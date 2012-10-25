@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		47E397271639E1AD00154AD2 /* SugarSyncLoginView_iphone.xib in Resources */ = {isa = PBXBuildFile; fileRef = 47E397261639E1AD00154AD2 /* SugarSyncLoginView_iphone.xib */; };
+		47E3972A1639E5A000154AD2 /* SugarSyncLoginView_ipad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 47E397291639E5A000154AD2 /* SugarSyncLoginView_ipad.xib */; };
 		47E60DCD162694450007BBBC /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 47E60DCC162694450007BBBC /* Foundation.framework */; };
 		47E60DD3162694450007BBBC /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 47E60DD1162694450007BBBC /* InfoPlist.strings */; };
 		47E60DDB162694700007BBBC /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 47E60DDA162694700007BBBC /* Security.framework */; };
@@ -55,6 +57,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		47E397261639E1AD00154AD2 /* SugarSyncLoginView_iphone.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SugarSyncLoginView_iphone.xib; path = ../SugarSyncLoginView_iphone.xib; sourceTree = "<group>"; };
+		47E397291639E5A000154AD2 /* SugarSyncLoginView_ipad.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SugarSyncLoginView_ipad.xib; sourceTree = "<group>"; };
 		47E60DC9162694450007BBBC /* SugarSyncSDK.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework.static; includeInIndex = 0; path = SugarSyncSDK.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		47E60DCC162694450007BBBC /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		47E60DD0162694450007BBBC /* SugarSyncSDK-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "SugarSyncSDK-Info.plist"; sourceTree = "<group>"; };
@@ -201,6 +205,8 @@
 				47E60DEC162694BD0007BBBC /* SugarSyncWorkspace.m */,
 				47E60DED162694BD0007BBBC /* SugarSyncXMLTemplate.h */,
 				47E60DEE162694BD0007BBBC /* SugarSyncXMLTemplate.m */,
+				47E397261639E1AD00154AD2 /* SugarSyncLoginView_iphone.xib */,
+				47E397291639E5A000154AD2 /* SugarSyncLoginView_ipad.xib */,
 			);
 			path = Private;
 			sourceTree = "<group>";
@@ -347,6 +353,8 @@
 				47E60E34162694BD0007BBBC /* updateFileImage.xml in Resources */,
 				47E60E35162694BD0007BBBC /* updateFolder.xml in Resources */,
 				47E60E36162694BD0007BBBC /* updateWorkspace.xml in Resources */,
+				47E397271639E1AD00154AD2 /* SugarSyncLoginView_iphone.xib in Resources */,
+				47E3972A1639E5A000154AD2 /* SugarSyncLoginView_ipad.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

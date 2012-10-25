@@ -23,7 +23,7 @@
 @property (nonatomic, assign) IBOutlet UITextField *userNameField;
 @property (nonatomic, assign) IBOutlet UITextField *passwordField;
 @property (nonatomic, assign) IBOutlet UIButton *loginButton;
-@property (nonatomic, assign) IBOutlet UITextField *error;
+@property (nonatomic, assign) IBOutlet UILabel *error;
 @property (nonatomic, assign) SugarSyncClient *client;
 @property (nonatomic, retain) void (^completionHandler)(SugarSyncLoginStatus, NSError*);
 
