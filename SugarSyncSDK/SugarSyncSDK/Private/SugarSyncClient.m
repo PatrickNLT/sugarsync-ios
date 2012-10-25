@@ -83,7 +83,7 @@ static NSString *XMLKeyNodeContent = @"nodeContent";
     NSTimeInterval accessTokenExpiry;
     BOOL ignoreTokenExpiry;
     BOOL refreshingToken;
-    SugarSyncLoginViewController *loginWindow;
+    SugarSyncLoginViewController *loginViewController;
 }
 
 #pragma mark Class Methods
@@ -162,24 +162,18 @@ static NSString *XMLKeyNodeContent = @"nodeContent";
 
 -(void) displayLoginDialogWithCompletionHandler:(void (^)(SugarSyncLoginStatus aStatus, NSError *error))handler
 {
-   // loginWindow = [[SugarSyncLoginViewController alloc] initWithWindowNibName:@"SugarSyncLoginWindowController"];
-    loginWindow.client = self;
-    loginWindow.completionHandler = Block_copy(handler);
+    NSBundle *myBundle = [NSBundle bundleForClass:[self class]];
     
-  /*  NSModalSession session = [NSApp beginModalSessionForWindow:[loginWindow window]];
-    long modalSessionAlive = NSRunContinuesResponse;
+    NSString *nib = [[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad ?
+        @"SugarSyncLoginViewController_ipad" : @"SugarSyncLoginViewController_iphone";
     
-    while (modalSessionAlive == NSRunContinuesResponse)
-    {
-        modalSessionAlive = [NSApp runModalSession:session];
-        
-        [[NSRunLoop currentRunLoop] limitDateForMode:NSDefaultRunLoopMode];
-    }
     
-    [NSApp endModalSession:session];*/
+    loginViewController = [[SugarSyncLoginViewController alloc] initWithNibName:nib bundle:myBundle];
     
-    [loginWindow release];
-    loginWindow = nil;
+    loginViewController.client = self;
+    loginViewController.completionHandler = Block_copy(handler);
+    
+    [[[[[UIApplication sharedApplication] delegate] window] rootViewController] presentModalViewController:loginViewController animated:YES];
     
 }
 
@@ -190,12 +184,12 @@ static NSString *XMLKeyNodeContent = @"nodeContent";
     [self createResource:resourceXML atLocation:AppAuthorizationAPI resourceKey:@"refresh token" completionHandler:^(NSURL *newResource, NSError *anError) {
         if ( anError )
         {
-            if ( loginWindow )
+            if ( loginViewController )
             {
-                loginWindow.error.text = anError.code == SugarSyncErrorAuthorizationRequired ?
+                loginViewController.error.text = anError.code == SugarSyncErrorAuthorizationRequired ?
                     @"The user name and password are incorrect." :
                     [NSString stringWithFormat:@"Login Failed. (error %d)", anError.code];
-                loginWindow.error.hidden = NO;
+                loginViewController.error.hidden = NO;
             }
             else
             {
@@ -210,9 +204,9 @@ static NSString *XMLKeyNodeContent = @"nodeContent";
             
             refreshingToken = NO;
             
-            if ( loginWindow )
+            if ( loginViewController )
             {
-                //[loginWindow close];
+                [loginViewController dismissViewControllerAnimated:YES completion:nil];
             }
             
             handler(SugarSyncLoginSuccess, nil);

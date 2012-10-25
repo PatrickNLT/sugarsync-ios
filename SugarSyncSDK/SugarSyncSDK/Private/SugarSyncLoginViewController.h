@@ -12,13 +12,12 @@
 
 #import <UIKit/UIKit.h>
 #import "SugarSyncClient.h"
-#import "SSGenericFormatter.h"
 
 /*
- *  SugarSyncLoginWindowController display a modal login dialog to all the user to login to 
+ *  SugarSyncLoginViewController display a modal login dialog to all the user to login to 
  *  SugarSync with userName and password credentials
  */
-@interface SugarSyncLoginViewController : UIViewController<ValidationDelegate>
+@interface SugarSyncLoginViewController : UIViewController<UITextFieldDelegate>
 
 @property (nonatomic, assign) IBOutlet UITextField *userNameField;
 @property (nonatomic, assign) IBOutlet UITextField *passwordField;

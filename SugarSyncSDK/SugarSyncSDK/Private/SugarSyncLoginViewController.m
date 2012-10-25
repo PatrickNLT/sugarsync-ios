@@ -1,5 +1,5 @@
 //
-//  SugarSyncLoginWindowController.m
+//  SugarSyncLoginViewController.m
 //
 //  Created by Bill Culp on 8/26/12.
 //  Copyright (c) 2012 Cloud9. All rights reserved.
@@ -28,17 +28,6 @@ static int const PASSWORD_MAX = 20;
 {
     [super viewDidLoad];
     
-    SSGenericFormatter *userNameFormatter = [[SSGenericFormatter alloc] initWithValidationDelegate:self andTextField:self.userNameField];
-    userNameFormatter.minLength = USERNAME_MIN;
-    userNameFormatter.maxLength = USERNAME_MAX;
-    
-    SSGenericFormatter *passwordFormatter = [[SSGenericFormatter alloc] initWithValidationDelegate:self andTextField:self.passwordField];
-    passwordFormatter.minLength = PASSWORD_MIN;
-    passwordFormatter.maxLength = PASSWORD_MAX;
-    
-    [userNameFormatter release];
-    [passwordFormatter release];
-    
     [self revalidate:nil];
 
 }
@@ -52,13 +41,21 @@ static int const PASSWORD_MAX = 20;
             
 }
 
+- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
+{
+    [self performSelector:@selector(revalidate:) withObject:nil afterDelay:.5f];
+    return YES;
+    
+}
+
 #pragma mark ValidationDelegate
 
--(void) revalidate:(SSGenericFormatter *)sender
+-(void) revalidate:(id)sender
 {
     self.error.hidden = YES;
-    /*if ( ((SSGenericFormatter *)self.userNameField.formatter).isValid &&
-        ((SSGenericFormatter *)self.passwordField.formatter).isValid )
+    
+    if ( self.userNameField.text.length >=USERNAME_MIN  && self.userNameField.text.length <=USERNAME_MAX  &&
+         self.passwordField.text.length >=PASSWORD_MIN  && self.passwordField.text.length <=PASSWORD_MAX )
     {
         self.loginButton.enabled = YES;
     }
@@ -66,7 +63,6 @@ static int const PASSWORD_MAX = 20;
     {
         self.loginButton.enabled = NO;
     }
-*/
     
 }
 
@@ -81,7 +77,7 @@ static int const PASSWORD_MAX = 20;
 
 -(IBAction)cancel:(id)sender
 {
-    //[self close];
+    [self dismissViewControllerAnimated:YES completion:nil];
     _completionHandler(SugarSyncLoginCancelled, nil);
 
 }
