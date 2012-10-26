@@ -662,12 +662,16 @@ static NSString *XMLKeyNodeContent = @"nodeContent";
     
     NSString *persistentToken = [keyChain objectForKey:kSecValueData];
     
-    if (persistentToken)
+    if (persistentToken && persistentToken.length)
     {
 #ifdef DEBUG_SUGARSYNC_CLIENT
         [C9Log format:@"setting refresh token %@ from persistence", persistentToken];
 #endif
         refreshToken = [[NSURL URLWithString:persistentToken] retain];
+    }
+    else
+    {
+        refreshToken = nil;
     }
     
     [keyChain release];
