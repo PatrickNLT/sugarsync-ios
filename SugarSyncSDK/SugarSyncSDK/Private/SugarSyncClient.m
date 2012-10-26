@@ -162,11 +162,10 @@ static NSString *XMLKeyNodeContent = @"nodeContent";
 
 -(void) displayLoginDialogWithCompletionHandler:(void (^)(SugarSyncLoginStatus aStatus, NSError *error))handler
 {
-    NSBundle *myBundle = [NSBundle bundleForClass:[self class]];
+    NSBundle *myBundle = [NSBundle bundleWithPath:[[[NSBundle mainBundle] bundlePath] stringByAppendingPathComponent:@"Frameworks/SugarSyncSDK.framework"]];
     
     NSString *nib = [[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad ?
-        @"SugarSyncLoginViewController_ipad" : @"SugarSyncLoginViewController_iphone";
-    
+        @"SugarSyncLoginView_ipad" : @"SugarSyncLoginView_iphone";
     
     loginViewController = [[SugarSyncLoginViewController alloc] initWithNibName:nib bundle:myBundle];
     
