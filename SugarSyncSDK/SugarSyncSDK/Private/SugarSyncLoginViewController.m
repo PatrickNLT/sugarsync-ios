@@ -18,9 +18,7 @@ static int const USERNAME_MAX = 50;
 static int const PASSWORD_MIN = 5;
 static int const PASSWORD_MAX = 20;
 
-@implementation SugarSyncLoginViewController {
-    BOOL ignoreWindowWillCloseNotification;
-}
+@implementation SugarSyncLoginViewController
 
 #pragma mark Cocoa Delegates
 
@@ -32,13 +30,10 @@ static int const PASSWORD_MAX = 20;
 
 }
 
--(void) viewWillDisappear:(BOOL)animated
+-(void) viewDidAppear:(BOOL)animated
 {
-    if ( !ignoreWindowWillCloseNotification )
-    {
-        _completionHandler(SugarSyncLoginCancelled, nil);
-    }
-            
+    [self.userNameField becomeFirstResponder];
+
 }
 
 - (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
@@ -77,6 +72,7 @@ static int const PASSWORD_MAX = 20;
 
 -(IBAction)cancel:(id)sender
 {
+
     [self dismissViewControllerAnimated:YES completion:nil];
     _completionHandler(SugarSyncLoginCancelled, nil);
 
