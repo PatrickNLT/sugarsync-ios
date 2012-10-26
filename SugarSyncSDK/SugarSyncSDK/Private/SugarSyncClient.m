@@ -168,6 +168,7 @@ static NSString *XMLKeyNodeContent = @"nodeContent";
         @"SugarSyncLoginView_ipad" : @"SugarSyncLoginView_iphone";
     
     loginViewController = [[SugarSyncLoginViewController alloc] initWithNibName:nib bundle:myBundle];
+    loginViewController.modalPresentationStyle = UIModalPresentationFormSheet;
     
     loginViewController.client = self;
     loginViewController.completionHandler = Block_copy(handler);
