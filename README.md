@@ -1,4 +1,4 @@
-SugarSyncSDK
+SugarSyncSDK (v1.0)
 ============
 
 Objective C framework for the Sugar Sync API on iOS
