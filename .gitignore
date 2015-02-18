@@ -1,8 +1,7 @@
-
-SugarSyncSDK/.DS_Store
-
-SugarSyncSDK/SugarSyncSDK.xcodeproj/project.xcworkspace/xcuserdata/mailroom.xcuserdatad/UserInterfaceState.xcuserstate
-
-SugarSyncSDK/SugarSyncSDK/Utilities/.DS_Store
-
-.DS_Store
+**/.DS_Store
+**/*.xcodeproj/*.pbxuser
+**/*.xcodeproj/*.mode1v3
+**/*.xcodeproj/*.perspectivev3
+**/*.xcodeproj/project.xcworkspace/
+**/*.xcodeproj/xcuserdata/
+**/*.xcworkspace/xcuserdata/
