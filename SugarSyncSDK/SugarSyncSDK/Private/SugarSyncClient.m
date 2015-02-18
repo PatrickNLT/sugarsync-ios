@@ -447,8 +447,8 @@ static NSString *XMLKeyNodeContent = @"nodeContent";
 {
     NSString *resourceXML = [self XMLStringWithRootElementTitle:@"file"
                                                      parameters:
-  @{@"displayName": aName,
-    @"mediaType": aMediaType}
+                             @{@"displayName": aName,
+                               @"mediaType": aMediaType}
                                                           error:nil];
     
     [self createResource:resourceXML atLocation:aURL resourceKey:@"file" completionHandler:^(NSURL *newResource, NSError *anError) {
