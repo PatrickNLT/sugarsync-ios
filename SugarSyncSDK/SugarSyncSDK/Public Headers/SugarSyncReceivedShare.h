@@ -12,7 +12,6 @@
 
 #import <Foundation/Foundation.h>
 
-@class SugarSyncXMLTemplate;
 /*
  * SugarSyncReceivedShare represents the full metadata for a shared object in the SugarSync API
  */

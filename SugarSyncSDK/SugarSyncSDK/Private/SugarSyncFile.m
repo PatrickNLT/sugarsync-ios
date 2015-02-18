@@ -71,19 +71,19 @@ static NSURL *FileAPI;
     return [FileAPI URLByAppendingPathComponent:[_dsid stringByReplacingOccurrencesOfString:@"/" withString:@":"]];
 }
 
--(NSString *) fillXMLTemplate:(SugarSyncXMLTemplate *)aTemplate
-{
-    NSString *resource = [self resourceURL].description;
-    
-    if ( !_image )
-    {
-        return [aTemplate fill:@[_displayName, _dsid, _timeCreated, _parent, [NSString stringWithFormat:@"%ld", _size], _lastModified, _mediaType, _presentOnServer ? @"true":@"false", resource, resource, _publicLinkEnabled?@"true":@"false"]];
-    }
-    else
-    {
-        return [aTemplate fill:@[_displayName, _dsid, _timeCreated, _parent, [NSString stringWithFormat:@"%ld", _size], _lastModified, _mediaType, _presentOnServer ? @"true":@"false", resource, resource, _publicLinkEnabled?@"true":@"false", [NSString stringWithFormat:@"%d", _image.height], [NSString stringWithFormat:@"%d", _image.width], [NSString stringWithFormat:@"%d", _image.rotation]]];
-    }
-}
+//-(NSString *) fillXMLTemplate:(SugarSyncXMLTemplate *)aTemplate
+//{
+//    NSString *resource = [self resourceURL].description;
+//    
+//    if ( !_image )
+//    {
+//        return [aTemplate fill:@[_displayName, _dsid, _timeCreated, _parent, [NSString stringWithFormat:@"%ld", _size], _lastModified, _mediaType, _presentOnServer ? @"true":@"false", resource, resource, _publicLinkEnabled?@"true":@"false"]];
+//    }
+//    else
+//    {
+//        return [aTemplate fill:@[_displayName, _dsid, _timeCreated, _parent, [NSString stringWithFormat:@"%ld", _size], _lastModified, _mediaType, _presentOnServer ? @"true":@"false", resource, resource, _publicLinkEnabled?@"true":@"false", [NSString stringWithFormat:@"%d", _image.height], [NSString stringWithFormat:@"%d", _image.width], [NSString stringWithFormat:@"%d", _image.rotation]]];
+//    }
+//}
 
 
 -(NSString *) description

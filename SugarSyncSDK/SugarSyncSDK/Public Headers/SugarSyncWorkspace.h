@@ -12,7 +12,6 @@
 
 #import <Foundation/Foundation.h>
 
-@class SugarSyncXMLTemplate;
 /*
  * SugarSyncWorkspace represents the full metadata for a workspace in the SugarSync API
  */

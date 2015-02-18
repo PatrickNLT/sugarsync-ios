@@ -13,7 +13,6 @@
 #import <Foundation/Foundation.h>
 
 
-@class SugarSyncXMLTemplate;
 
 
 /*
