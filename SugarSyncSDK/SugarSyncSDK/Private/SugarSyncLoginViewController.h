@@ -19,12 +19,12 @@
  */
 @interface SugarSyncLoginViewController : UIViewController<UITextFieldDelegate>
 
-@property (nonatomic, assign) IBOutlet UITextField *userNameField;
-@property (nonatomic, assign) IBOutlet UITextField *passwordField;
-@property (nonatomic, assign) IBOutlet UIButton *loginButton;
-@property (nonatomic, assign) IBOutlet UILabel *error;
-@property (nonatomic, assign) SugarSyncClient *client;
-@property (nonatomic, retain) void (^completionHandler)(SugarSyncLoginStatus, NSError*);
+@property (nonatomic, weak) IBOutlet UITextField *userNameField;
+@property (nonatomic, weak) IBOutlet UITextField *passwordField;
+@property (nonatomic, weak) IBOutlet UIButton *loginButton;
+@property (nonatomic, weak) IBOutlet UILabel *error;
+@property (nonatomic, weak) SugarSyncClient *client;
+@property (nonatomic, strong) void (^completionHandler)(SugarSyncLoginStatus, NSError*);
 
 -(IBAction)login:(id)sender;
 -(IBAction)cancel:(id)sender;

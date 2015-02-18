@@ -89,8 +89,8 @@ static NSString *XMLKeyNodeContent = @"nodeContent";
 
 +(void) initialize
 {
-    AppAuthorizationAPI = [[NSURL URLWithString:@"https://api.sugarsync.com/app-authorization"] retain];
-    AuthorizationAPI = [[NSURL URLWithString:@"https://api.sugarsync.com/authorization"] retain];
+    AppAuthorizationAPI = [NSURL URLWithString:@"https://api.sugarsync.com/app-authorization"];
+    AuthorizationAPI = [NSURL URLWithString:@"https://api.sugarsync.com/authorization"];
 
     AccessTokenExpiryFormatter = [[NSDateFormatter alloc] init];
     [AccessTokenExpiryFormatter setDateFormat:@"yyyy-MM-dd'T'HH:mm:ss'.'SSSZZZZ"];
@@ -202,7 +202,7 @@ static NSString *XMLKeyNodeContent = @"nodeContent";
         }
         else
         {
-            refreshToken = [newResource retain];
+            refreshToken = newResource;
             
             [self persistRefreshToken];
             
@@ -221,7 +221,7 @@ static NSString *XMLKeyNodeContent = @"nodeContent";
 }
 
 - (void)logout {
-    [refreshToken release], refreshToken = nil;
+    refreshToken = nil;
     refreshingToken = YES;
     [self deletePersistentRefreshToken];
 }
@@ -277,7 +277,7 @@ static NSString *XMLKeyNodeContent = @"nodeContent";
                 
                 for ( int i=0; i < nodeList.count; i++)
                 {
-                    [collection addObject:[[[SugarSyncCollection alloc] initFromXMLContent:nodeList[i]] autorelease]];
+                    [collection addObject:[[SugarSyncCollection alloc] initFromXMLContent:nodeList[i]]];
                 }
             }
         }
@@ -297,7 +297,7 @@ static NSString *XMLKeyNodeContent = @"nodeContent";
         
         if ( !anError )
         {
-            aWorkspace = [[[SugarSyncWorkspace alloc] initFromXMLContent:xmlResponse[0]] autorelease];
+            aWorkspace = [[SugarSyncWorkspace alloc] initFromXMLContent:xmlResponse[0]];
         }
         
         handler(aWorkspace,anError);
@@ -327,7 +327,7 @@ static NSString *XMLKeyNodeContent = @"nodeContent";
         
         if ( !anError )
         {
-            aFolder = [[[SugarSyncFolder alloc] initFromXMLContent:xmlResponse[0]] autorelease];
+            aFolder = [[SugarSyncFolder alloc] initFromXMLContent:xmlResponse[0]];
         }
         
         handler(aFolder, anError);
@@ -349,12 +349,12 @@ static NSString *XMLKeyNodeContent = @"nodeContent";
             
             for ( int i=0; i < folderList.count; i++)
             {
-                [folderContents addObject:[[[SugarSyncCollection alloc] initFromXMLContent:folderList[i]] autorelease]];
+                [folderContents addObject:[[SugarSyncCollection alloc] initFromXMLContent:folderList[i]]];
             }
             
             for ( int i=0; i < fileList.count; i++)
             {
-                [folderContents addObject:[[[SugarSyncCollectionFile alloc] initFromXMLContent:fileList[i]] autorelease]];
+                [folderContents addObject:[[SugarSyncCollectionFile alloc] initFromXMLContent:fileList[i]]];
                 
             }
         }
@@ -402,7 +402,7 @@ static NSString *XMLKeyNodeContent = @"nodeContent";
         
         if ( !anError )
         {
-            anAlbum = [[[SugarSyncAlbum alloc] initFromXMLContent:xmlResponse[0]] autorelease];
+            anAlbum = [[SugarSyncAlbum alloc] initFromXMLContent:xmlResponse[0]];
         }
         
         handler(anAlbum, anError);
@@ -427,7 +427,7 @@ static NSString *XMLKeyNodeContent = @"nodeContent";
         
         if ( !anError )
         {
-            aFile = [[[SugarSyncFile alloc] initFromXMLContent:xmlResponse[0]] autorelease];
+            aFile = [[SugarSyncFile alloc] initFromXMLContent:xmlResponse[0]];
         }
         
         handler(aFile, anError);
@@ -604,7 +604,7 @@ static NSString *XMLKeyNodeContent = @"nodeContent";
         
         if ( !anError )
         {
-            aFileVersion = [[[SugarSyncFileVersion alloc] initFromXMLContent:xmlResponse[0]] autorelease];
+            aFileVersion = [[SugarSyncFileVersion alloc] initFromXMLContent:xmlResponse[0]];
         }
         
         handler(aFileVersion, anError);
@@ -632,7 +632,7 @@ static NSString *XMLKeyNodeContent = @"nodeContent";
                 
                 for ( int i=0; i < nodeList.count; i++)
                 {
-                    [collection addObject:[[[SugarSyncFileVersion alloc] initFromXMLContent:nodeList[i]] autorelease]];
+                    [collection addObject:[[SugarSyncFileVersion alloc] initFromXMLContent:nodeList[i]]];
                 }
             }
         }
@@ -660,7 +660,7 @@ static NSString *XMLKeyNodeContent = @"nodeContent";
         
         if ( !anError )
         {
-            aShare = [[[SugarSyncReceivedShare alloc] initFromXMLContent:xmlResponse[0]] autorelease];
+            aShare = [[SugarSyncReceivedShare alloc] initFromXMLContent:xmlResponse[0]];
         }
         
         handler(aShare, anError);
@@ -682,7 +682,7 @@ static NSString *XMLKeyNodeContent = @"nodeContent";
                 shares = [NSMutableArray arrayWithCapacity:40];
                 for (int i=0; i < sharesList.count; i++)
                 {
-                    [shares addObject:[[[SugarSyncReceivedShare alloc] initFromXMLContent:sharesList[i]] autorelease]];
+                    [shares addObject:[[SugarSyncReceivedShare alloc] initFromXMLContent:sharesList[i]]];
                 }
                 
             }
@@ -703,7 +703,7 @@ static NSString *XMLKeyNodeContent = @"nodeContent";
         
         if ( !anError )
         {
-            aContact = [[[SugarSyncContact alloc] initFromXMLContent:xmlResponse[0]] autorelease];
+            aContact = [[SugarSyncContact alloc] initFromXMLContent:xmlResponse[0]];
         }
         
         handler(aContact, anError);
@@ -724,21 +724,20 @@ static NSString *XMLKeyNodeContent = @"nodeContent";
         
     KeychainItemWrapper *keyChain = [[KeychainItemWrapper alloc] initWithIdentifier:itemKey accessGroup:nil];
     
-    NSString *persistentToken = [keyChain objectForKey:kSecValueData];
+    NSString *persistentToken = [keyChain objectForKey:(__bridge id)(kSecValueData)];
     
     if (persistentToken && persistentToken.length)
     {
 #ifdef DEBUG_SUGARSYNC_CLIENT
         [C9Log format:@"setting refresh token %@ from persistence", persistentToken];
 #endif
-        refreshToken = [[NSURL URLWithString:persistentToken] retain];
+        refreshToken = [NSURL URLWithString:persistentToken];
     }
     else
     {
         refreshToken = nil;
     }
     
-    [keyChain release];
     
 }
 
@@ -749,10 +748,9 @@ static NSString *XMLKeyNodeContent = @"nodeContent";
     
     KeychainItemWrapper *keyChain = [[KeychainItemWrapper alloc] initWithIdentifier:itemKey accessGroup:nil];
     
-    [keyChain setObject:account forKey:kSecAttrAccount];
-    [keyChain setObject:refreshToken.description forKey:kSecValueData];
+    [keyChain setObject:account forKey:(__bridge id)(kSecAttrAccount)];
+    [keyChain setObject:refreshToken.description forKey:(__bridge id)(kSecValueData)];
 
-    [keyChain release];
 }
 
 -(void) deletePersistentRefreshToken {
@@ -760,9 +758,8 @@ static NSString *XMLKeyNodeContent = @"nodeContent";
 
     KeychainItemWrapper *keyChain = [[KeychainItemWrapper alloc] initWithIdentifier:itemKey accessGroup:nil];
 
-    [keyChain setObject:@"" forKey:kSecValueData];
+    [keyChain setObject:@"" forKey:(__bridge id)(kSecValueData)];
 
-    [keyChain release];
 }
 
 #pragma mark Access Token
@@ -831,12 +828,8 @@ static NSString *XMLKeyNodeContent = @"nodeContent";
              return;
          }
          
-         if ( accessToken )
-         {
-             [accessToken release];
-         }
          
-         accessToken = [newResource retain];
+         accessToken = newResource;
          
          refreshingToken = NO;
          
@@ -849,7 +842,7 @@ static NSString *XMLKeyNodeContent = @"nodeContent";
 
          if ( !userResource )
          {
-             userResource = [[NSURL URLWithString:auth[@"user"]] retain];
+             userResource = [NSURL URLWithString:auth[@"user"]];
          }
          
          handler(nil);
@@ -1154,7 +1147,7 @@ static NSString *XMLKeyNodeContent = @"nodeContent";
 
 -(SSHttpFetcher *) fetcher:(NSURL *)aURL
 {
-    SSHttpFetcher *http = [[[SSHttpFetcher alloc] initWithURL:aURL] autorelease];
+    SSHttpFetcher *http = [[SSHttpFetcher alloc] initWithURL:aURL];
     
     [http setHeaderValue:accessToken.description forKey:HeaderKeyAuthorization];
     if (applicationUserAgent) {
@@ -1167,7 +1160,7 @@ static NSString *XMLKeyNodeContent = @"nodeContent";
 
 -(SSHttpFetcher *) fetcherForPost:(NSURL *)aURL
 {
-    SSHttpFetcher *http = [[[SSHttpFetcher alloc] initWithURL:aURL] autorelease];
+    SSHttpFetcher *http = [[SSHttpFetcher alloc] initWithURL:aURL];
     
     if ( accessToken )
     {

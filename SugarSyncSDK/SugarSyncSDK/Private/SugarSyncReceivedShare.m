@@ -20,9 +20,9 @@
     self = [super init];
     
     NSDictionary *obj = [SSXMLLibUtil dictionaryFromNodeArray:xmlData];
-    _displayName = [obj[@"displayName"] retain];
-    _timeReceived = [obj[@"timeReceived"] retain];
-    _sharedFolder = [[NSURL URLWithString:obj[@"sharedFolder"]] retain];
+    _displayName = obj[@"displayName"];
+    _timeReceived = obj[@"timeReceived"];
+    _sharedFolder = [NSURL URLWithString:obj[@"sharedFolder"]];
     
     NSDictionary *permissions = obj[@"permissions"];
 
@@ -32,7 +32,7 @@
     NSDictionary *writeAttrs = permissions[@"writeAllowed$attributes"];
     _permissionWrite = [writeAttrs[@"enabled"] isEqualToString:@"true"] ? YES : NO;
 
-    _owner = [[NSURL URLWithString:obj[@"owner"]] retain];
+    _owner = [NSURL URLWithString:obj[@"owner"]];
     
     return self;
 }
@@ -42,22 +42,5 @@
     return [NSString stringWithFormat:@"SugarSyncReceivedShare\n==============\ndisplayName  :%@\ntimeReceived :%@\nsharedFolder :%@\ncanRead      :%@\ncanWrite     :%@\nowner        :%@\n==============", _displayName, _timeReceived, _sharedFolder, _permissionRead ? @"YES" :@"NO", _permissionWrite ? @"YES" : @"NO",  _owner];
 }
 
--(void) dealloc
-{
-    [_displayName release];
-    _displayName = nil;
-    
-    [_timeReceived release];
-    _timeReceived = nil;
-    
-    [_sharedFolder release];
-    _sharedFolder = nil;
-    
-    [_owner release];
-    _owner = nil;
-    
-    [super dealloc];
-    
-}
 @end
 

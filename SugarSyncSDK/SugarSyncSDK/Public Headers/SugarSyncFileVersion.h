@@ -18,11 +18,11 @@
 @interface SugarSyncFileVersion : NSObject
 
 
-@property (nonatomic, retain, readonly) NSString *mediaType;
-@property (nonatomic, retain, readonly) NSURL *ref;
+@property (nonatomic, strong, readonly) NSString *mediaType;
+@property (nonatomic, strong, readonly) NSURL *ref;
 @property (nonatomic, assign, readonly) long size;
-@property (nonatomic, retain, readonly) NSString *lastModified;
-@property (nonatomic, retain, readonly) NSURL *fileData;
+@property (nonatomic, strong, readonly) NSString *lastModified;
+@property (nonatomic, strong, readonly) NSURL *fileData;
 @property (nonatomic, assign, readonly) BOOL presentOnServer;
 
 

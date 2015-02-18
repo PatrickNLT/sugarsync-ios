@@ -17,14 +17,14 @@
  */
 @interface SugarSyncWorkspace : NSObject
 
-@property (nonatomic, retain) NSString *displayName;
-@property (nonatomic, retain, readonly) NSString *dsid;
-@property (nonatomic, retain, readonly) NSString *timeCreated;
-@property (nonatomic, retain, readonly) NSURL *collections;
-@property (nonatomic, retain, readonly) NSURL *files;
-@property (nonatomic, retain, readonly) NSURL *contents;
+@property (nonatomic, strong) NSString *displayName;
+@property (nonatomic, strong, readonly) NSString *dsid;
+@property (nonatomic, strong, readonly) NSString *timeCreated;
+@property (nonatomic, strong, readonly) NSURL *collections;
+@property (nonatomic, strong, readonly) NSURL *files;
+@property (nonatomic, strong, readonly) NSURL *contents;
 @property (nonatomic, assign, readonly) int iconId;
-@property (nonatomic, readonly) NSDictionary *XMLParameters;
+@property (weak, nonatomic, readonly) NSDictionary *XMLParameters;
 
 -(instancetype) initFromXMLContent:(NSDictionary *)xmlData NS_DESIGNATED_INITIALIZER;
 @property (NS_NONATOMIC_IOSONLY, readonly, copy) NSURL *resourceURL;

@@ -20,7 +20,7 @@
 {
     NSMutableDictionary *errorDetail = [NSMutableDictionary dictionary];
     [errorDetail setValue:aDescription forKey:NSLocalizedDescriptionKey];
-    return [[[NSError alloc] initWithDomain:aDomain code:aCode userInfo:errorDetail] autorelease];
+    return [[NSError alloc] initWithDomain:aDomain code:aCode userInfo:errorDetail];
     
 }
 
@@ -29,7 +29,7 @@
     NSMutableDictionary *errorDetail = [NSMutableDictionary dictionary];
     [errorDetail setValue:aDescription forKey:NSLocalizedDescriptionKey];
     [errorDetail setValue:aReason forKey:NSLocalizedFailureReasonErrorKey];
-    return [[[NSError alloc] initWithDomain:aDomain code:aCode userInfo:errorDetail] autorelease];
+    return [[NSError alloc] initWithDomain:aDomain code:aCode userInfo:errorDetail];
     
 }
 @end

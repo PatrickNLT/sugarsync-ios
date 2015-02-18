@@ -22,10 +22,10 @@
     
     NSDictionary *obj = [SSXMLLibUtil dictionaryFromNodeArray:xmlData];
     
-    _displayName = [obj[@"displayName"] retain];
-    _dsid = [obj[@"dsid"] retain];
-    _contents = [[NSURL URLWithString:obj[@"contents"]] retain];
-    _files = [[NSURL URLWithString:obj[@"files"]] retain];
+    _displayName = obj[@"displayName"];
+    _dsid = obj[@"dsid"];
+    _contents = [NSURL URLWithString:obj[@"contents"]];
+    _files = [NSURL URLWithString:obj[@"files"]];
     
     return self;
 }
@@ -36,21 +36,5 @@
 }
 
 #pragma mark Deallocation
--(void) dealloc
-{
-    [_displayName release];
-    _displayName = nil;
-    
-    [_dsid release];
-    _dsid = nil;
-    
-    [_contents release];
-    _contents = nil;
-    
-    [_files release];
-    _files = nil;
-    
-    [super dealloc];
-}
 
 @end

@@ -19,20 +19,20 @@
  */
 @interface SugarSyncFile : NSObject
 
-@property (nonatomic, retain) NSString *displayName;
-@property (nonatomic, retain) NSURL *parent;
-@property (nonatomic, retain) NSString *mediaType;
+@property (nonatomic, strong) NSString *displayName;
+@property (nonatomic, strong) NSURL *parent;
+@property (nonatomic, strong) NSString *mediaType;
 @property (nonatomic, assign) BOOL publicLinkEnabled;
 
 //readonly properties
-@property (nonatomic, retain, readonly) NSString *dsid;
+@property (nonatomic, strong, readonly) NSString *dsid;
 @property (nonatomic, assign, readonly) long size;
-@property (nonatomic, retain, readonly) NSString *lastModified;
-@property (nonatomic, retain, readonly) NSString *timeCreated;
-@property (nonatomic, retain, readonly) NSURL *fileData;
-@property (nonatomic, retain, readonly) NSURL *versions;
-@property (nonatomic, retain, readonly) NSURL *publicLink;
-@property (nonatomic, retain, readonly) SugarSyncFileImage *image;
+@property (nonatomic, strong, readonly) NSString *lastModified;
+@property (nonatomic, strong, readonly) NSString *timeCreated;
+@property (nonatomic, strong, readonly) NSURL *fileData;
+@property (nonatomic, strong, readonly) NSURL *versions;
+@property (nonatomic, strong, readonly) NSURL *publicLink;
+@property (nonatomic, strong, readonly) SugarSyncFileImage *image;
 @property (nonatomic, assign, readonly) BOOL presentOnServer;
 
 -(instancetype) initFromXMLContent:(NSDictionary *)xmlData NS_DESIGNATED_INITIALIZER;

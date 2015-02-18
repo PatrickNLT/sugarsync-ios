@@ -25,9 +25,9 @@ typedef NS_ENUM(NSInteger, SugarSyncCollectionType) {
  */
 @interface SugarSyncCollection : NSObject
 
-@property (nonatomic, retain, readonly) NSString *displayName;
-@property (nonatomic, retain, readonly) NSURL *ref;
-@property (nonatomic, retain, readonly) NSURL *contents;
+@property (nonatomic, strong, readonly) NSString *displayName;
+@property (nonatomic, strong, readonly) NSURL *ref;
+@property (nonatomic, strong, readonly) NSURL *contents;
 @property (nonatomic, assign, readonly) int iconId;
 @property (nonatomic, assign, readonly) SugarSyncCollectionType type;
 
@@ -41,12 +41,12 @@ typedef NS_ENUM(NSInteger, SugarSyncCollectionType) {
  */
 @interface SugarSyncCollectionFile : NSObject
 
-@property (nonatomic, retain, readonly) NSString *displayName;
-@property (nonatomic, retain, readonly) NSString *mediaType;
-@property (nonatomic, retain, readonly) NSURL *ref;
+@property (nonatomic, strong, readonly) NSString *displayName;
+@property (nonatomic, strong, readonly) NSString *mediaType;
+@property (nonatomic, strong, readonly) NSURL *ref;
 @property (nonatomic, assign, readonly) long size;
-@property (nonatomic, retain, readonly) NSString *lastModified;
-@property (nonatomic, retain, readonly) NSURL *fileData;
+@property (nonatomic, strong, readonly) NSString *lastModified;
+@property (nonatomic, strong, readonly) NSURL *fileData;
 @property (nonatomic, assign, readonly) BOOL presentOnServer;
 
 -(instancetype) initFromXMLContent:(NSDictionary *)xmlData NS_DESIGNATED_INITIALIZER;

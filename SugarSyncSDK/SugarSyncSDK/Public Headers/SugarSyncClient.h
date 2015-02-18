@@ -62,7 +62,7 @@ typedef NS_ENUM(NSInteger, SugarSyncLoginStatus) {
 /*
  * The single SugarSyncUser instance returned from the authentication process
  */
-@property (nonatomic, retain, readonly) SugarSyncUser *sugarSyncUser;
+@property (nonatomic, strong, readonly) SugarSyncUser *sugarSyncUser;
 
 /*
  * Check this property to determine whether to prompt the user to login to their SugarSync account

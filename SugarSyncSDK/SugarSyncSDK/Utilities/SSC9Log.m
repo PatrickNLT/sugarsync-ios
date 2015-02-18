@@ -93,7 +93,6 @@
     NSLog(@"%@ - %@", methodThatDidLogging, aMessage);
     
     //START SA CHANGE
-    [aMessage release];
     //END SA CHANGE
     
     

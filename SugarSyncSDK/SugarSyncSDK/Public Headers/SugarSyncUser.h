@@ -28,20 +28,20 @@
 @interface SugarSyncUser : NSObject
 
 
-@property (nonatomic, retain, readonly) NSString *username;
-@property (nonatomic, retain, readonly) NSString *nickname;
-@property (nonatomic, retain, readonly) NSURL *workspaces;
-@property (nonatomic, retain, readonly) NSURL *syncfolders;
-@property (nonatomic, retain, readonly) NSURL *deleted;
-@property (nonatomic, retain, readonly) NSURL *magicBriefcase;
-@property (nonatomic, retain, readonly) NSURL *webArchive;
-@property (nonatomic, retain, readonly) NSURL *mobilePhotos;
-@property (nonatomic, retain, readonly) NSURL *receivedShares;
-@property (nonatomic, retain, readonly) NSURL *contacts;
-@property (nonatomic, retain, readonly) NSURL *albums;
-@property (nonatomic, retain, readonly) NSURL *recentActivities;
-@property (nonatomic, retain, readonly) NSURL *publicLinks;
-@property (nonatomic, retain, readonly) SugarSyncUserQuota *quota;
+@property (nonatomic, strong, readonly) NSString *username;
+@property (nonatomic, strong, readonly) NSString *nickname;
+@property (nonatomic, strong, readonly) NSURL *workspaces;
+@property (nonatomic, strong, readonly) NSURL *syncfolders;
+@property (nonatomic, strong, readonly) NSURL *deleted;
+@property (nonatomic, strong, readonly) NSURL *magicBriefcase;
+@property (nonatomic, strong, readonly) NSURL *webArchive;
+@property (nonatomic, strong, readonly) NSURL *mobilePhotos;
+@property (nonatomic, strong, readonly) NSURL *receivedShares;
+@property (nonatomic, strong, readonly) NSURL *contacts;
+@property (nonatomic, strong, readonly) NSURL *albums;
+@property (nonatomic, strong, readonly) NSURL *recentActivities;
+@property (nonatomic, strong, readonly) NSURL *publicLinks;
+@property (nonatomic, strong, readonly) SugarSyncUserQuota *quota;
 @property (nonatomic, assign, readonly) long maximumPublicLinkSize;
 
 -(instancetype) initFromXMLContent:(NSDictionary *)xmlData NS_DESIGNATED_INITIALIZER;

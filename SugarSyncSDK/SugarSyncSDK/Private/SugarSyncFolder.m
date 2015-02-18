@@ -20,7 +20,7 @@ static NSURL *FolderAPI;
 
 +(void) initialize
 {
-    FolderAPI = [[NSURL URLWithString:@"https://api.sugarsync.com/folder/"] retain];
+    FolderAPI = [NSURL URLWithString:@"https://api.sugarsync.com/folder/"];
 }
 
 -(instancetype) initFromXMLContent:(NSDictionary *)xmlData
@@ -29,13 +29,13 @@ static NSURL *FolderAPI;
 
     NSDictionary *obj = [SSXMLLibUtil dictionaryFromNodeArray:xmlData];
     
-    _displayName = [obj[@"displayName"] retain];
-    _dsid = [obj[@"dsid"] retain];
-    _parent = [[NSURL URLWithString:obj[@"parent"]] retain];
-    _timeCreated = [obj[@"timeCreated"] retain];
-    _collections  = [[NSURL URLWithString:obj[@"collections"]] retain];
-    _contents = [[NSURL URLWithString:obj[@"contents"]] retain];
-    _files = [[NSURL URLWithString:obj[@"files"]] retain];
+    _displayName = obj[@"displayName"];
+    _dsid = obj[@"dsid"];
+    _parent = [NSURL URLWithString:obj[@"parent"]];
+    _timeCreated = obj[@"timeCreated"];
+    _collections  = [NSURL URLWithString:obj[@"collections"]];
+    _contents = [NSURL URLWithString:obj[@"contents"]];
+    _files = [NSURL URLWithString:obj[@"files"]];
 
     NSDictionary *sharingAttributes = obj[@"sharing$attributes"];
     
@@ -68,30 +68,5 @@ static NSURL *FolderAPI;
     return [NSString stringWithFormat:@"SugarSyncFolder\n==============\ndisplayName :%@\ndsid        :%@\ntimeCreated :%@\ncollections :%@\nfiles       :%@\ncontents    :%@\nsharing     :%@\n==============", _displayName, _dsid, _timeCreated, _collections, _files, _contents, _sharingEnabled ? @"true" :@"false"];
 }
 
--(void) dealloc
-{
-    [_displayName release];
-    _displayName = nil;
-    
-    [_parent release];
-    _parent = nil;
-    
-    [_dsid release];
-    _dsid = nil;
-    
-    [_timeCreated release];
-    _timeCreated = nil;
-    
-    [_collections release];
-    _collections = nil;
-    
-    [_files release];
-    _files = nil;
-    
-    [_contents release];
-    _contents = nil;
-
-    [super dealloc];
-}
 
 @end

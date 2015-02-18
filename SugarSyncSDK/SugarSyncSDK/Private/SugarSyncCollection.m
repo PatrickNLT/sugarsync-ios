@@ -77,9 +77,9 @@
     NSString *aType = attrs[@"type"];
         
     _type = [SugarSyncCollection collectionTypeForString:aType];
-    _displayName = [obj[@"displayName"] retain];
-    _ref = [[NSURL URLWithString:obj[@"ref"]] retain];
-    _contents = [[NSURL URLWithString:obj[@"contents"]] retain];
+    _displayName = obj[@"displayName"];
+    _ref = [NSURL URLWithString:obj[@"ref"]];
+    _contents = [NSURL URLWithString:obj[@"contents"]];
     
     if ( _type == SugarSyncCollectionWorkspace )
     {
@@ -88,7 +88,6 @@
 
         _iconId = [[numberFormat numberFromString:obj[@"iconId"]] intValue];
         
-        [numberFormat release];
     }
     else
     {
@@ -115,19 +114,6 @@
 
 
 #pragma mark Deallocation
--(void) dealloc
-{
-    [_displayName release];
-    _displayName = nil;
-    
-    [_ref release];
-    _ref = nil;
-    
-    [_contents release];
-    _contents = nil;
-    
-    [super dealloc];
-}
 @end
 
 
@@ -142,15 +128,14 @@
     [numberFormat setNumberStyle:NSNumberFormatterDecimalStyle];
     
     NSDictionary *obj = [SSXMLLibUtil dictionaryFromNodeArray:xmlData];
-    _displayName = [obj[@"displayName"] retain];
-    _ref = [[NSURL URLWithString:obj[@"ref"]] retain];
-    _lastModified = [obj[@"lastModified"] retain];
+    _displayName = obj[@"displayName"];
+    _ref = [NSURL URLWithString:obj[@"ref"]];
+    _lastModified = obj[@"lastModified"];
     _size  = [[numberFormat numberFromString:obj[@"size"]] longValue]; 
-    _mediaType = [obj[@"mediaType"] retain];
-    _fileData = [[NSURL URLWithString:obj[@"fileData"]] retain];
+    _mediaType = obj[@"mediaType"];
+    _fileData = [NSURL URLWithString:obj[@"fileData"]];
     _presentOnServer = [obj[@"presentOnServer"] isEqualToString:@"true"] ? YES :NO;
     
-    [numberFormat release];
     
     return self;
 }
@@ -162,24 +147,5 @@
 
 #pragma mark Deallocation
 
--(void) dealloc
-{
-    [_displayName release];
-    _displayName = nil;
-    
-    [_ref release];
-    _ref = nil;
-    
-    [_lastModified release];
-    _lastModified = nil;
-    
-    [_mediaType release];
-    _mediaType = nil;
-    
-    [_fileData release];
-    _fileData = nil;
-    
-    [super dealloc];
-}
 
 @end

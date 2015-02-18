@@ -25,20 +25,19 @@
     [numberFormat setNumberStyle:NSNumberFormatterDecimalStyle];
     
     NSDictionary *obj = [SSXMLLibUtil dictionaryFromNodeArray:xmlData];
-    _ref = [[NSURL URLWithString:obj[@"ref"]] retain];
-    _lastModified = [obj[@"lastModified"] retain];
+    _ref = [NSURL URLWithString:obj[@"ref"]];
+    _lastModified = obj[@"lastModified"];
     _size  = [[numberFormat numberFromString:obj[@"size"]] longValue]; 
-    _mediaType = [obj[@"mediaType"] retain];
-    _fileData = [[NSURL URLWithString:obj[@"fileData"]] retain];
+    _mediaType = obj[@"mediaType"];
+    _fileData = [NSURL URLWithString:obj[@"fileData"]];
     _presentOnServer = [obj[@"presentOnServer"] isEqualToString:@"true"] ? YES :NO;
     
     //for some reason ref is coming back null on calls to get file version - fixing this up
     if ( !_ref && _fileData )
     {
-        _ref = [[_fileData URLByDeletingLastPathComponent] retain];
+        _ref = [_fileData URLByDeletingLastPathComponent];
     }
     
-    [numberFormat release];
 
     return self;
 }
@@ -50,23 +49,5 @@
 }
 
 #pragma mark Deallocation
--(void) dealloc
-{
-    [_ref release];
-    _ref = nil;
-    
-    [_mediaType release];
-    _mediaType = nil;
-    
-    [_lastModified release];
-    _lastModified = nil;
-    
-    [_fileData release];
-    _fileData = nil;
-
-    [super dealloc];
-    
-
-}
 
 @end

@@ -81,11 +81,6 @@ static int const PASSWORD_MAX = 20;
 
 #pragma mark Deallocation
 
--(void) dealloc
-{
-    self.completionHandler = nil;
-    [super dealloc];
-}
 
 
 

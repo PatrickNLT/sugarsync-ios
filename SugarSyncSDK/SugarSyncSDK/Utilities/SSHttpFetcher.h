@@ -18,10 +18,10 @@
  */
 @interface SSHttpFetcher : NSObject 
 
-@property (nonatomic, readonly, retain) NSURL *URL;
-@property (nonatomic, readonly, retain) NSData *data;
-@property (nonatomic, readonly, retain) NSError *error;
-@property (nonatomic, readonly, retain) NSHTTPURLResponse *response;
+@property (nonatomic, readonly, strong) NSURL *URL;
+@property (nonatomic, readonly, strong) NSData *data;
+@property (nonatomic, readonly, strong) NSError *error;
+@property (nonatomic, readonly, strong) NSHTTPURLResponse *response;
 
 +(NSString *) resultToString:(NSData *)theData;
 

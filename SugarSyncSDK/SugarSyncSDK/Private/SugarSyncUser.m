@@ -27,19 +27,19 @@
     
     NSDictionary *obj = [SSXMLLibUtil dictionaryFromNodeArray:xmlData];
     
-    _username = [obj[@"username"] retain];
-    _nickname = [obj[@"nickname"] retain];
-    _workspaces = [[NSURL URLWithString:obj[@"workspaces"]] retain];
-    _syncfolders = [[NSURL URLWithString:obj[@"syncfolders"]] retain];
-    _deleted = [[NSURL URLWithString:obj[@"deleted"]] retain];
-    _magicBriefcase = [[NSURL URLWithString:obj[@"magicBriefcase"]] retain];
-    _webArchive = [[NSURL URLWithString:obj[@"webArchive"]] retain];
-    _mobilePhotos = [[NSURL URLWithString:obj[@"mobilePhotos"]] retain];
-    _albums = [[NSURL URLWithString:obj[@"albums"]] retain];
-    _receivedShares = [[NSURL URLWithString:obj[@"receivedShares"]] retain];
-    _publicLinks = [[NSURL URLWithString:obj[@"publicLinks"]] retain];
-    _recentActivities = [[NSURL URLWithString:obj[@"recentActivities"]] retain];
-    _contacts = [[NSURL URLWithString:obj[@"contacts"]] retain];
+    _username = obj[@"username"];
+    _nickname = obj[@"nickname"];
+    _workspaces = [NSURL URLWithString:obj[@"workspaces"]];
+    _syncfolders = [NSURL URLWithString:obj[@"syncfolders"]];
+    _deleted = [NSURL URLWithString:obj[@"deleted"]];
+    _magicBriefcase = [NSURL URLWithString:obj[@"magicBriefcase"]];
+    _webArchive = [NSURL URLWithString:obj[@"webArchive"]];
+    _mobilePhotos = [NSURL URLWithString:obj[@"mobilePhotos"]];
+    _albums = [NSURL URLWithString:obj[@"albums"]];
+    _receivedShares = [NSURL URLWithString:obj[@"receivedShares"]];
+    _publicLinks = [NSURL URLWithString:obj[@"publicLinks"]];
+    _recentActivities = [NSURL URLWithString:obj[@"recentActivities"]];
+    _contacts = [NSURL URLWithString:obj[@"contacts"]];
     _maximumPublicLinkSize = [[numberFormat numberFromString:obj[@"maximumPublicLinkSize"]] longValue];
     
     NSDictionary *quota = obj[@"quota"];
@@ -49,10 +49,9 @@
         long limit = [[numberFormat numberFromString:quota[@"limit"]] longValue];
         long usage = [[numberFormat numberFromString:quota[@"usage"]] longValue];
         
-        _quota = [[[SugarSyncUserQuota alloc] initWithLimit:limit usage:usage] retain];
+        _quota = [[SugarSyncUserQuota alloc] initWithLimit:limit usage:usage];
     }
        
-    [numberFormat release];
 
     return self;
     
@@ -67,53 +66,6 @@
 
 #pragma mark Deallocation
 
--(void) dealloc
-{
-    [_username release];
-    _username = nil;
-    
-    [_nickname release];
-    _nickname = nil;
-    
-    [_workspaces release];
-    _workspaces = nil;
-    
-    [_syncfolders release];
-    _syncfolders = nil;
-    
-    [_deleted release];
-    _deleted = nil;
-    
-    [_magicBriefcase release];
-    _magicBriefcase = nil;
-    
-    [_webArchive release];
-    _webArchive = nil;
-    
-    [_mobilePhotos release];
-    _mobilePhotos = nil;
-    
-    [_receivedShares release];
-    _receivedShares = nil;
-    
-    [_contacts release];
-    _contacts = nil;
-    
-    [_albums release];
-    _albums = nil;
-    
-    [_recentActivities release];
-    _recentActivities = nil;
-    
-    [_publicLinks release];
-    _publicLinks = nil;
-    
-    [_quota release];
-    _quota = nil;
-
-    [super dealloc];
-
-}
 
 @end
 

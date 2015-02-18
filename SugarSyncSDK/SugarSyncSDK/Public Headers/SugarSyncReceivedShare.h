@@ -17,12 +17,12 @@
  */
 @interface SugarSyncReceivedShare : NSObject
 
-@property (nonatomic, retain) NSString *displayName;
-@property (nonatomic, retain, readonly) NSString *timeReceived;
-@property (nonatomic, retain, readonly) NSURL *sharedFolder;
+@property (nonatomic, strong) NSString *displayName;
+@property (nonatomic, strong, readonly) NSString *timeReceived;
+@property (nonatomic, strong, readonly) NSURL *sharedFolder;
 @property (nonatomic, assign, readonly) BOOL permissionRead;
 @property (nonatomic, assign, readonly) BOOL permissionWrite;
-@property (nonatomic, retain, readonly) NSURL *owner;
+@property (nonatomic, strong, readonly) NSURL *owner;
 
 
 -(instancetype) initFromXMLContent:(NSDictionary *)xmlData NS_DESIGNATED_INITIALIZER;

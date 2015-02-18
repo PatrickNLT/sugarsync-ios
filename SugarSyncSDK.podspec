@@ -17,7 +17,7 @@ Pod::Spec.new do |s|
   s.source           = { :git => "https://github.com/PatrickNLT/sugarsync-ios.git" }
 
   s.platform     = :ios, '7.0'
-  s.requires_arc = false
+  s.requires_arc = true
   s.library = 'xml2'
   s.xcconfig = { 'HEADER_SEARCH_PATHS' => '$(SDKROOT)/usr/include/libxml2' }
 

@@ -23,9 +23,9 @@
     self = [super init];
     
     NSDictionary *obj = [SSXMLLibUtil dictionaryFromNodeArray:xmlData];
-    _primaryEmailAddress = [obj[@"primaryEmailAddress"] retain];
-    _firstName = [obj[@"firstName"] retain];
-    _lastName = [obj[@"lastName"] retain];
+    _primaryEmailAddress = obj[@"primaryEmailAddress"];
+    _firstName = obj[@"firstName"];
+    _lastName = obj[@"lastName"];
     
     return self;
 }
@@ -37,17 +37,4 @@
 
 
 #pragma mark Deallocation
--(void) dealloc
-{
-    [_primaryEmailAddress release];
-    _primaryEmailAddress = nil;
-    
-    [_lastName release];
-    _lastName = nil;
-    
-    [_firstName release];
-    _firstName = nil;
-    
-    [super dealloc];
-}
 @end

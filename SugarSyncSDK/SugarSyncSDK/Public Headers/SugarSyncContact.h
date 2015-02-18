@@ -17,9 +17,9 @@
  */
 @interface SugarSyncContact : NSObject
 
-@property (nonatomic, retain, readonly) NSString *primaryEmailAddress;
-@property (nonatomic, retain, readonly) NSString *firstName;
-@property (nonatomic, retain, readonly) NSString *lastName;
+@property (nonatomic, strong, readonly) NSString *primaryEmailAddress;
+@property (nonatomic, strong, readonly) NSString *firstName;
+@property (nonatomic, strong, readonly) NSString *lastName;
 
 -(instancetype) initFromXMLContent:(NSDictionary *)xmlData NS_DESIGNATED_INITIALIZER;
 

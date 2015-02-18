@@ -21,7 +21,7 @@ static NSURL *FileAPI;
 #pragma mark Class Methods
 +(void) initialize
 {
-    FileAPI = [[NSURL URLWithString:@"https://api.sugarsync.com/file/"] retain];
+    FileAPI = [NSURL URLWithString:@"https://api.sugarsync.com/file/"];
 }
 
 
@@ -34,21 +34,21 @@ static NSURL *FileAPI;
     [numberFormat setNumberStyle:NSNumberFormatterDecimalStyle];
     
     NSDictionary *obj = [SSXMLLibUtil dictionaryFromNodeArray:xmlData];
-    _displayName = [obj[@"displayName"] retain];
-    _dsid = [obj[@"dsid"] retain];
-    _lastModified = [obj[@"lastModified"] retain];
-    _timeCreated = [obj[@"timeCreated"] retain];
+    _displayName = obj[@"displayName"];
+    _dsid = obj[@"dsid"];
+    _lastModified = obj[@"lastModified"];
+    _timeCreated = obj[@"timeCreated"];
     _size  = [[numberFormat numberFromString:obj[@"size"]] longValue]; 
-    _mediaType = [obj[@"mediaType"] retain];
-    _fileData = [[NSURL URLWithString:obj[@"fileData"]] retain];
+    _mediaType = obj[@"mediaType"];
+    _fileData = [NSURL URLWithString:obj[@"fileData"]];
     _presentOnServer = [obj[@"presentOnServer"] isEqualToString:@"true"] ? YES :NO;
-    _versions = [[NSURL URLWithString:obj[@"versions"]] retain];
-    _parent = [[NSURL URLWithString:obj[@"parent"]] retain];
+    _versions = [NSURL URLWithString:obj[@"versions"]];
+    _parent = [NSURL URLWithString:obj[@"parent"]];
     
     NSDictionary *attrs = obj[@"publicLink$attributes"];
     _publicLinkEnabled = [attrs[@"enabled"] isEqualToString:@"true"] ? YES :NO;
     
-    _publicLink = [[NSURL URLWithString:obj[@"publicLink"]] retain];
+    _publicLink = [NSURL URLWithString:obj[@"publicLink"]];
 
     NSDictionary *image = obj[@"image"];
     
@@ -58,10 +58,9 @@ static NSURL *FileAPI;
         int width = [[numberFormat numberFromString:image[@"width"]] intValue];
         int rotation = [[numberFormat numberFromString:image[@"rotation"]] intValue];
         
-        _image = [[[SugarSyncFileImage alloc] initWithHeight:height width:width rotation:rotation] retain];
+        _image = [[SugarSyncFileImage alloc] initWithHeight:height width:width rotation:rotation];
     }
     
-    [numberFormat release];
     
     return self;
 }
@@ -103,37 +102,6 @@ static NSURL *FileAPI;
 
 #pragma mark Deallocation
 
--(void) dealloc
-{
-    [_displayName  release];
-    _displayName = nil;
-    
-    [_dsid release];
-    _dsid = nil;
-    
-    [_lastModified release];
-    _lastModified = nil;
-    
-    [_timeCreated release];
-    _timeCreated = nil;
-    
-    [_mediaType release];
-    _mediaType = nil;
-    
-    [_fileData release];
-    _fileData = nil;
-    
-    [_versions release];
-    _versions = nil;
-    
-    [_parent release];
-    _parent = nil;
-   
-    [_image release];
-    _image = nil;
-    
-    [super dealloc];
-}
 @end
 
 #pragma mark SugarSyncFileImage Utility Class

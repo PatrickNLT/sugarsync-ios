@@ -25,7 +25,7 @@
 
 +(NSString *) resultToString:(NSData *)theData
 {
-    return [[[NSString alloc] initWithData:theData encoding:NSUTF8StringEncoding] autorelease];
+    return [[NSString alloc] initWithData:theData encoding:NSUTF8StringEncoding];
 }
 
 
@@ -37,7 +37,7 @@
     [C9Log log:aURL];
 #endif
     self = [super init];
-    _URL = [aURL retain];
+    _URL = aURL;
     isHTTPS = [aURL.path characterAtIndex:4] == 's';
     
     return self;
@@ -66,7 +66,7 @@
     
     if ( aCompletionHandler )
     {
-        completionHandler = [Block_copy(aCompletionHandler) retain];
+        completionHandler = [aCompletionHandler copy];
     }
     
     _data = [NSMutableData new];
@@ -85,7 +85,7 @@
     
     if ( !userHeaders )
     {
-        userHeaders = [[NSMutableDictionary dictionaryWithCapacity:10] retain];
+        userHeaders = [NSMutableDictionary dictionaryWithCapacity:10];
     }
     
     userHeaders[aKey] = aValue;
@@ -213,8 +213,7 @@
 #ifdef DEBUG_HTTP_FETCHER
     [C9Log enter];
 #endif
-    _error = [anError retain];
-    [_data release];
+    _error = anError;
     _data = nil;
     
     if ( completionHandler )
@@ -229,7 +228,7 @@
     [C9Log enter];
 #endif
     [((NSMutableData*)_data) setLength:0];
-    _response = (NSHTTPURLResponse *)[aResponse retain];
+    _response = (NSHTTPURLResponse *)aResponse;
     
 }
 
@@ -248,18 +247,8 @@
 
 -(void) dealloc
 {
-    [_URL release];
-    _URL = nil;
-    [_error release];
-    _error = nil;
-    [_data release];
-    _data = nil;
-    [_response release];
-    _response = nil;
     
-    [completionHandler release];
     completionHandler = nil;
-    [super dealloc];
 
 }
 @end

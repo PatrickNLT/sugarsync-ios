@@ -17,10 +17,10 @@
  */
 @interface SugarSyncAlbum : NSObject
 
-@property (nonatomic, retain) NSString *displayName;
-@property (nonatomic, retain, readonly) NSString *dsid;
-@property (nonatomic, retain, readonly) NSURL *files;
-@property (nonatomic, retain, readonly) NSURL *contents;
+@property (nonatomic, strong) NSString *displayName;
+@property (nonatomic, strong, readonly) NSString *dsid;
+@property (nonatomic, strong, readonly) NSURL *files;
+@property (nonatomic, strong, readonly) NSURL *contents;
 
 -(instancetype) initFromXMLContent:(NSDictionary *)xmlData NS_DESIGNATED_INITIALIZER;
 
