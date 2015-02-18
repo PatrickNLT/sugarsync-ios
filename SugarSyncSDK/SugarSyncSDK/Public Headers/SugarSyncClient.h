@@ -25,11 +25,11 @@
 /*
  * Possible Login Statuses
  */
-typedef enum {
+typedef NS_ENUM(NSInteger, SugarSyncLoginStatus) {
     SugarSyncLoginCancelled=0,
     SugarSyncLoginError,
     SugarSyncLoginSuccess
-} SugarSyncLoginStatus;
+} ;
 
 
 /*

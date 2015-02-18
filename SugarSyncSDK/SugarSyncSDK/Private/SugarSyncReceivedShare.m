@@ -15,24 +15,24 @@
 
 @implementation SugarSyncReceivedShare
 
--(id) initFromXMLContent:(NSDictionary *)xmlData
+-(instancetype) initFromXMLContent:(NSDictionary *)xmlData
 {
     self = [super init];
     
     NSDictionary *obj = [SSXMLLibUtil dictionaryFromNodeArray:xmlData];
-    _displayName = [[obj objectForKey:@"displayName"] retain];
-    _timeReceived = [[obj objectForKey:@"timeReceived"] retain];
-    _sharedFolder = [[NSURL URLWithString:[obj objectForKey:@"sharedFolder"]] retain];
+    _displayName = [obj[@"displayName"] retain];
+    _timeReceived = [obj[@"timeReceived"] retain];
+    _sharedFolder = [[NSURL URLWithString:obj[@"sharedFolder"]] retain];
     
-    NSDictionary *permissions = [obj objectForKey:@"permissions"];
+    NSDictionary *permissions = obj[@"permissions"];
 
-    NSDictionary *readAttrs = [permissions objectForKey:@"readAllowed$attributes"];
-    _permissionRead = [[readAttrs objectForKey:@"enabled"] isEqualToString:@"true"] ? YES : NO;
+    NSDictionary *readAttrs = permissions[@"readAllowed$attributes"];
+    _permissionRead = [readAttrs[@"enabled"] isEqualToString:@"true"] ? YES : NO;
     
-    NSDictionary *writeAttrs = [permissions objectForKey:@"writeAllowed$attributes"];
-    _permissionWrite = [[writeAttrs objectForKey:@"enabled"] isEqualToString:@"true"] ? YES : NO;
+    NSDictionary *writeAttrs = permissions[@"writeAllowed$attributes"];
+    _permissionWrite = [writeAttrs[@"enabled"] isEqualToString:@"true"] ? YES : NO;
 
-    _owner = [[NSURL URLWithString:[obj objectForKey:@"owner"]] retain];
+    _owner = [[NSURL URLWithString:obj[@"owner"]] retain];
     
     return self;
 }

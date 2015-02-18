@@ -44,7 +44,7 @@
 @property (nonatomic, retain, readonly) SugarSyncUserQuota *quota;
 @property (nonatomic, assign, readonly) long maximumPublicLinkSize;
 
--(id) initFromXMLContent:(NSDictionary *)xmlData;
+-(instancetype) initFromXMLContent:(NSDictionary *)xmlData NS_DESIGNATED_INITIALIZER;
 
 
 @end
@@ -54,7 +54,7 @@
 @property (nonatomic, assign, readonly) long limit;
 @property (nonatomic, assign, readonly) long usage;
 
--(id) initWithLimit:(long)aLimit usage:(long)usage;
+-(instancetype) initWithLimit:(long)aLimit usage:(long)usage NS_DESIGNATED_INITIALIZER;
 
 
 @end

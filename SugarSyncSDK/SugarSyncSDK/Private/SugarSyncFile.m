@@ -26,7 +26,7 @@ static NSURL *FileAPI;
 
 
 #pragma mark Initialization
--(id) initFromXMLContent:(NSDictionary *)xmlData
+-(instancetype) initFromXMLContent:(NSDictionary *)xmlData
 {
     self = [super init];
     
@@ -34,29 +34,29 @@ static NSURL *FileAPI;
     [numberFormat setNumberStyle:NSNumberFormatterDecimalStyle];
     
     NSDictionary *obj = [SSXMLLibUtil dictionaryFromNodeArray:xmlData];
-    _displayName = [[obj objectForKey:@"displayName"] retain];
-    _dsid = [[obj objectForKey:@"dsid"] retain];
-    _lastModified = [[obj objectForKey:@"lastModified"] retain];
-    _timeCreated = [[obj objectForKey:@"timeCreated"] retain];
-    _size  = [[numberFormat numberFromString:[obj objectForKey:@"size"]] longValue]; 
-    _mediaType = [[obj objectForKey:@"mediaType"] retain];
-    _fileData = [[NSURL URLWithString:[obj objectForKey:@"fileData"]] retain];
-    _presentOnServer = [[obj objectForKey:@"presentOnServer"] isEqualToString:@"true"] ? YES :NO;
-    _versions = [[NSURL URLWithString:[obj objectForKey:@"versions"]] retain];
-    _parent = [[NSURL URLWithString:[obj objectForKey:@"parent"]] retain];
+    _displayName = [obj[@"displayName"] retain];
+    _dsid = [obj[@"dsid"] retain];
+    _lastModified = [obj[@"lastModified"] retain];
+    _timeCreated = [obj[@"timeCreated"] retain];
+    _size  = [[numberFormat numberFromString:obj[@"size"]] longValue]; 
+    _mediaType = [obj[@"mediaType"] retain];
+    _fileData = [[NSURL URLWithString:obj[@"fileData"]] retain];
+    _presentOnServer = [obj[@"presentOnServer"] isEqualToString:@"true"] ? YES :NO;
+    _versions = [[NSURL URLWithString:obj[@"versions"]] retain];
+    _parent = [[NSURL URLWithString:obj[@"parent"]] retain];
     
-    NSDictionary *attrs = [obj objectForKey:@"publicLink$attributes"];
-    _publicLinkEnabled = [[attrs objectForKey:@"enabled"] isEqualToString:@"true"] ? YES :NO;
+    NSDictionary *attrs = obj[@"publicLink$attributes"];
+    _publicLinkEnabled = [attrs[@"enabled"] isEqualToString:@"true"] ? YES :NO;
     
-    _publicLink = [[NSURL URLWithString:[obj objectForKey:@"publicLink"]] retain];
+    _publicLink = [[NSURL URLWithString:obj[@"publicLink"]] retain];
 
-    NSDictionary *image = [obj objectForKey:@"image"];
+    NSDictionary *image = obj[@"image"];
     
     if ( image )
     {
-        int height = [[numberFormat numberFromString:[image objectForKey:@"height"]] intValue];
-        int width = [[numberFormat numberFromString:[image objectForKey:@"width"]] intValue];
-        int rotation = [[numberFormat numberFromString:[image objectForKey:@"rotation"]] intValue];
+        int height = [[numberFormat numberFromString:image[@"height"]] intValue];
+        int width = [[numberFormat numberFromString:image[@"width"]] intValue];
+        int rotation = [[numberFormat numberFromString:image[@"rotation"]] intValue];
         
         _image = [[[SugarSyncFileImage alloc] initWithHeight:height width:width rotation:rotation] retain];
     }
@@ -139,7 +139,7 @@ static NSURL *FileAPI;
 #pragma mark SugarSyncFileImage Utility Class
 @implementation SugarSyncFileImage
 
--(id) initWithHeight:(int)aHeight width:(int)aWidth rotation:(int)aRotation
+-(instancetype) initWithHeight:(int)aHeight width:(int)aWidth rotation:(int)aRotation
 {
     self = [super init];
     

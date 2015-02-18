@@ -18,7 +18,7 @@
 
 #pragma mark Initialization
 
--(id) initFromXMLContent:(NSDictionary *)xmlData
+-(instancetype) initFromXMLContent:(NSDictionary *)xmlData
 {
     self = [super init];
     
@@ -27,27 +27,27 @@
     
     NSDictionary *obj = [SSXMLLibUtil dictionaryFromNodeArray:xmlData];
     
-    _username = [[obj objectForKey:@"username"] retain];
-    _nickname = [[obj objectForKey:@"nickname"] retain];
-    _workspaces = [[NSURL URLWithString:[obj objectForKey:@"workspaces"]] retain];
-    _syncfolders = [[NSURL URLWithString:[obj objectForKey:@"syncfolders"]] retain];
-    _deleted = [[NSURL URLWithString:[obj objectForKey:@"deleted"]] retain];
-    _magicBriefcase = [[NSURL URLWithString:[obj objectForKey:@"magicBriefcase"]] retain];
-    _webArchive = [[NSURL URLWithString:[obj objectForKey:@"webArchive"]] retain];
-    _mobilePhotos = [[NSURL URLWithString:[obj objectForKey:@"mobilePhotos"]] retain];
-    _albums = [[NSURL URLWithString:[obj objectForKey:@"albums"]] retain];
-    _receivedShares = [[NSURL URLWithString:[obj objectForKey:@"receivedShares"]] retain];
-    _publicLinks = [[NSURL URLWithString:[obj objectForKey:@"publicLinks"]] retain];
-    _recentActivities = [[NSURL URLWithString:[obj objectForKey:@"recentActivities"]] retain];
-    _contacts = [[NSURL URLWithString:[obj objectForKey:@"contacts"]] retain];
-    _maximumPublicLinkSize = [[numberFormat numberFromString:[obj objectForKey:@"maximumPublicLinkSize"]] longValue];
+    _username = [obj[@"username"] retain];
+    _nickname = [obj[@"nickname"] retain];
+    _workspaces = [[NSURL URLWithString:obj[@"workspaces"]] retain];
+    _syncfolders = [[NSURL URLWithString:obj[@"syncfolders"]] retain];
+    _deleted = [[NSURL URLWithString:obj[@"deleted"]] retain];
+    _magicBriefcase = [[NSURL URLWithString:obj[@"magicBriefcase"]] retain];
+    _webArchive = [[NSURL URLWithString:obj[@"webArchive"]] retain];
+    _mobilePhotos = [[NSURL URLWithString:obj[@"mobilePhotos"]] retain];
+    _albums = [[NSURL URLWithString:obj[@"albums"]] retain];
+    _receivedShares = [[NSURL URLWithString:obj[@"receivedShares"]] retain];
+    _publicLinks = [[NSURL URLWithString:obj[@"publicLinks"]] retain];
+    _recentActivities = [[NSURL URLWithString:obj[@"recentActivities"]] retain];
+    _contacts = [[NSURL URLWithString:obj[@"contacts"]] retain];
+    _maximumPublicLinkSize = [[numberFormat numberFromString:obj[@"maximumPublicLinkSize"]] longValue];
     
-    NSDictionary *quota = [obj objectForKey:@"quota"];
+    NSDictionary *quota = obj[@"quota"];
     
     if ( quota )
     {
-        long limit = [[numberFormat numberFromString:[quota objectForKey:@"limit"]] longValue];
-        long usage = [[numberFormat numberFromString:[quota objectForKey:@"usage"]] longValue];
+        long limit = [[numberFormat numberFromString:quota[@"limit"]] longValue];
+        long usage = [[numberFormat numberFromString:quota[@"usage"]] longValue];
         
         _quota = [[[SugarSyncUserQuota alloc] initWithLimit:limit usage:usage] retain];
     }
@@ -121,7 +121,7 @@
 
 @implementation SugarSyncUserQuota
 
--(id) initWithLimit:(long)aLimit usage:(long)usage
+-(instancetype) initWithLimit:(long)aLimit usage:(long)usage
 {
     self = [super init];
     

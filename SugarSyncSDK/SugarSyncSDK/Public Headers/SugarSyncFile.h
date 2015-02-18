@@ -37,8 +37,8 @@
 @property (nonatomic, retain, readonly) SugarSyncFileImage *image;
 @property (nonatomic, assign, readonly) BOOL presentOnServer;
 
--(id) initFromXMLContent:(NSDictionary *)xmlData;
--(NSURL *) resourceURL;
+-(instancetype) initFromXMLContent:(NSDictionary *)xmlData NS_DESIGNATED_INITIALIZER;
+@property (NS_NONATOMIC_IOSONLY, readonly, copy) NSURL *resourceURL;
 @end
 
 /*
@@ -50,6 +50,6 @@
 @property (nonatomic, assign, readonly) int width;
 @property (nonatomic, assign, readonly) int rotation;
 
--(id) initWithHeight:(int)aHeight width:(int)aWidth rotation:(int)aRotation;
+-(instancetype) initWithHeight:(int)aHeight width:(int)aWidth rotation:(int)aRotation NS_DESIGNATED_INITIALIZER;
 
 @end

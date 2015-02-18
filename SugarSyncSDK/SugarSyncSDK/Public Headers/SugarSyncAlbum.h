@@ -22,7 +22,7 @@
 @property (nonatomic, retain, readonly) NSURL *files;
 @property (nonatomic, retain, readonly) NSURL *contents;
 
--(id) initFromXMLContent:(NSDictionary *)xmlData;
+-(instancetype) initFromXMLContent:(NSDictionary *)xmlData NS_DESIGNATED_INITIALIZER;
 
 
 @end

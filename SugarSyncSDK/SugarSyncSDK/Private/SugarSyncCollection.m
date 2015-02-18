@@ -67,26 +67,26 @@
     return type;
 }
 
--(id) initFromXMLContent:(NSDictionary *)xmlData
+-(instancetype) initFromXMLContent:(NSDictionary *)xmlData
 {
     self = [super init];
     
     NSDictionary *obj = [SSXMLLibUtil dictionaryFromNodeArray:xmlData];
     
-    NSDictionary *attrs = [obj objectForKey:@"$attributes"];
-    NSString *aType = [attrs objectForKey:@"type"];
+    NSDictionary *attrs = obj[@"$attributes"];
+    NSString *aType = attrs[@"type"];
         
     _type = [SugarSyncCollection collectionTypeForString:aType];
-    _displayName = [[obj objectForKey:@"displayName"] retain];
-    _ref = [[NSURL URLWithString:[obj objectForKey:@"ref"]] retain];
-    _contents = [[NSURL URLWithString:[obj objectForKey:@"contents"]] retain];
+    _displayName = [obj[@"displayName"] retain];
+    _ref = [[NSURL URLWithString:obj[@"ref"]] retain];
+    _contents = [[NSURL URLWithString:obj[@"contents"]] retain];
     
     if ( _type == SugarSyncCollectionWorkspace )
     {
         NSNumberFormatter * numberFormat = [NSNumberFormatter new];
         [numberFormat setNumberStyle:NSNumberFormatterDecimalStyle];
 
-        _iconId = [[numberFormat numberFromString:[obj objectForKey:@"iconId"]] intValue];
+        _iconId = [[numberFormat numberFromString:obj[@"iconId"]] intValue];
         
         [numberFormat release];
     }
@@ -134,7 +134,7 @@
 @implementation SugarSyncCollectionFile
 
 #pragma mark Initialization
--(id) initFromXMLContent:(NSDictionary *)xmlData
+-(instancetype) initFromXMLContent:(NSDictionary *)xmlData
 {
     self = [super init];
     
@@ -142,13 +142,13 @@
     [numberFormat setNumberStyle:NSNumberFormatterDecimalStyle];
     
     NSDictionary *obj = [SSXMLLibUtil dictionaryFromNodeArray:xmlData];
-    _displayName = [[obj objectForKey:@"displayName"] retain];
-    _ref = [[NSURL URLWithString:[obj objectForKey:@"ref"]] retain];
-    _lastModified = [[obj objectForKey:@"lastModified"] retain];
-    _size  = [[numberFormat numberFromString:[obj objectForKey:@"size"]] longValue]; 
-    _mediaType = [[obj objectForKey:@"mediaType"] retain];
-    _fileData = [[NSURL URLWithString:[obj objectForKey:@"fileData"]] retain];
-    _presentOnServer = [[obj objectForKey:@"presentOnServer"] isEqualToString:@"true"] ? YES :NO;
+    _displayName = [obj[@"displayName"] retain];
+    _ref = [[NSURL URLWithString:obj[@"ref"]] retain];
+    _lastModified = [obj[@"lastModified"] retain];
+    _size  = [[numberFormat numberFromString:obj[@"size"]] longValue]; 
+    _mediaType = [obj[@"mediaType"] retain];
+    _fileData = [[NSURL URLWithString:obj[@"fileData"]] retain];
+    _presentOnServer = [obj[@"presentOnServer"] isEqualToString:@"true"] ? YES :NO;
     
     [numberFormat release];
     

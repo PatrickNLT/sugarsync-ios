@@ -23,23 +23,23 @@ static NSURL *FolderAPI;
     FolderAPI = [[NSURL URLWithString:@"https://api.sugarsync.com/folder/"] retain];
 }
 
--(id) initFromXMLContent:(NSDictionary *)xmlData
+-(instancetype) initFromXMLContent:(NSDictionary *)xmlData
 {
     self = [super init];
 
     NSDictionary *obj = [SSXMLLibUtil dictionaryFromNodeArray:xmlData];
     
-    _displayName = [[obj objectForKey:@"displayName"] retain];
-    _dsid = [[obj objectForKey:@"dsid"] retain];
-    _parent = [[NSURL URLWithString:[obj objectForKey:@"parent"]] retain];
-    _timeCreated = [[obj objectForKey:@"timeCreated"] retain];
-    _collections  = [[NSURL URLWithString:[obj objectForKey:@"collections"]] retain];
-    _contents = [[NSURL URLWithString:[obj objectForKey:@"contents"]] retain];
-    _files = [[NSURL URLWithString:[obj objectForKey:@"files"]] retain];
+    _displayName = [obj[@"displayName"] retain];
+    _dsid = [obj[@"dsid"] retain];
+    _parent = [[NSURL URLWithString:obj[@"parent"]] retain];
+    _timeCreated = [obj[@"timeCreated"] retain];
+    _collections  = [[NSURL URLWithString:obj[@"collections"]] retain];
+    _contents = [[NSURL URLWithString:obj[@"contents"]] retain];
+    _files = [[NSURL URLWithString:obj[@"files"]] retain];
 
-    NSDictionary *sharingAttributes = [obj objectForKey:@"sharing$attributes"];
+    NSDictionary *sharingAttributes = obj[@"sharing$attributes"];
     
-    _sharingEnabled = [[sharingAttributes objectForKey:@"enabled"] isEqualToString:@"true"] ? YES : NO;
+    _sharingEnabled = [sharingAttributes[@"enabled"] isEqualToString:@"true"] ? YES : NO;
     
     return self;
 }

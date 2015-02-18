@@ -12,12 +12,12 @@
 
 #import <Foundation/Foundation.h>
 
-typedef enum {
+typedef NS_ENUM(NSInteger, SugarSyncCollectionType) {
     SugarSyncCollectionWorkspace=1,
     SugarSyncCollectionAlbum,
     SugarSyncCollectionFolder,
     SugarSyncCollectionSyncFolder
-} SugarSyncCollectionType;
+} ;
 
 /*
  *  A SugarSyncCollection is a generic list of objects which can represent various types of entities
@@ -31,7 +31,7 @@ typedef enum {
 @property (nonatomic, assign, readonly) int iconId;
 @property (nonatomic, assign, readonly) SugarSyncCollectionType type;
 
--(id) initFromXMLContent:(NSDictionary *)xmlData;
+-(instancetype) initFromXMLContent:(NSDictionary *)xmlData NS_DESIGNATED_INITIALIZER;
 @end
 
 /*
@@ -49,6 +49,6 @@ typedef enum {
 @property (nonatomic, retain, readonly) NSURL *fileData;
 @property (nonatomic, assign, readonly) BOOL presentOnServer;
 
--(id) initFromXMLContent:(NSDictionary *)xmlData;
+-(instancetype) initFromXMLContent:(NSDictionary *)xmlData NS_DESIGNATED_INITIALIZER;
 
 @end

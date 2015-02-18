@@ -88,7 +88,7 @@
         userHeaders = [[NSMutableDictionary dictionaryWithCapacity:10] retain];
     }
     
-    [userHeaders setObject:aValue forKey:aKey];
+    userHeaders[aKey] = aValue;
 }
 
 -(void) post:(NSString *) aBody completionHandler:(void (^)(void))aCompletionHandler

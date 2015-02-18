@@ -26,7 +26,7 @@
 @property (nonatomic, assign, readonly) BOOL presentOnServer;
 
 
--(id) initFromXMLContent:(NSDictionary *)xmlData;
+-(instancetype) initFromXMLContent:(NSDictionary *)xmlData NS_DESIGNATED_INITIALIZER;
 
 @end
 

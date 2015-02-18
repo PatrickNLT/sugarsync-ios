@@ -120,7 +120,7 @@ static NSString *XMLKeyNodeContent = @"nodeContent";
 }
            
 #pragma mark Initialization
--(id) initWithApplicationId:(NSString *)appId accessKey:(NSString *)anAccessKey privateAccessKey:(NSString *)aPrivateAccessKey userAgent:(NSString *)aUserAgent;
+-(instancetype) initWithApplicationId:(NSString *)appId accessKey:(NSString *)anAccessKey privateAccessKey:(NSString *)aPrivateAccessKey userAgent:(NSString *)aUserAgent;
 {
     self = [super init];
     
@@ -844,12 +844,12 @@ static NSString *XMLKeyNodeContent = @"nodeContent";
          
          if ( !ignoreTokenExpiry )
          {
-             [self setTokenExpirationWithDateTimeString:[auth objectForKey:@"expiration"]];
+             [self setTokenExpirationWithDateTimeString:auth[@"expiration"]];
          }
 
          if ( !userResource )
          {
-             userResource = [[NSURL URLWithString:[auth objectForKey:@"user"]] retain];
+             userResource = [[NSURL URLWithString:auth[@"user"]] retain];
          }
          
          handler(nil);
@@ -873,7 +873,7 @@ static NSString *XMLKeyNodeContent = @"nodeContent";
     {
         anError =  [SSErrorUtil errorWithDomain:SugarSyncClientErrorDomain code:http.response.statusCode description:[NSString stringWithFormat:@"the %@ operation failed", aResourceKey] reason:[self errorMessageForCode:http.response.statusCode]];
     }
-    else if ( ![[http.response allHeaderFields] objectForKey:HeaderKeyLocation] )
+    else if ( ![http.response allHeaderFields][HeaderKeyLocation] )
     {
         anError =  [SSErrorUtil errorWithDomain:SugarSyncClientErrorDomain code:SugarSyncErrorNoDataReturned description:[NSString stringWithFormat:@"the %@ operation failed", aResourceKey] reason:[self errorMessageForCode:SugarSyncErrorNoDataReturned]];
     }
@@ -937,7 +937,7 @@ static NSString *XMLKeyNodeContent = @"nodeContent";
                 
                 if ( !anError )
                 {
-                    newResource = [NSURL URLWithString:[[http.response allHeaderFields] objectForKey:HeaderKeyLocation]];
+                    newResource = [NSURL URLWithString:[http.response allHeaderFields][HeaderKeyLocation]];
                 }
                 
                 aContinuationHandler(http, newResource, anError);

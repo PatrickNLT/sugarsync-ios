@@ -27,21 +27,21 @@ NSDictionary *DictionaryForNode(xmlNodePtr currentNode, NSMutableDictionary *par
 	if (currentNode->name)
 	{
 		NSString *currentNodeContent =
-			[NSString stringWithCString:(const char *)currentNode->name encoding:NSUTF8StringEncoding];
-		[resultForNode setObject:currentNodeContent forKey:@"nodeName"];
+			@((const char *)currentNode->name);
+		resultForNode[@"nodeName"] = currentNodeContent;
 	}
 	
 	if (currentNode->content && currentNode->type != XML_DOCUMENT_TYPE_NODE)
 	{
 		NSString *currentNodeContent =
-			[NSString stringWithCString:(const char *)currentNode->content encoding:NSUTF8StringEncoding];
+			@((const char *)currentNode->content);
 		
-		if ([[resultForNode objectForKey:@"nodeName"] isEqual:@"text"] && parentResult)
+		if ([resultForNode[@"nodeName"] isEqual:@"text"] && parentResult)
 		{
 			currentNodeContent = [currentNodeContent
 				stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
 			
-			NSString *existingContent = [parentResult objectForKey:@"nodeContent"];
+			NSString *existingContent = parentResult[@"nodeContent"];
 			NSString *newContent;
 			if (existingContent)
 			{
@@ -52,11 +52,11 @@ NSDictionary *DictionaryForNode(xmlNodePtr currentNode, NSMutableDictionary *par
 				newContent = currentNodeContent;
 			}
 
-			[parentResult setObject:newContent forKey:@"nodeContent"];
+			parentResult[@"nodeContent"] = newContent;
 			return nil;
 		}
 		
-		[resultForNode setObject:currentNodeContent forKey:@"nodeContent"];
+		resultForNode[@"nodeContent"] = currentNodeContent;
 	}
 	
 	xmlAttr *attribute = currentNode->properties;
@@ -67,10 +67,10 @@ NSDictionary *DictionaryForNode(xmlNodePtr currentNode, NSMutableDictionary *par
 		{
 			NSMutableDictionary *attributeDictionary = [NSMutableDictionary dictionary];
 			NSString *attributeName =
-				[NSString stringWithCString:(const char *)attribute->name encoding:NSUTF8StringEncoding];
+				@((const char *)attribute->name);
 			if (attributeName)
 			{
-				[attributeDictionary setObject:attributeName forKey:@"attributeName"];
+				attributeDictionary[@"attributeName"] = attributeName;
 			}
 			
 			if (attribute->children)
@@ -78,7 +78,7 @@ NSDictionary *DictionaryForNode(xmlNodePtr currentNode, NSMutableDictionary *par
 				NSDictionary *childDictionary = DictionaryForNode(attribute->children, attributeDictionary);
 				if (childDictionary)
 				{
-					[attributeDictionary setObject:childDictionary forKey:@"attributeContent"];
+					attributeDictionary[@"attributeContent"] = childDictionary;
 				}
 			}
 			
@@ -91,7 +91,7 @@ NSDictionary *DictionaryForNode(xmlNodePtr currentNode, NSMutableDictionary *par
 		
 		if ([attributeArray count] > 0)
 		{
-			[resultForNode setObject:attributeArray forKey:@"nodeAttributeArray"];
+			resultForNode[@"nodeAttributeArray"] = attributeArray;
 		}
 	}
 
@@ -110,7 +110,7 @@ NSDictionary *DictionaryForNode(xmlNodePtr currentNode, NSMutableDictionary *par
 		}
 		if ([childContentArray count] > 0)
 		{
-			[resultForNode setObject:childContentArray forKey:@"nodeChildArray"];
+			resultForNode[@"nodeChildArray"] = childContentArray;
 		}
 	}
 	

@@ -31,8 +31,8 @@
 @property (nonatomic, assign, readonly) BOOL sharingEnabled;
 @property (nonatomic, readonly) NSDictionary *XMLParameters;
 
--(id) initFromXMLContent:(NSDictionary *)xmlData;
--(NSURL *) resourceURL;
+-(instancetype) initFromXMLContent:(NSDictionary *)xmlData NS_DESIGNATED_INITIALIZER;
+@property (NS_NONATOMIC_IOSONLY, readonly, copy) NSURL *resourceURL;
 
 
 @end

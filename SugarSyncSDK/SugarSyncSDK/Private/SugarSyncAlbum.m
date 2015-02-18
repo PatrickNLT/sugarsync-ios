@@ -16,16 +16,16 @@
 @implementation SugarSyncAlbum
 
 #pragma mark Initialization
--(id) initFromXMLContent:(NSDictionary *)xmlData
+-(instancetype) initFromXMLContent:(NSDictionary *)xmlData
 {
     self = [super init];
     
     NSDictionary *obj = [SSXMLLibUtil dictionaryFromNodeArray:xmlData];
     
-    _displayName = [[obj objectForKey:@"displayName"] retain];
-    _dsid = [[obj objectForKey:@"dsid"] retain];
-    _contents = [[NSURL URLWithString:[obj objectForKey:@"contents"]] retain];
-    _files = [[NSURL URLWithString:[obj objectForKey:@"files"]] retain];
+    _displayName = [obj[@"displayName"] retain];
+    _dsid = [obj[@"dsid"] retain];
+    _contents = [[NSURL URLWithString:obj[@"contents"]] retain];
+    _files = [[NSURL URLWithString:obj[@"files"]] retain];
     
     return self;
 }

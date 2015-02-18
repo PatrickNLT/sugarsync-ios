@@ -34,7 +34,7 @@
         [NSException raise:@"The call stack is corrupt!" format:nil];
     }
     
-    NSString *methodThatDidLogging = [stack objectAtIndex:1];
+    NSString *methodThatDidLogging = stack[1];
     
     NSRange startEnd = [methodThatDidLogging rangeOfString:@"["];
     
@@ -72,7 +72,7 @@
         [NSException raise:@"The call stack is corrupt!" format:nil];
     }
     
-    NSString *methodThatDidLogging = [stack objectAtIndex:1];
+    NSString *methodThatDidLogging = stack[1];
     
     NSRange startEnd = [methodThatDidLogging rangeOfString:@"["];
     
@@ -108,7 +108,7 @@
         [NSException raise:@"The call stack is corrupt!" format:nil];
     }
     
-    NSString *methodThatDidLogging = [stack objectAtIndex:1];
+    NSString *methodThatDidLogging = stack[1];
     
     NSRange startEnd = [methodThatDidLogging rangeOfString:@"["];
     
@@ -128,7 +128,7 @@
         [NSException raise:@"The call stack is corrupt!" format:nil];
     }
     
-    NSString *methodThatDidLogging = [stack objectAtIndex:1];
+    NSString *methodThatDidLogging = stack[1];
     
     NSRange startEnd = [methodThatDidLogging rangeOfString:@"["];
     

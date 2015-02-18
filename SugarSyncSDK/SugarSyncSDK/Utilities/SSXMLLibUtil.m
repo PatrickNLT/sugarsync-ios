@@ -17,21 +17,21 @@
 
 +(NSDictionary *) dictionaryFromNodeArray:(NSDictionary *)anObject
 {
-    NSArray *nodeList = [anObject objectForKey:@"nodeChildArray"];
+    NSArray *nodeList = anObject[@"nodeChildArray"];
     
     NSAssert(nodeList, @"The object did not respond to nodeChildArray");
     
     NSMutableDictionary *newObject = [NSMutableDictionary dictionaryWithCapacity:nodeList.count];
     
-    NSArray *topLevelAttributes = [anObject objectForKey:@"nodeAttributeArray"];
+    NSArray *topLevelAttributes = anObject[@"nodeAttributeArray"];
     
     if ( topLevelAttributes )
     {
         NSMutableDictionary *attributeDictionary = [NSMutableDictionary dictionaryWithCapacity:topLevelAttributes.count];
-        [newObject setObject:attributeDictionary forKey:@"$attributes"];
+        newObject[@"$attributes"] = attributeDictionary;
         
         [topLevelAttributes enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
-            [attributeDictionary setObject:[obj objectForKey:@"nodeContent"] forKey:[obj objectForKey:@"attributeName"]];
+            attributeDictionary[obj[@"attributeName"]] = obj[@"nodeContent"];
             
         }];
         
@@ -39,34 +39,34 @@
     
     [nodeList enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
         
-        NSArray *attributeArray = [obj objectForKey:@"nodeAttributeArray"];
+        NSArray *attributeArray = obj[@"nodeAttributeArray"];
         
         if ( attributeArray )
         {
             NSMutableDictionary *attributeDictionary = [NSMutableDictionary dictionaryWithCapacity:attributeArray.count];
             
-            [newObject setObject:attributeDictionary forKey:[((NSString*)[obj objectForKey:@"nodeName"]) stringByAppendingString:@"$attributes"]];
+            newObject[[((NSString*)obj[@"nodeName"]) stringByAppendingString:@"$attributes"]] = attributeDictionary;
             
             [attributeArray enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
-                [attributeDictionary setObject:[obj objectForKey:@"nodeContent"] forKey:[obj objectForKey:@"attributeName"]];
+                attributeDictionary[obj[@"attributeName"]] = obj[@"nodeContent"];
                 
             }];
             
         }
         
-        NSArray *childNodeArray = [obj objectForKey:@"nodeChildArray"];
+        NSArray *childNodeArray = obj[@"nodeChildArray"];
         
         if ( childNodeArray )
         {
-            [newObject setObject:[SSXMLLibUtil dictionaryFromNodeArray:obj] forKey:[obj objectForKey:@"nodeName"]];
+            newObject[obj[@"nodeName"]] = [SSXMLLibUtil dictionaryFromNodeArray:obj];
             
         }
         else
         {
-            id nodeContent = [obj objectForKey:@"nodeContent"];
+            id nodeContent = obj[@"nodeContent"];
             if ( nodeContent )
             {
-                [newObject setObject:nodeContent forKey:[obj objectForKey:@"nodeName"]];
+                newObject[obj[@"nodeName"]] = nodeContent;
             }
         }
         

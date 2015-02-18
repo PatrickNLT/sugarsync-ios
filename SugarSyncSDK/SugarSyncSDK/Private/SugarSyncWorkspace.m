@@ -26,7 +26,7 @@ static NSURL *WorkspaceAPI;
 }
 
 #pragma mark Initialization
--(id) initFromXMLContent:(NSDictionary *)xmlData
+-(instancetype) initFromXMLContent:(NSDictionary *)xmlData
 {
     self = [super init];
     
@@ -35,13 +35,13 @@ static NSURL *WorkspaceAPI;
     
     NSDictionary *obj = [SSXMLLibUtil dictionaryFromNodeArray:xmlData];
     
-    _displayName = [[obj objectForKey:@"displayName"] retain];
-    _dsid = [[obj objectForKey:@"dsid"] retain];
-    _timeCreated = [[obj objectForKey:@"timeCreated"] retain];
-    _collections  = [[NSURL URLWithString:[obj objectForKey:@"collections"]] retain];
-    _files  = [[NSURL URLWithString:[obj objectForKey:@"files"]] retain];
-    _contents = [[NSURL URLWithString:[obj objectForKey:@"contents"]] retain];
-    _iconId = [[numberFormat numberFromString:[obj objectForKey:@"iconId"]] intValue];
+    _displayName = [obj[@"displayName"] retain];
+    _dsid = [obj[@"dsid"] retain];
+    _timeCreated = [obj[@"timeCreated"] retain];
+    _collections  = [[NSURL URLWithString:obj[@"collections"]] retain];
+    _files  = [[NSURL URLWithString:obj[@"files"]] retain];
+    _contents = [[NSURL URLWithString:obj[@"contents"]] retain];
+    _iconId = [[numberFormat numberFromString:obj[@"iconId"]] intValue];
 
     [numberFormat release];
     

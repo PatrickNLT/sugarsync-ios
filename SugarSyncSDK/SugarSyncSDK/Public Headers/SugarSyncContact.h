@@ -21,6 +21,6 @@
 @property (nonatomic, retain, readonly) NSString *firstName;
 @property (nonatomic, retain, readonly) NSString *lastName;
 
--(id) initFromXMLContent:(NSDictionary *)xmlData;
+-(instancetype) initFromXMLContent:(NSDictionary *)xmlData NS_DESIGNATED_INITIALIZER;
 
 @end

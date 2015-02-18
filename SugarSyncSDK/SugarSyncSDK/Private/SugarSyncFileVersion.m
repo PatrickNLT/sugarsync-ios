@@ -17,7 +17,7 @@
 @implementation SugarSyncFileVersion
 
 #pragma mark Initialization
--(id) initFromXMLContent:(NSDictionary *)xmlData
+-(instancetype) initFromXMLContent:(NSDictionary *)xmlData
 {
     self = [super init];
     
@@ -25,12 +25,12 @@
     [numberFormat setNumberStyle:NSNumberFormatterDecimalStyle];
     
     NSDictionary *obj = [SSXMLLibUtil dictionaryFromNodeArray:xmlData];
-    _ref = [[NSURL URLWithString:[obj objectForKey:@"ref"]] retain];
-    _lastModified = [[obj objectForKey:@"lastModified"] retain];
-    _size  = [[numberFormat numberFromString:[obj objectForKey:@"size"]] longValue]; 
-    _mediaType = [[obj objectForKey:@"mediaType"] retain];
-    _fileData = [[NSURL URLWithString:[obj objectForKey:@"fileData"]] retain];
-    _presentOnServer = [[obj objectForKey:@"presentOnServer"] isEqualToString:@"true"] ? YES :NO;
+    _ref = [[NSURL URLWithString:obj[@"ref"]] retain];
+    _lastModified = [obj[@"lastModified"] retain];
+    _size  = [[numberFormat numberFromString:obj[@"size"]] longValue]; 
+    _mediaType = [obj[@"mediaType"] retain];
+    _fileData = [[NSURL URLWithString:obj[@"fileData"]] retain];
+    _presentOnServer = [obj[@"presentOnServer"] isEqualToString:@"true"] ? YES :NO;
     
     //for some reason ref is coming back null on calls to get file version - fixing this up
     if ( !_ref && _fileData )

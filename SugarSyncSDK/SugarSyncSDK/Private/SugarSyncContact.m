@@ -18,14 +18,14 @@
 
 #pragma mark Initialization
 
--(id) initFromXMLContent:(NSDictionary *)xmlData
+-(instancetype) initFromXMLContent:(NSDictionary *)xmlData
 {
     self = [super init];
     
     NSDictionary *obj = [SSXMLLibUtil dictionaryFromNodeArray:xmlData];
-    _primaryEmailAddress = [[obj objectForKey:@"primaryEmailAddress"] retain];
-    _firstName = [[obj objectForKey:@"firstName"] retain];
-    _lastName = [[obj objectForKey:@"lastName"] retain];
+    _primaryEmailAddress = [obj[@"primaryEmailAddress"] retain];
+    _firstName = [obj[@"firstName"] retain];
+    _lastName = [obj[@"lastName"] retain];
     
     return self;
 }
