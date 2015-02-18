@@ -220,6 +220,12 @@ static NSString *XMLKeyNodeContent = @"nodeContent";
     
 }
 
+- (void)logout {
+    [refreshToken release], refreshToken = nil;
+    refreshingToken = YES;
+    [self deletePersistentRefreshToken];
+}
+
 -(void) getUserWithCompletionHandler:(void (^)(SugarSyncUser *aUser, NSError *error))handler
 {
     if ( !_sugarSyncUser )
@@ -745,6 +751,16 @@ static NSString *XMLKeyNodeContent = @"nodeContent";
     
     [keyChain setObject:account forKey:kSecAttrAccount];
     [keyChain setObject:refreshToken.description forKey:kSecValueData];
+
+    [keyChain release];
+}
+
+-(void) deletePersistentRefreshToken {
+    NSString *itemKey = [[[NSBundle mainBundle] bundleIdentifier] stringByAppendingString:@":SugarSync"];
+
+    KeychainItemWrapper *keyChain = [[KeychainItemWrapper alloc] initWithIdentifier:itemKey accessGroup:nil];
+
+    [keyChain setObject:@"" forKey:kSecValueData];
 
     [keyChain release];
 }

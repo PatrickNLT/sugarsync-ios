@@ -82,6 +82,11 @@ typedef enum {
         completionHandler:(void (^)(SugarSyncLoginStatus aStatus, NSError *error))handler;
 
 /*
+ * Clears the refresh token
+ */
+-(void) logout;
+
+/*
  * Get the SugarSyncUser which contains root URLs for the user account data
  */
 -(void) getUserWithCompletionHandler:(void (^)(SugarSyncUser *aUser, NSError *error))handler;
