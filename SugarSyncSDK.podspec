@@ -24,4 +24,5 @@ Pod::Spec.new do |s|
   s.source_files = 'SugarSyncSDK/SugarSyncSDK/**/*{.h,.m}'
   s.public_header_files = 'SugarSyncSDK/SugarSyncSDK/Public Headers/*.h'
   s.dependency 'KissXML', '~> 5.0'
+  s.dependency 'KeychainItemWrapper', '~> 1.2'
 end
