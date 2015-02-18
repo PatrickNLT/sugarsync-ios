@@ -13,7 +13,6 @@
 
 #import "SugarSyncFolder.h"
 #import "SSXMLLibUtil.h"
-#import "SugarSyncXMLTemplate.h"
 
 static NSURL *FolderAPI;
 
@@ -50,11 +49,17 @@ static NSURL *FolderAPI;
     return [FolderAPI URLByAppendingPathComponent:[_dsid stringByReplacingOccurrencesOfString:@"/" withString:@":"]];
 }
 
--(NSString *) fillXMLTemplate:(SugarSyncXMLTemplate *)aTemplate
+- (NSDictionary *)XMLParameters
 {
     NSString *resource = self.resourceURL.description;
-    return [aTemplate fill:@[_displayName, _dsid, _timeCreated, _parent? _parent : @"", resource, resource, resource]];
-
+    return @{@"displayName": _displayName,
+             @"dsid": _dsid,
+             @"timeCreated": _timeCreated,
+             @"parent": _parent? _parent : @"",
+             @"collections": [resource stringByAppendingString:@"/contents?type=folder"],
+             @"files": [resource stringByAppendingString:@"/contents?type=file"],
+             @"contents": [resource stringByAppendingString:@"/contents"]};
+    // FIXME: Add <sharing enabled="false"/>
 }
 
 

@@ -25,10 +25,9 @@
 @property (nonatomic, retain, readonly) NSURL *files;
 @property (nonatomic, retain, readonly) NSURL *contents;
 @property (nonatomic, assign, readonly) int iconId;
-
+@property (nonatomic, readonly) NSDictionary *XMLParameters;
 
 -(id) initFromXMLContent:(NSDictionary *)xmlData;
 -(NSURL *) resourceURL;
--(NSString *) fillXMLTemplate:(SugarSyncXMLTemplate *)aTemplate;
 
 @end

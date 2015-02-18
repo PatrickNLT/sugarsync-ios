@@ -37,10 +37,8 @@
 @property (nonatomic, retain, readonly) SugarSyncFileImage *image;
 @property (nonatomic, assign, readonly) BOOL presentOnServer;
 
-
 -(id) initFromXMLContent:(NSDictionary *)xmlData;
 -(NSURL *) resourceURL;
--(NSString *) fillXMLTemplate:(SugarSyncXMLTemplate *)aTemplate;
 @end
 
 /*

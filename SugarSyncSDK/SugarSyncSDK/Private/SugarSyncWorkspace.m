@@ -13,7 +13,6 @@
 
 #import "SugarSyncWorkspace.h"
 #import "SSXMLLibUtil.h"
-#import "SugarSyncXMLTemplate.h"
 
 static NSURL *WorkspaceAPI;
 
@@ -54,10 +53,16 @@ static NSURL *WorkspaceAPI;
     return [WorkspaceAPI URLByAppendingPathComponent:[_dsid stringByReplacingOccurrencesOfString:@"/" withString:@":"]];
 }
 
--(NSString *) fillXMLTemplate:(SugarSyncXMLTemplate *)aTemplate
+-(NSDictionary *) XMLParameters
 {
     NSString *resource = self.resourceURL.description;
-    return [aTemplate fill:@[_displayName, _dsid, _timeCreated, resource, resource, resource]];
+    return @{@"displayName": _displayName,
+             @"dsid": _dsid,
+             @"timeCreated": _timeCreated,
+             @"collections": [resource stringByAppendingString:@"/contents?type=folder"],
+             @"files": [resource stringByAppendingString:@"/contents?type=file"],
+             @"contents": [resource stringByAppendingString:@"/contents"],
+             @"iconId": @6};
 }
 
 -(NSString *) description

@@ -13,14 +13,13 @@
 
 #import "SugarSyncClient.h"
 #import "SugarSyncLoginViewController.h"
-#import "SugarSyncXMLTemplate.h"
 #import "SSHttpFetcher.h"
 #import "XPathQuery.h"
 #import "SSXMLLibUtil.h"
 #import "SSErrorUtil.h"
 #import "SSC9Log.h"
 #import "KeychainItemWrapper.h"
-
+#import "DDXML.h"
 
 //shared instance
 static SugarSyncClient *_sugarSyncClientSingleton;
@@ -115,8 +114,6 @@ static NSString *XMLKeyNodeContent = @"nodeContent";
 {
     @synchronized ([SugarSyncClient class])
     {
-        NSAssert(_sugarSyncClientSingleton, @"getInstance cannot be called until the client has been created");
-        
         return _sugarSyncClientSingleton;
 
     }
@@ -179,8 +176,15 @@ static NSString *XMLKeyNodeContent = @"nodeContent";
 
 -(void) loginWithUserName:(NSString *)aUserName password:(NSString *)aPassword completionHandler:(void (^)(SugarSyncLoginStatus aStatus, NSError *error))handler
 {
-    NSString *resourceXML = [SugarSyncXMLTemplate.login fill:@[aUserName, aPassword, applicationId, accessKey, privateAccessKey]];
-    
+    NSString *resourceXML = [self XMLStringWithRootElementTitle:@"appAuthorization"
+                                                     parameters:
+                             @{@"username": aUserName,
+                               @"password": aPassword,
+                               @"application": applicationId,
+                               @"accessKeyId": accessKey,
+                               @"privateAccessKey": privateAccessKey}
+                                                          error:nil];
+
     [self createResource:resourceXML atLocation:AppAuthorizationAPI resourceKey:@"refresh token" completionHandler:^(NSURL *newResource, NSError *anError) {
         if ( anError )
         {
@@ -297,7 +301,10 @@ static NSString *XMLKeyNodeContent = @"nodeContent";
 
 -(void) updateWorkspace:(SugarSyncWorkspace *)aWorkspace completionHandler:(void (^)(NSError *))handler
 {
-    NSString *resourceXML = [aWorkspace fillXMLTemplate:SugarSyncXMLTemplate.updateWorkspace];
+    NSString *resourceXML = [self XMLStringWithRootElementTitle:@"workspace"
+                                                     parameters:
+                             aWorkspace.XMLParameters
+                                                          error:nil];
     
     [self updateResource:resourceXML atLocation:aWorkspace.resourceURL resourceKey:@"workspace" completionHandler:^(NSError *anError) {
         handler(anError);
@@ -355,7 +362,7 @@ static NSString *XMLKeyNodeContent = @"nodeContent";
 
 -(void) createFolderNamed:(NSString *)aName parentFolderURL:(NSURL *)parentFolderURL completionHandler:(void (^)(NSURL *, NSError *))handler
 {
-    NSString *resourceXML = [SugarSyncXMLTemplate.createFolder fill:@[aName]];
+    NSString *resourceXML = [self XMLStringWithRootElementTitle:@"folder" parameters:@{@"displayName": aName} error:nil];
     
     [self createResource:resourceXML atLocation:parentFolderURL resourceKey:@"folder" completionHandler:^(NSURL *newResource, NSError *anError) {
         handler(newResource, anError);
@@ -372,7 +379,7 @@ static NSString *XMLKeyNodeContent = @"nodeContent";
 
 -(void) updateFolder:(SugarSyncFolder *)aFolder completionHandler:(void (^)(NSError *))handler
 {
-    NSString *resourceXML = [aFolder fillXMLTemplate:SugarSyncXMLTemplate.updateFolder];
+    NSString *resourceXML = [self XMLStringWithRootElementTitle:@"folder" parameters:aFolder.XMLParameters error:nil];
     
     [self updateResource:resourceXML atLocation:aFolder.resourceURL resourceKey:@"folder" completionHandler:^(NSError *anError) {
         handler(anError);
@@ -432,7 +439,11 @@ static NSString *XMLKeyNodeContent = @"nodeContent";
 
 -(void) createFileNamed:(NSString *)aName mediaType:(NSString *)aMediaType parentFolderURL:(NSURL *)aURL completionHandler:(void (^)(NSURL *, NSError *))handler
 {
-    NSString *resourceXML = [SugarSyncXMLTemplate.createFile fill:@[aName, aMediaType]];
+    NSString *resourceXML = [self XMLStringWithRootElementTitle:@"file"
+                                                     parameters:
+  @{@"displayName": aName,
+    @"mediaType": aMediaType}
+                                                          error:nil];
     
     [self createResource:resourceXML atLocation:aURL resourceKey:@"file" completionHandler:^(NSURL *newResource, NSError *anError) {
         handler(newResource, anError);
@@ -442,30 +453,76 @@ static NSString *XMLKeyNodeContent = @"nodeContent";
 
 -(void) copyFileWithURL:(NSURL *)aURL parentFolderURL:(NSURL *) parentFolderURL targetFileName:(NSString *)aName completionHandler:(void (^)(NSURL *, NSError *))handler
 {
-    NSString *resourceXML = [SugarSyncXMLTemplate.copyFile fill:@[aURL, aName]];
-    
-    [self createResource:resourceXML atLocation:parentFolderURL resourceKey:@"file" completionHandler:^(NSURL *newResource, NSError *anError) {
-        handler(newResource, anError);
-    }];
-    
+//    NSString *resourceXML = [SugarSyncXMLTemplate.copyFile fill:@[aURL, aName]];
+// TODO: Implement it to mimic the following template:
+//    <?xml version="1.0" encoding="UTF-8" ?>
+//    <fileCopy source="%@">
+//    <displayName>%@</displayName>
+//    </fileCopy>
+    NSAssert(FALSE, @"Not yet implemented!");
+    return;
+
+//    [self createResource:resourceXML atLocation:parentFolderURL resourceKey:@"file" completionHandler:^(NSURL *newResource, NSError *anError) {
+//        handler(newResource, anError);
+//    }];
+
 }
 
 -(void) updateFile:(SugarSyncFile *)aFile completionHandler:(void (^)(SugarSyncFile *aFile, NSError *))handler
 {
-    NSString *resourceXML = [aFile fillXMLTemplate:aFile.image? SugarSyncXMLTemplate.updateFileImage : SugarSyncXMLTemplate.updateFile];
-    
-    [self updateResource:resourceXML atLocation:aFile.resourceURL resourceKey:@"file" requiredXMLResponse:XPathFileDocument completionHandler:^(NSData *theResource, NSArray *xmlResponse, NSError *anError) {
-        
-        SugarSyncFile *aFile = nil;
-        if ( !anError )
-        {
-            aFile = [[[SugarSyncFile alloc] initFromXMLContent:xmlResponse[0]] autorelease];
-        }
-        
-        handler(aFile, anError);
-        
-    }];
+//    NSString *resourceXML = [aFile fillXMLTemplate:aFile.image? SugarSyncXMLTemplate.updateFileImage : SugarSyncXMLTemplate.updateFile];
+//    
+//    [self updateResource:resourceXML atLocation:aFile.resourceURL resourceKey:@"file" requiredXMLResponse:XPathFileDocument completionHandler:^(NSData *theResource, NSArray *xmlResponse, NSError *anError) {
+//        
+//        SugarSyncFile *aFile = nil;
+//        if ( !anError )
+//        {
+//            aFile = [[[SugarSyncFile alloc] initFromXMLContent:xmlResponse[0]] autorelease];
+//        }
+//        
+//        handler(aFile, anError);
+//        
+//    }];
 
+    // TODO: Implement it to mimic the following templates:
+//    <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+//    <file>
+//    <displayName>%@</displayName>
+//    <dsid>%@</dsid>
+//    <timeCreated>%@</timeCreated>
+//    <parent>%@</parent>
+//    <size>%@</size>
+//    <lastModified>%@</lastModified>
+//    <mediaType>%@</mediaType>
+//    <presentOnServer>%@</presentOnServer>
+//    <fileData>%@/data</fileData>
+//    <versions>%@/version</versions>
+//    <publicLink enabled="%@"/>
+//    </file>
+//
+//    or
+//
+//    <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+//    <file>
+//    <displayName>%@</displayName>
+//    <dsid>%@</dsid>
+//    <timeCreated>%@</timeCreated>
+//    <parent>%@</parent>
+//    <size>%@</size>
+//    <lastModified>%@</lastModified>
+//    <mediaType>%@</mediaType>
+//    <presentOnServer>%@</presentOnServer>
+//    <fileData>%@/data</fileData>
+//    <versions>%@/version</versions>
+//    <publicLink enabled="%@"/>
+//    <image>
+//    <height>%@</height>
+//    <width>%@</width>
+//    <rotation>%@</rotation>
+//    </image>
+//    </file>
+    NSAssert(FALSE, @"Not yet implemented!");
+    return;
 }
 
 #pragma mark Download/Upload
@@ -742,7 +799,12 @@ static NSString *XMLKeyNodeContent = @"nodeContent";
     
     refreshingToken = YES;
     
-    NSString *resourceXML = [SugarSyncXMLTemplate.accessToken fill:@[accessKey, privateAccessKey, refreshToken]];
+    NSString *resourceXML = [self XMLStringWithRootElementTitle:@"tokenAuthRequest"
+                                                     parameters:
+                             @{@"accessKeyId": accessKey,
+                               @"privateAccessKey": privateAccessKey,
+                               @"refreshToken": refreshToken.absoluteString}
+                                                          error:nil];
 
     [self createResource:resourceXML atLocation:AuthorizationAPI resourceKey:@"accessToken" requiredXMLResponse:XPathAuthorizationDocument completionHandler:^(NSURL *newResource, NSArray *xmlResponse, NSError *anError)
      {
@@ -1079,7 +1141,9 @@ static NSString *XMLKeyNodeContent = @"nodeContent";
     SSHttpFetcher *http = [[[SSHttpFetcher alloc] initWithURL:aURL] autorelease];
     
     [http setHeaderValue:accessToken.description forKey:HeaderKeyAuthorization];
-    [http setHeaderValue:applicationUserAgent forKey:HeaderKeyUserAgent];
+    if (applicationUserAgent) {
+        [http setHeaderValue:applicationUserAgent forKey:HeaderKeyUserAgent];
+    }
     
     return http;
     
@@ -1093,8 +1157,9 @@ static NSString *XMLKeyNodeContent = @"nodeContent";
     {
         [http setHeaderValue:accessToken.description forKey:HeaderKeyAuthorization];
     }
-    
-    [http setHeaderValue:applicationUserAgent forKey:HeaderKeyUserAgent];
+    if (applicationUserAgent) {
+        [http setHeaderValue:applicationUserAgent forKey:HeaderKeyUserAgent];
+    }
     [http setHeaderValue:HeaderValueContentType forKey:HeaderKeyContentType];
     
     return http;
@@ -1157,5 +1222,14 @@ static NSString *XMLKeyNodeContent = @"nodeContent";
     [SSC9Log log:[SSHttpFetcher resultToString:theData]];
 }
 
+- (NSString *)XMLStringWithRootElementTitle:(NSString *)rootElementTitle parameters:(NSDictionary *)parameters error:(NSError *__autoreleasing *)error {
+    DDXMLElement *rootElement = [[DDXMLElement alloc] initWithName:rootElementTitle];
+    for (NSString * parameterKey in parameters.allKeys) {
+    DDXMLElement *element = [[DDXMLElement alloc] initWithName:parameterKey stringValue:parameters[parameterKey]];
+    [rootElement addChild:element];
+    }
+    NSString *body = [@"<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?>" stringByAppendingString:rootElement.XMLString];
+    return body;
+}
 
 @end

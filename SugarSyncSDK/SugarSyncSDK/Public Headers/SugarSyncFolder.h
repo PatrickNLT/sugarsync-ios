@@ -29,11 +29,10 @@
 @property (nonatomic, retain, readonly) NSURL *files;
 @property (nonatomic, retain, readonly) NSURL *contents;
 @property (nonatomic, assign, readonly) BOOL sharingEnabled;
-
+@property (nonatomic, readonly) NSDictionary *XMLParameters;
 
 -(id) initFromXMLContent:(NSDictionary *)xmlData;
 -(NSURL *) resourceURL;
--(NSString *) fillXMLTemplate:(SugarSyncXMLTemplate *)aTemplate;
 
 
 @end
