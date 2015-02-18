@@ -157,22 +157,22 @@ static NSString *XMLKeyNodeContent = @"nodeContent";
 }
 
 
--(void) displayLoginDialogWithCompletionHandler:(void (^)(SugarSyncLoginStatus aStatus, NSError *error))handler
-{
-    NSBundle *myBundle = [NSBundle bundleWithPath:[[[NSBundle mainBundle] bundlePath] stringByAppendingPathComponent:@"Frameworks/SugarSyncSDK.framework"]];
+// -(void) displayLoginDialogWithCompletionHandler:(void (^)(SugarSyncLoginStatus aStatus, NSError *error))handler
+// {
+//     NSBundle *myBundle = [NSBundle bundleWithPath:[[[NSBundle mainBundle] bundlePath] stringByAppendingPathComponent:@"Frameworks/SugarSyncSDK.framework"]];
     
-    NSString *nib = [[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad ?
-        @"SugarSyncLoginView_ipad" : @"SugarSyncLoginView_iphone";
+//     NSString *nib = [[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad ?
+//         @"SugarSyncLoginView_ipad" : @"SugarSyncLoginView_iphone";
     
-    loginViewController = [[SugarSyncLoginViewController alloc] initWithNibName:nib bundle:myBundle];
-    loginViewController.modalPresentationStyle = UIModalPresentationFormSheet;
+//     loginViewController = [[SugarSyncLoginViewController alloc] initWithNibName:nib bundle:myBundle];
+//     loginViewController.modalPresentationStyle = UIModalPresentationFormSheet;
     
-    loginViewController.client = self;
-    loginViewController.completionHandler = Block_copy(handler);
+//     loginViewController.client = self;
+//     loginViewController.completionHandler = Block_copy(handler);
     
-    [[[[[UIApplication sharedApplication] delegate] window] rootViewController] presentModalViewController:loginViewController animated:YES];
+//     [[[[[UIApplication sharedApplication] delegate] window] rootViewController] presentModalViewController:loginViewController animated:YES];
     
-}
+// }
 
 -(void) loginWithUserName:(NSString *)aUserName password:(NSString *)aPassword completionHandler:(void (^)(SugarSyncLoginStatus aStatus, NSError *error))handler
 {
