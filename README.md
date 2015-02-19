@@ -7,15 +7,29 @@ see https://www.sugarsync.com/developer
 
 For a description of the SugarSync REST API.
 
-Installation into a cocoa project (iOS)
+This is a fork from the original library (https://github.com/huadee/sugarsync-ios) with a few additions:
+
+* CocoaPods support
+* Better XML writer (escapes characters)
+* Few API additions (logout, sharedInstance can be used even before initialization)
+
+TODO
+====
+
+* Implement XML body for calls needing attributes inside nodes (copyFile and updateFile). These calls are not functional for now.
+
+Installation into a Cocoa project (iOS)
 =======================================
 
-In XCode
+CocoaPods (highly recommended)
+-----------------------
 
-Add the framework to your project build<br/> 
-Add a copy files build phase to copy the framework to the Frameworks directory
-(Even though iOS doesnt expect bundles in the Frameworks directory this is
-where internal resources to SugarSyncSDK will be loaded from)
+Use the ``SugarSyncSDK`` pod from [CocoaPods](http://cocoapods.org).
+
+Manual installation
+-------------------
+
+You can also import the files manually. If you do, please make sure that you're also importing files from [KissXML](https://github.com/robbiehanson/KissXML) and [KeychainItemWrapper](https://gist.github.com/Zyphrax/3376201). If you intend to use the login UI, add the resource files to a bundle named `SugarSyncSDK.bundle`.
 
 Using the library
 ========================================
