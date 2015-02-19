@@ -72,8 +72,7 @@ typedef NS_ENUM(NSInteger, SugarSyncLoginStatus) {
 /*
  * Displays a modal dialog window in an OS X Cocoa application to prompt for user name and password
  */
-// TODO: Support UI
-//-(void) displayLoginDialogWithCompletionHandler:(void (^)(SugarSyncLoginStatus aStatus, NSError *error))handler;
+-(void) displayLoginDialogFromViewController:(UIViewController *)viewController withCompletionHandler:(void (^)(SugarSyncLoginStatus aStatus, NSError *error))handler;
 
 /*
  * The login dialog will automatically call this method but it is provided for convenience if needed
