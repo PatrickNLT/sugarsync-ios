@@ -128,8 +128,9 @@ static NSString *XMLKeyNodeContent = @"nodeContent";
     accessKey = anAccessKey;
     privateAccessKey = aPrivateAccessKey;
     applicationUserAgent = aUserAgent;
-    refreshingToken = YES;
-    
+    refreshingToken = NO;
+    [self getPersistentRefreshToken];
+
     return self;
 }
 
