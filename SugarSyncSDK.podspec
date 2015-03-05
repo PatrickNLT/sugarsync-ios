@@ -9,7 +9,7 @@
 
 Pod::Spec.new do |s|
   s.name             = "SugarSyncSDK"
-  s.version          = "2.0.0"
+  s.version          = "2.0.1"
   s.summary          = "Objective C framework for the Sugar Sync API on iOS."
   s.homepage         = "https://github.com/PatrickNLT/sugarsync-ios"
   s.license          = 'MIT'
