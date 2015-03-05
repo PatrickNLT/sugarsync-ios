@@ -177,6 +177,7 @@ static NSString *XMLKeyNodeContent = @"nodeContent";
 
 -(void) loginWithUserName:(NSString *)aUserName password:(NSString *)aPassword completionHandler:(void (^)(SugarSyncLoginStatus aStatus, NSError *error))handler
 {
+    refreshingToken = YES;
     NSString *resourceXML = [self XMLStringWithRootElementTitle:@"appAuthorization"
                                                      parameters:
                              @{@"username": aUserName,
