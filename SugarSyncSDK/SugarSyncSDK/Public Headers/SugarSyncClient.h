@@ -31,6 +31,16 @@ typedef NS_ENUM(NSInteger, SugarSyncLoginStatus) {
     SugarSyncLoginSuccess
 } ;
 
+typedef enum {
+    SugarSyncStatusMaxOKRange = 299,
+    SugarSyncErrorBadRequest = 400,
+    SugarSyncErrorAuthorizationRequired = 401,
+    SugarSyncErrorForbidden = 403,
+    SugarSyncErrorNotFound = 404,
+    SugarSyncErrorNotAcceptable = 406,
+    SugarSyncErrorServerError = 500,
+    SugarSyncErrorNoDataReturned = 699
+} SugarSyncErrorCodes;
 
 /*
  *  Objective C OS X Client for the SugarSync REST API

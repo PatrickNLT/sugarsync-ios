@@ -34,17 +34,6 @@ static NSDateFormatter *AccessTokenExpiryFormatter;
 //Error Constants
 static NSString *SugarSyncClientErrorDomain = @"SugarSyncClientDomain";
 
-typedef enum {
-    SugarSyncStatusMaxOKRange = 299,
-    SugarSyncErrorBadRequest = 400,
-    SugarSyncErrorAuthorizationRequired = 401,
-    SugarSyncErrorForbidden = 403,
-    SugarSyncErrorNotFound = 404,
-    SugarSyncErrorNotAcceptable = 406,
-    SugarSyncErrorServerError = 500,
-    SugarSyncErrorNoDataReturned = 699
-} SugarSyncErrorCodes;
-
 //HTTP Header Constants
 static NSString *HeaderKeyLocation = @"Location";
 static NSString *HeaderKeyUserAgent = @"User-Agent";
