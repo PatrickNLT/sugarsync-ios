@@ -11,6 +11,7 @@
 //  appreciated but not required.
 
 
+#import <libxml/xmlwriter.h>
 #import "SugarSyncClient.h"
 #import "SugarSyncLoginViewController.h"
 #import "SSHttpFetcher.h"
@@ -19,7 +20,6 @@
 #import "SSErrorUtil.h"
 #import "SSC9Log.h"
 #import "KeychainItemWrapper.h"
-#import "DDXML.h"
 
 //shared instance
 static SugarSyncClient *_sugarSyncClientSingleton;
@@ -1223,13 +1223,20 @@ static NSString *XMLKeyNodeContent = @"nodeContent";
 }
 
 - (NSString *)XMLStringWithRootElementTitle:(NSString *)rootElementTitle parameters:(NSDictionary *)parameters error:(NSError *__autoreleasing *)error {
-    DDXMLElement *rootElement = [[DDXMLElement alloc] initWithName:rootElementTitle];
+    xmlTextWriterPtr writer;
+    xmlBufferPtr buffer = xmlBufferCreate();
+    writer = xmlNewTextWriterMemory(buffer, 0);
+    xmlTextWriterStartDocument(writer, NULL, "UTF-8", NULL);
+    xmlTextWriterStartElement(writer, rootElementTitle.UTF8String);
     for (NSString * parameterKey in parameters.allKeys) {
-    DDXMLElement *element = [[DDXMLElement alloc] initWithName:parameterKey stringValue:parameters[parameterKey]];
-    [rootElement addChild:element];
+        xmlTextWriterWriteElement(writer, parameterKey.UTF8String, [parameters[parameterKey] UTF8String]);
     }
-    NSString *body = [@"<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?>" stringByAppendingString:rootElement.XMLString];
-    return body;
+    xmlTextWriterEndElement(writer);
+    xmlTextWriterEndDocument(writer);
+    xmlFreeTextWriter(writer);
+    NSString *result = [NSString stringWithUTF8String:(char *)buffer->content];
+    xmlBufferFree(buffer);
+    return result;
 }
 
 @end
